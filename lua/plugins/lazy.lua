@@ -7,6 +7,7 @@ require("lazy").setup(
 			enabled = true,
 			notify = true,
 		},
-		concurrency = 2
+		concurrency = 2,
+		lazy = false,
 	}
 )

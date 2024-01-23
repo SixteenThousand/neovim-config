@@ -30,7 +30,7 @@ return {
 			}
 		},
 	},
-	--[[
+	
 	
 	-- find things! maybe explore some files!!
 	{
@@ -71,7 +71,7 @@ return {
 		},
 	},
 	
-	-- LSPs & treesitter; filetype-specific
+	-- LSPs, treesitter, & filetype-specific stuff
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -97,7 +97,7 @@ return {
 	"neovim/nvim-lspconfig",
 	
 	
-	-- misc.
+	-- git
 	{
 		"tpope/vim-fugitive",
 		lazy = false,
@@ -126,21 +126,22 @@ return {
 			end)
 		end,
 	},
+	
+	
 	{
 		"ggandor/leap.nvim",
 		config = function(plugin,opts)
 			require("leap").create_default_mappings()
 		end,
 	},
-	]]
-	-- {
-	-- 	"numToStr/Comment.nvim",
-	-- 	lazy = false,
-	-- 	config = function(plugins,opts)
-	-- 		require("Comment").setup()
-	-- 		local commapi = require("Comment.api")
-	-- 		-- for some reason, "<C-_>" translates to "Ctrl+/"
-	-- 		vim.keymap.set({"n","i","v"},"<C-_>",commapi.toggle.linewise.current)
-	-- 	end,
-	-- },
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+		config = function(plugins,opts)
+			require("Comment").setup()
+			local commapi = require("Comment.api")
+			-- for some reason, "<C-_>" translates to "Ctrl+/"
+			vim.keymap.set({"n","i","v"},"<C-_>",commapi.toggle.linewise.current)
+		end,
+	},
 }

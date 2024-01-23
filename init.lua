@@ -1,8 +1,10 @@
+-- loose config files
 require("remap") -- this has to come before lazy is called
-require("plugins")
-require("navigation")
 require("settings")
-require("pwsh")
+
+require("plugins")
+require("nav")
+require("terminal")
 require("pretty")
 
 
