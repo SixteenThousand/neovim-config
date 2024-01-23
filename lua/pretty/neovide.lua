@@ -17,6 +17,23 @@ if commOn then
 end
 
 
-vim.o.guifont = "Agave Nerd Font Mono:h12"
-
+-- vim.o.guifont = "Agave Nerd Font Mono:h12" -- no ligatures
+-- vim.o.guifont = "CaskaydiaCove Nerd Font:h11" -- ligatures
+vim.o.guifont = "FantasqueSansM Nerd Font:h12" --ligatures
+vim.api.nvim_create_user_command(
+	"Fancy",
+	function()
+		vim.o.guifont = "FantasqueSansM Nerd Font:h12"
+	end,
+	{}
+)
+vim.api.nvim_create_user_command(
+	"NoFancy",
+	function()
+		vim.o.guifont = "Agave Nerd Font Mono:h12"
+	end,
+	{}
+)
+vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_transparency = 0.8
+vim.g.neovide_hide_mouse_when_typing = true
