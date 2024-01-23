@@ -1,7 +1,3 @@
-local fernOn,_ = pcall(require,"fern")
-if fernOn then
-	require("nav.manager")
-end
-
 require("nav.fuzzy")
 require("nav.remaps")
+-- nav.manager is sourced from the relevant file manager`s config

@@ -54,7 +54,9 @@ return {
 	{
 		"lambdalisue/fern.vim",
 		config = function(plugin)
+			-- vimscript plugins don't need to be explicity sourced!
 			vim.g["fern#renderer"] = "nerdfont"
+			require("nav.manager")
 		end,
 	},
 	{
