@@ -9,10 +9,12 @@ vim.keymap.set("n","<C-_>",neovide_warning)
 vim.keymap.set("i","<C-_>",neovide_warning)
 vim.keymap.set("v","<C-_>",neovide_warning)
 
-local commapi = require("Comment.api")
-vim.keymap.set("n","<C-/>",commapi.toggle.linewise.current)
-vim.keymap.set("i","<C-/>",commapi.toggle.linewise.current)
-vim.keymap.set("v","<C-/>",commapi.toggle.linewise.current)
+local status,commapi = pcall(require,"Comment.api")
+if status then
+	vim.keymap.set("n","<C-/>",commapi.toggle.linewise.current)
+	vim.keymap.set("i","<C-/>",commapi.toggle.linewise.current)
+	vim.keymap.set("v","<C-/>",commapi.toggle.linewise.current)
+end
 
 
 vim.o.guifont = "Agave Nerd Font Mono:h12"
