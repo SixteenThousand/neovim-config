@@ -9,8 +9,8 @@ vim.keymap.set("n","<C-_>",neovide_warning)
 vim.keymap.set("i","<C-_>",neovide_warning)
 vim.keymap.set("v","<C-_>",neovide_warning)
 
-local status,commapi = pcall(require,"Comment.api")
-if status then
+local commOn,commapi = pcall(require,"Comment.api")
+if commOn then
 	vim.keymap.set("n","<C-/>",commapi.toggle.linewise.current)
 	vim.keymap.set("i","<C-/>",commapi.toggle.linewise.current)
 	vim.keymap.set("v","<C-/>",commapi.toggle.linewise.current)
