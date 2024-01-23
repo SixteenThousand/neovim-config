@@ -7,6 +7,6 @@ At the moment it is in a very unstable state, as I am migrating my
 ![old config](https://github.com/SixteenThousand/neovim-config-2023)
 to the current version of neovim, the current version of 
 ![neovide](https://github.com/neovide/neovide), and to using 
-![pckr.nvim](https://github.com/lewis6991/pckr.nvim), the neovim package manager
+![lazy.nvim](https://github.com/folke/lazy.nvim), the neovim package manager
 that hopefully won't get deprecated like 
 ![packer](https://github.com/wbthomason/packer.nvim) did.
