@@ -17,7 +17,10 @@ vim.keymap.set("i","<CR>","<leader><BS><CR>")
 -- ++++++++++++ reload current file ++++++++++++
 vim.keymap.set("n","<A-r>",function ()
 	vim.cmd.edit()
-	require("lualine").refresh()
+	local lualineOn,lualine = pcall(require,"lualine")
+	if lualineOn then
+		lualine.refresh()
+	end
 	print("Page reloaded!")
 end)
 
