@@ -68,6 +68,11 @@ vim.keymap.set("t","<C-[>","<C-\\><C-N>")
 vim.keymap.set("t","<Esc>","<C-\\><C-N>")
 vim.keymap.set("t","<C-PageUp>","<C-\\><C-N><C-PageUp>")
 vim.keymap.set("t","<C-PageDown>","<C-\\><C-N><C-PageDown>")
+-- save current buffer
+vim.keymap.set({"n","i"},"<C-s>",function()
+	vim.cmd.stopinsert()
+	vim.cmd.write()
+end)
 
 
 -- ++++++++++++ folding & scrollling +++++++++++++
@@ -125,10 +130,3 @@ for i = 1,4 do
 		vim.cmd.wincmd(string.upper(basic_motions[i]))
 	end)
 end
-
-
--- ++++++++++++ save a file ++++++++++++
-vim.keymap.set({"n","i"},"<C-s>",function()
-	vim.cmd.stopinsert()
-	vim.cmd.write()
-end)
