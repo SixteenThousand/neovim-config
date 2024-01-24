@@ -109,15 +109,14 @@ vim.keymap.set({"n","i","t"},"<A-w>",function ()
 	vim.cmd.quit()
 end)
 vim.keymap.set({"n","i","t"},"<A-S-w>",function ()
-	local layout1 = vim.fn.winlayout()[1]
-	if layout1 == "row" then 
-		vim.cmd.wincmd("l")
-	elseif layout1 == "col" then
+	local id = vim.fn.win_getid()
+	vim.cmd.wincmd("l")
+	if vim.fn.win_getid() == id then
 		vim.cmd.wincmd("j")
 	end
 	vim.cmd { cmd="bdelete", bang=true }
 end)
-vim.keymap.set("n","<A-S-d>",":bdelete term*<C-a><CR>")
+-- vim.keymap.set("n","<A-S-d>",":bdelete term*<C-a><CR>")
 -- navigating windows
 basic_motions = {"h","j","k","l"}
 for i = 1,4 do
@@ -130,3 +129,8 @@ for i = 1,4 do
 		vim.cmd.wincmd(string.upper(basic_motions[i]))
 	end)
 end
+
+
+-- ++++++++++++ moving code around? visual mode?? ++++++++++++
+vim.keymap.set("v","J",":m '>+1<CR>gv=gv")
+vim.keymap.set("v","K",":m '<-2<CR>gv=gv")
