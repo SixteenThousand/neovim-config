@@ -54,10 +54,10 @@ vim.api.nvim_create_user_command(
 
 
 -- telescope front-end
-local utilsOn,utils = pcall(require,"utils")
+local utilsOn,popup = pcall(require,"popup")
 if utilsOn then
 	vim.keymap.set("n","<A-a>",function()
-		utils.telescope_dropdown(
+		popup.telescope_dropdown(
 		"Amber: Load Session",
 		actions.get_amber_files(),
 		actions.amber_load
@@ -65,7 +65,7 @@ if utilsOn then
 	end)
 
 	vim.keymap.set("n","<A-q>",function()
-		utils.telescope_dropdown(
+		popup.telescope_dropdown(
 		"Amber: Quit",
 		actions.get_amber_files(),
 		actions.amber_quit
@@ -73,7 +73,7 @@ if utilsOn then
 	end)
 
 	vim.keymap.set("n","<A-S-a>",function()
-		utils.telescope_dropdown(
+		popup.telescope_dropdown(
 		"Amber: Save Session",
 		actions.get_amber_files(),
 		actions.amber_save
