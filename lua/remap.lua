@@ -59,6 +59,11 @@ vim.keymap.set("i","<A-m>",function ()
 	vim.cmd.normal("i++++++++++++  ++++++++++++")
 	vim.cmd.normal("12h")
 end)
+-- debug
+vim.keymap.set({"n","i"},"<A-/>",function()
+	vim.cmd.stopinsert()
+	vim.cmd.normal("gcAdebug")
+end)
 
 
 -- ++++++++++++ searching/highlighting ++++++++++++
