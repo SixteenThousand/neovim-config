@@ -1,5 +1,4 @@
 -- this is my own session manager
--- local utils = require("amber.utils")
 local actions = require("amber.actions")
 
 vim.api.nvim_create_user_command(
@@ -52,4 +51,33 @@ vim.api.nvim_create_user_command(
 	end,
 	{nargs=1}
 )
+
+
+-- telescope front-end
+local utilsOn,utils = pcall(require,"utils")
+if utilsOn then
+	vim.keymap.set("n","<A-a>",function()
+		utils.telescope_dropdown(
+		"Amber: Load Session",
+		actions.get_amber_files(),
+		actions.amber_load
+		)
+	end)
+
+	vim.keymap.set("n","<A-q>",function()
+		utils.telescope_dropdown(
+		"Amber: Quit",
+		actions.get_amber_files(),
+		actions.amber_quit
+		)
+	end)
+
+	vim.keymap.set("n","<A-S-a>",function()
+		utils.telescope_dropdown(
+		"Amber: Save Session",
+		actions.get_amber_files(),
+		actions.amber_save
+		)
+	end)
+end
 
