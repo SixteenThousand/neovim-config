@@ -6,6 +6,7 @@ require("plugins")
 require("nav")
 require("terminal")
 require("pretty")
+require("amber")
 
 
 print("And It Goes On...")

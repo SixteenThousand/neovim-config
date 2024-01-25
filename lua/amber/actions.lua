@@ -31,7 +31,7 @@ function M.amber_quit(name)
 	end
 end
 
-function M.amber_save(_,name)
+function M.amber_save(name)
 	if name == const.NO_SESS_OPT then
 		print(
 			"Welp, don't blame me if lose your place in all those documents!"
