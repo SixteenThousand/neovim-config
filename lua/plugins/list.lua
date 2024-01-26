@@ -30,6 +30,7 @@ return {
 			}
 		},
 	},
+	"equalsraf/neovim-gui-shim",
 	
 	
 	-- find things! maybe explore some files!!
