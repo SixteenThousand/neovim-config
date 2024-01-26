@@ -8,6 +8,7 @@ local finders = require "telescope.finders"
 local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
+local dropdown_config = require("telescope.themes").get_dropdown{}
 
 -- creates a drop-down list of options that the user can fuzzy-select from, 
 -- using the telescope.nvim API
