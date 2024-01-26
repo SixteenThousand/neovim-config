@@ -12,4 +12,5 @@ if scopeOn then
 	end)
 	vim.keymap.set("n","<leader>fb",tlscp.buffers)
 	vim.keymap.set("n","<leader>fh",tlscp.help_tags)
+	vim.keymap.set("n","<leader>fj",tlscp.jumplist)
 end
