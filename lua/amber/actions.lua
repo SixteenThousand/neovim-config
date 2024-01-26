@@ -2,7 +2,7 @@ local M = {}
 
 local SESS_LOC = vim.fn.stdpath("data").."\\sessions"
 local SESS_PAT = "(.+)%.amber%.vim"
-local SESS_FMT = M.SESS_LOC.."\\%s.amber.vim"
+local SESS_FMT = SESS_LOC.."\\%s.amber.vim"
 local NO_SESS_OPT = "continue sans session"
 
 
@@ -42,7 +42,7 @@ function M.amber_save(name)
 		)
 	else
 		vim.cmd("mksession! "..M.get_filepath(name))
-		print("Preserved in amber!")
+		print("Session <"..name.."> has been preserved in amber!")
 	end
 end
 
@@ -59,10 +59,12 @@ function M.amber_wipe(name)
 	local fp = io.open(M.get_filepath(name), "w")
 	fp:write(":echo 'This session has been wiped'")
 	fp:close()
+	print("Session <"..name.."> has been wiped!")
 end
 
 function M.amber_delete(name)
 	os.remove(M.get_filepath(name))
+	print("Session <"..name.."> has been deleted entirely!")
 end
 
 return M
