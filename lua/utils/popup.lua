@@ -7,8 +7,9 @@ local finders = require "telescope.finders"
 local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
+local dropdown_config = require("telescope.themes").get_dropdown{}
 
-local popup = require "plenary.popup"
+-- local popup = require "plenary.popup"
 
 
 -- creates a drop-down list of options that the user can fuzzy-select from, 
@@ -19,13 +20,13 @@ local popup = require "plenary.popup"
 -- an option. It should take 1 argument, the option selected.
 function M.telescope_dropdown(title,options,callback)
 	pickers.new(
-		require("telescope.themes").get_dropdown{},
+		dropdown_config,
 		{
 			prompt_title = title,
 			finder = finders.new_table({
 				results = options
 			}),
-			sorter = conf.generic_sorter(usr_config),
+			sorter = conf.generic_sorter(dropdown_config),
 			attach_mappings = function(prompt_bufnr,map)
 				actions.select_default:replace(function()
 					actions.close(prompt_bufnr)
@@ -37,21 +38,20 @@ function M.telescope_dropdown(title,options,callback)
 	):find()
 end
 
-function M.popup_menu(title,options,callback)
-	for filename,_ in sessions_dir do
-		_,_,sessions[#sessions+1] = filename:find(pattern)
-	end
-	popup.create(sessions,{
-		title = title,
-		border = true,
-		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-		minwidth = #title + 20,
-		callback = action,
-	})
-	vim.cmd.set("number")
-	vim.cmd.set("relativenumber")
-end
-
+-- function M.popup_menu(title,options,callback)
+-- 	for filename,_ in sessions_dir do
+-- 		_,_,sessions[#sessions+1] = filename:find(pattern)
+-- 	end
+-- 	popup.create(sessions,{
+-- 		title = title,
+-- 		border = true,
+-- 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+-- 		minwidth = #title + 20,
+-- 		callback = action,
+-- 	})
+-- 	vim.cmd.set("number")
+-- 	vim.cmd.set("relativenumber")
+-- end
 
 
 return M
