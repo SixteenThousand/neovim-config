@@ -2,15 +2,12 @@
 -- use the "pluginOn,plugin = pcall(require,plugin)" pattern
 local M = {}
 
+-- ++++++++++++ TELESCOPE PICKER FUNCTION ++++++++++++
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
-local dropdown_config = require("telescope.themes").get_dropdown{}
-
--- local popup = require "plenary.popup"
-
 
 -- creates a drop-down list of options that the user can fuzzy-select from, 
 -- using the telescope.nvim API
@@ -38,20 +35,22 @@ function M.telescope_dropdown(title,options,callback)
 	):find()
 end
 
--- function M.popup_menu(title,options,callback)
--- 	for filename,_ in sessions_dir do
--- 		_,_,sessions[#sessions+1] = filename:find(pattern)
--- 	end
--- 	popup.create(sessions,{
--- 		title = title,
--- 		border = true,
--- 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
--- 		minwidth = #title + 20,
--- 		callback = action,
--- 	})
--- 	vim.cmd.set("number")
--- 	vim.cmd.set("relativenumber")
--- end
+
+-- ++++++++++++ PLENARY POPUP FUNCTION ++++++++++++
+local popup = require "plenary.popup"
+function M.popup_menu(title,options,callback)
+	popup.create(options,{
+		title = title,
+		border = true,
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		minwidth = #title + 20,
+		callback = function(_,selected)
+			callback(selected)
+		end,
+	})
+	vim.cmd.set("nonumber")
+	vim.cmd.set("norelativenumber")
+end
 
 
 return M

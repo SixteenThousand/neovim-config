@@ -1,21 +1,25 @@
 local M = {}
-local const = require("amber.constants")
+
+local SESS_LOC = vim.fn.stdpath("data").."\\sessions"
+local SESS_PAT = "(.+)%.amber%.vim"
+local SESS_FMT = M.SESS_LOC.."\\%s.amber.vim"
+local NO_SESS_OPT = "continue sans session"
 
 
 function M.get_filepath(name)
-	return string.format(const.SESS_FMT,name)
+	return string.format(SESS_FMT,name)
 end
 
 function M.get_amber_files()
-	local results = {const.NO_SESS_OPT}
-	for filename,_ in vim.fs.dir(const.SESS_LOC) do
-		_,_,results[#results+1] = filename:find(const.SESS_PAT)
+	local results = {NO_SESS_OPT}
+	for filename,_ in vim.fs.dir(SESS_LOC) do
+		_,_,results[#results+1] = filename:find(SESS_PAT)
 	end
 	return results
 end
 
 function M.amber_load(name)
-	if name == const.NO_SESS_OPT then
+	if name == NO_SESS_OPT then
 		print("No session needed buddy!")
 	else
 		vim.cmd.source(M.get_filepath(name))
@@ -23,7 +27,7 @@ function M.amber_load(name)
 end
 
 function M.amber_quit(name)
-	if name == const.NO_SESS_OPT then
+	if name == NO_SESS_OPT then
 		vim.cmd.quitall()
 	else
 		vim.cmd("mksession! "..M.get_filepath(name))
@@ -32,7 +36,7 @@ function M.amber_quit(name)
 end
 
 function M.amber_save(name)
-	if name == const.NO_SESS_OPT then
+	if name == NO_SESS_OPT then
 		print(
 			"Welp, don't blame me if lose your place in all those documents!"
 		)
@@ -44,8 +48,8 @@ end
 
 function M.amber_list()
 	local results = ""
-	for filename,_ in vim.fs.dir(const.SESS_LOC) do
-		local _,_,session = filename:find(const.SESS_PAT)
+	for filename,_ in vim.fs.dir(SESS_LOC) do
+		local _,_,session = filename:find(SESS_PAT)
 		results = results..session.."\n"
 	end
 	print(results)
