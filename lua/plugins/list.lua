@@ -145,6 +145,7 @@ return {
 			local commapi = require("Comment.api")
 			-- for some reason, "<C-_>" translates to "Ctrl+/"
 			vim.keymap.set({"n","i","v"},"<C-_>",commapi.toggle.linewise.current)
+			vim.keymap.set({"n","i","v"},"<C-/>",commapi.toggle.linewise.current)
 		end,
 	},
 }
