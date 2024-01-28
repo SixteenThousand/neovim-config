@@ -32,8 +32,8 @@ vim.keymap.set({"n","v"},"<leader>p","\"+p")
 
 
 -- ++++++++++++ suggestions & completion ++++++++++++
-vim.keymap.set("i","<C-c>","<C-n>")
-vim.keymap.set("i","<C-d>","<C-y>")
+vim.keymap.set("i","<C-S-f>","<C-n>")
+vim.keymap.set("i","<C-f>","<C-y>")
 
 
 -- ++++++++++++ sometimes I just can't be bothered to write stuff, y'know? ++++++++++++
@@ -84,6 +84,10 @@ vim.keymap.set({"n","i"},"<C-s>",function()
 	vim.cmd.stopinsert()
 	vim.cmd.write()
 end)
+
+-- going up & down in insert mode
+vim.keymap.set("i","<PageUp>","<Up>")
+vim.keymap.set("i","<PageDown>","<Down>")
 
 
 -- ++++++++++++ folding & scrollling +++++++++++++
