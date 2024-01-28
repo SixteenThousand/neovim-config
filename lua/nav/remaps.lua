@@ -16,6 +16,11 @@ vim.keymap.set("n","<leader>e'",function ()
     vim.cmd.edit(vim.fn.stdpath("config"))
 	vim.cmd.set("number")
 end)
+vim.keymap.set("n","<leader>e;",function ()
+    vim.cmd.edit(vim.fn.stdpath("data"))
+	vim.cmd.set("number")
+end)
+
 
 vim.keymap.set("n","-",function ()
 	vim.cmd.edit("%:h")
