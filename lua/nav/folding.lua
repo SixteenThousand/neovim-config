@@ -1,4 +1,5 @@
 -- ++++++++++++ folding settings ++++++++++++
+-- note default foldlevel is set in settings.lua
 
 function MyFoldText()
 	return "+--- "..(vim.v.foldend-vim.v.foldstart+1).." lines: "..vim.fn.getline(vim.v.foldstart).." ..."
@@ -25,7 +26,6 @@ function MyPyFoldLevel(line_num)
 end
 
 
-vim.o.foldlevel = 20
 vim.o.foldcolumn = 2
 vim.cmd.autocmd("FileType * set foldmethod=expr")
 	-- note foldmethod can be abbreviated to fdm,

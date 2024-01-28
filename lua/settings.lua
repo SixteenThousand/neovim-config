@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("BufEnter",{
 		vim.o.expandtab = false
 		vim.cmd.set("formatoptions-=r formatoptions-=c formatoptions-=o")
 		vim.o.textwidth = 80
+		vim.o.foldlevel = 100
 	end
 })
 
