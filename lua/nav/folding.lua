@@ -39,4 +39,4 @@ vim.cmd("highlight Folded guibg=background")
 
 -- ++++++++++++ REMAPS ++++++++++++
 vim.keymap.set("n","zf",function() vim.cmd.set("foldlevel="..vim.v.count) end)
-vim.keymap.set("n","zh",function () vim.cmd("highlight Folded guibg=bg") end)
+vim.keymap.set("n","<leader>hf",function () vim.cmd("highlight Folded guibg=bg") end)

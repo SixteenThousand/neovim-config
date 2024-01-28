@@ -33,3 +33,7 @@ vim.cmd.set("autowriteall")
 
 -- allow h & l to take you to a new line
 vim.cmd.set("whichwrap=b,s,h,l")
+
+
+-- let`s try horzontal scrolling
+vim.o.wrap = false
