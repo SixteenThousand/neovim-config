@@ -49,8 +49,8 @@ function M.popup_menu(title,options,callback)
 			callback(selected)
 		end,
 	})
-	vim.cmd.set("nonumber")
-	vim.cmd.set("norelativenumber")
+	vim.o.number = false
+	vim.o.relativenumber = false
 end
 
 

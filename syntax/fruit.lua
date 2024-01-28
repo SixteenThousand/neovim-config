@@ -17,7 +17,7 @@ vim.cmd.highlight("link fruitSection function")
 vim.cmd.syntax("match fruitComment /#.*/")
 vim.cmd.highlight("link fruitComment comment")
 
-vim.cmd.set('cms=#%s')
+vim.o.cms = "#%s"
 
 vim.cmd.syntax("match fruitBold /\\*\\*[^*]*\\*\\*/")
 vim.cmd.highlight("link fruitBold exception")
@@ -44,4 +44,4 @@ vim.cmd.syntax("match fruitURL /https:\\/\\/.*\\/ /")
 vim.cmd.highlight("link fruitURL Special")
 
 
-vim.cmd.set("textwidth=70")
+vim.o.textwidth = 70

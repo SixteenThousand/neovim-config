@@ -4,21 +4,21 @@ vim.keymap.set("n","<leader>ee",":buffer ")
 
 vim.keymap.set("n","<leader>eh",function ()
 	vim.cmd.edit("~/Projects/Learning")
-	vim.cmd.set("number")
+	vim.o.number = true
 end)
 
 vim.keymap.set("n","<leader>ea",function ()
 	vim.cmd.edit("~/Projects")
-	vim.cmd.set("number")
+	vim.o.number = true
 end)
 
 vim.keymap.set("n","<leader>e'",function ()
     vim.cmd.edit(vim.fn.stdpath("config"))
-	vim.cmd.set("number")
+	vim.o.number = true
 end)
 vim.keymap.set("n","<leader>e;",function ()
     vim.cmd.edit(vim.fn.stdpath("data"))
-	vim.cmd.set("number")
+	vim.o.number = true
 end)
 
 

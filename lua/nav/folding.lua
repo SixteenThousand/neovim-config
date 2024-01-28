@@ -25,8 +25,8 @@ function MyPyFoldLevel(line_num)
 end
 
 
-vim.cmd.set("foldlevel=20")
-vim.cmd.set("foldcolumn=2")
+vim.o.foldlevel = 20
+vim.o.foldcolumn = 2
 vim.cmd.autocmd("FileType * set foldmethod=expr")
 	-- note foldmethod can be abbreviated to fdm,
 	-- and can be set to syntax or indent
@@ -38,5 +38,5 @@ vim.cmd.autocmd("FileType hs set foldexpr=v:lua.MyPyFoldLevel(v:lnum)")
 vim.cmd("highlight Folded guibg=background")
 
 -- ++++++++++++ REMAPS ++++++++++++
-vim.keymap.set("n","zf",function() vim.cmd.set("foldlevel="..vim.v.count) end)
+vim.keymap.set("n","zf",function() vim.o.foldlevel = vim.v.count end)
 vim.keymap.set("n","<leader>hf",function () vim.cmd("highlight Folded guibg=bg") end)

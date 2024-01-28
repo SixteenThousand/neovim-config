@@ -91,8 +91,6 @@ vim.keymap.set("i","<PageDown>","<Down>")
 
 
 -- ++++++++++++ folding & scrollling +++++++++++++
-vim.keymap.set("n","zf",function() vim.cmd.set("foldlevel="..vim.v.count) end)
-vim.keymap.set("n","zh",function () vim.cmd("highlight Folded guibg=bg") end)
 vim.keymap.set("n","J","<C-e>")
 vim.keymap.set("n","K","<C-y>")
 vim.cmd("map <A-j> <C-e>")
