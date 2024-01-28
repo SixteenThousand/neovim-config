@@ -68,8 +68,10 @@ end)
 
 
 -- ++++++++++++ searching/highlighting ++++++++++++
-vim.keymap.set("n","<leader>\\",vim.cmd.nohlsearch)
-	-- gets rid of any pesky search highlighting
+-- toggles whether searches are highlighted or not
+vim.keymap.set("n","<leader>\\",function()
+	vim.o.hlsearch = not vim.o.hlsearch
+end)
 
 
 -- ++++++++++++ changing modes +++++++++++++
