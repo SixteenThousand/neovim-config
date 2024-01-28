@@ -38,16 +38,17 @@ vim.keymap.set("i","<C-d>","<C-y>")
 
 -- ++++++++++++ sometimes I just can't be bothered to write stuff, y'know? ++++++++++++
 local print_statements = {
-	["java"] = "System.out.println(",
-	["cs"] = "Console.WriteLine(",
-	["rs"] = "println!(",
-	["hs"] = "putStrLn ",
-	["js"] = "console.log(",
-	["html"] = "console.log(",
-	["py"] = "print(",
-	["lua"] = "print(",
 	["c"] = "printf(\"%d\\n\", ",
-	["ps1"] = "echo "
+	["cs"] = "Console.WriteLine(",
+	["go"] = "fmt.Println(",
+	["hs"] = "putStrLn ",
+	["html"] = "console.log(",
+	["java"] = "System.out.println(",
+	["js"] = "console.log(",
+	["lua"] = "print(",
+	["ps1"] = "echo ",
+	["py"] = "print(",
+	["rs"] = "println!(",
 }
 vim.keymap.set("i","<C-p>",function ()
 	vim.cmd.normal("i"..print_statements[vim.fn.expand("%:e")])
