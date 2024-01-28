@@ -26,7 +26,7 @@ function MyPyFoldLevel(line_num)
 end
 
 
-vim.o.foldcolumn = 2
+vim.o.foldcolumn = "2"
 vim.cmd.autocmd("FileType * set foldmethod=expr")
 	-- note foldmethod can be abbreviated to fdm,
 	-- and can be set to syntax or indent
