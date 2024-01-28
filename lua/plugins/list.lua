@@ -1,5 +1,5 @@
 return {
-	-- colourschemes & appearance
+	-- colourschemes & appearancelist
 	"rebelot/kanagawa.nvim",
 	"sainnhe/everforest",
 	"marko-cerovac/material.nvim",
@@ -97,7 +97,19 @@ return {
 		end,
 	},
 	"maxmellon/vim-jsx-pretty",
+	-- lsps
 	"neovim/nvim-lspconfig",
+	{
+		"williamboman/mason.nvim",
+		config = function(plugin,opts)
+			require("mason").setup()
+		end,
+	},
+	-- completion
+	"dcampos/cmp-snippy",
+	"dcampos/nvim-snippy",
+	"hrsh7th/nvim-cmp",
+
 	
 	
 	-- git
