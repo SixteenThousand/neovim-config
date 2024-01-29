@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("BufEnter",{
 		vim.o.expandtab = false
 		vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
 			-- stops vim from auto-inserting a bunch of use comments
-		vim.o.textwidth = 80
+		vim.o.textwidth = 79
 		vim.o.foldlevel = 100
 	end
 })
@@ -36,6 +36,11 @@ vim.o.autowriteall = true
 -- allow h & l to take you to a new line
 vim.o.whichwrap="b,s,h,l"
 
-
 -- let`s try horzontal scrolling
 vim.o.wrap = false
+
+-- forget case!
+vim.o.ignorecase = true
+
+-- change what "b" & "w" consider "words"
+-- vim.cmd.set("iskeyword-=_")
