@@ -80,7 +80,7 @@ vim.keymap.set("t","<Esc>","<C-\\><C-N>")
 vim.keymap.set("t","<C-PageUp>","<C-\\><C-N><C-PageUp>")
 vim.keymap.set("t","<C-PageDown>","<C-\\><C-N><C-PageDown>")
 -- save current buffer
-vim.keymap.set({"n","i"},"<C-s>",function()
+vim.keymap.set({"n","i","v"},"<C-s>",function()
 	vim.cmd.stopinsert()
 	vim.cmd.write()
 end)
