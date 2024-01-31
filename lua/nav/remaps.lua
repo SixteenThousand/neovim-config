@@ -11,6 +11,10 @@ vim.keymap.set("n","<leader>ea",function ()
 	vim.cmd.edit("~/Projects")
 	vim.o.number = true
 end)
+vim.keymap.set("n","<leader>et",function ()
+	vim.cmd.edit("~/temp")
+	vim.o.number = true
+end)
 
 vim.keymap.set("n","<leader>e'",function ()
     vim.cmd.edit(vim.fn.stdpath("config"))
