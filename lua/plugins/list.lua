@@ -21,13 +21,13 @@ return {
 				-- remap.lua
 				-- 
 				section_separators = { left = '', right = '' },
-				component_separators = { left = '', right = '' }
+				component_separators = { left = '', right = '' },
 		    },
 			sections = {
 				lualine_x = {"encoding","fileformat","filesize","filetype"},
 				lualine_y = {"progress"},
 				lualine_z = {"location"}
-			}
+			},
 		},
 	},
 	"equalsraf/neovim-gui-shim",
@@ -78,6 +78,13 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		--[[ config = function(plugin,opts)
+			-- require("treesitter").setup()
+			require("treesitter.configs").setup({
+				highlight = {enable = true},
+				textobjects = {enable = true},
+			})
+		end, ]]
 	},
 	{
 		"alvan/vim-closetag",
