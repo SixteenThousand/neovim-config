@@ -39,8 +39,9 @@ vim.o.whichwrap="b,s,h,l"
 -- let`s try horzontal scrolling
 vim.o.wrap = false
 
--- forget case!
+-- search stuff
 vim.o.ignorecase = true
+vim.o.hlsearch = false
 
 -- change what "b" & "w" consider "words"
 -- vim.cmd.set("iskeyword-=_")
