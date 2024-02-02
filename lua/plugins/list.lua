@@ -167,4 +167,7 @@ return {
 			vim.keymap.set({"n","i","v"},"<C-/>",commapi.toggle.linewise.current)
 		end,
 	},
+	
+	-- fun
+	"ThePrimeagen/vim-be-good"
 }

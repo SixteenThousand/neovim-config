@@ -26,6 +26,7 @@
   "summerfruit256.vim": { "branch": "master", "commit": "93e0a172ae635cede71620ee93b0c0dc808bf324" },
   "telescope.nvim": { "branch": "master", "commit": "36dce6261ae3660bb57ba942361067b2028aec31" },
   "tokyonight.nvim": { "branch": "main", "commit": "67c6050e1ca41260c919236a098ba278472c7520" },
+  "vim-be-good": { "branch": "master", "commit": "4fa57b7957715c91326fcead58c1fa898b9b3625" },
   "vim-closetag": { "branch": "master", "commit": "d0a562f8bdb107a50595aefe53b1a690460c3822" },
   "vim-fugitive": { "branch": "master", "commit": "854a8df0d06b8d3fcb30fa7f2b08c62b553eee3b" },
   "vim-jsx-pretty": { "branch": "master", "commit": "6989f1663cc03d7da72b5ef1c03f87e6ddb70b41" },
