@@ -32,8 +32,8 @@ vim.keymap.set({"n","v"},"<leader>p","\"+p")
 
 
 -- ++++++++++++ suggestions & completion ++++++++++++
-vim.keymap.set("i","<C-S-f>","<C-n>")
-vim.keymap.set("i","<C-f>","<C-y>")
+vim.keymap.set("i","<C-f>","<C-n>")
+vim.keymap.set("i","<C-S-f>","<C-y>")
 
 
 -- ++++++++++++ sometimes I just can't be bothered to write stuff, y'know? ++++++++++++
@@ -81,6 +81,10 @@ vim.keymap.set("t","<C-PageUp>","<C-\\><C-N><C-PageUp>")
 vim.keymap.set("t","<C-PageDown>","<C-\\><C-N><C-PageDown>")
 -- save current buffer
 vim.keymap.set({"n","i","v"},"<C-s>",function()
+	vim.cmd.stopinsert()
+	vim.cmd.write()
+end)
+vim.keymap.set({"n","i","v"},"<A-s>",function()
 	vim.cmd.stopinsert()
 	vim.cmd.write()
 end)
