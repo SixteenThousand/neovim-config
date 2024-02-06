@@ -5,17 +5,27 @@ local utils = require("terminal.utils")
 vim.api.nvim_create_user_command(
 	"Yona",
 	function(opts)
-		local yona = "!cd "..vim.fn.expand("%:h").." && yona "..opts.fargs[1]
+		local yona = "cd "..vim.fn.expand("%:h").." && yona "..opts.fargs[1]
 		if opts.bang then
 			utils.terminal_vsplit(yona)
 		else
-			vim.cmd(yona)
+			vim.cmd("!"..yona)
 		end
+	end,
+	{nargs=1,bang=true}
+)
+vim.api.nvim_create_user_command(
+	"Ygrep",
+	function(opts)
+		utils.terminal_vsplit(
+			"cd "..vim.fn.expand("%:h").." && yona grep -t "..opts.fargs[1],
+			true
+		)
 	end,
 	{nargs=1}
 )
-vim.keymap.set({"n","i"},"<A-i>",":Yona build")
-vim.keymap.set({"n","i"},"<A-S-i>",":Yona! build")
+vim.keymap.set({"n","i"},"<A-i>",":Yona build<CR>")
+vim.keymap.set({"n","i"},"<A-S-i>",":Yona! build<CR>")
 
 
 vim.keymap.set({"n","i"},"<A-o>",function()
