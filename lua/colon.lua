@@ -9,6 +9,15 @@ vim.api.nvim_create_user_command(
 	{}
 )
 
+-- get path of current buffer
+vim.api.nvim_create_user_command(
+	"Path",
+	function(opts)
+		vim.fn.setreg(opts.fargs[1],vim.fn.expand("%:p"))
+	end,
+	{nargs="?"}
+)
+
 
 -- spellcheck
 vim.api.nvim_create_user_command(
