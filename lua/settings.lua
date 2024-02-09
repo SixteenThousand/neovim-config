@@ -1,5 +1,5 @@
 -- settings that have to be set for every buffer
-vim.api.nvim_create_autocmd("BufEnter",{
+vim.api.nvim_create_autocmd("BufAdd",{
 	callback = function(evt)
 		-- line numbers
 		vim.o.number = true
@@ -40,7 +40,6 @@ vim.o.whichwrap="b,s,h,l"
 vim.o.wrap = false
 
 -- search stuff
-vim.o.ignorecase = true
 vim.o.hlsearch = false
 
 -- change what "b" & "w" consider "words"
