@@ -15,7 +15,7 @@ vim.api.nvim_create_user_command(
 	{nargs=1,bang=true}
 )
 vim.api.nvim_create_user_command(
-	"Ygrep",
+	"RipgrepYona",
 	function(opts)
 		utils.terminal_vsplit(
 			"cd "..vim.fn.expand("%:h").." && yona grep -t "..opts.fargs[1],
