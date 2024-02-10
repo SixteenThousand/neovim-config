@@ -1,3 +1,7 @@
 >> fix fern trash bug?
 >> refactor amber to fully utilise telescope API
 > use table for options instead of "list"
+>> set expandtab
+> create 4<BS> keymap
+>> create bookmarks plugin
+> use telescope, much like w/ amber
