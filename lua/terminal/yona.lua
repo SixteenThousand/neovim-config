@@ -18,7 +18,7 @@ vim.api.nvim_create_user_command(
 	"RipgrepYona",
 	function(opts)
 		utils.terminal_vsplit(
-			"cd "..vim.fn.expand("%:h").." && yona grep -t "..opts.fargs[1],
+			"cd "..vim.fn.expand("%:h").." && yona grep "..opts.fargs[1],
 			true
 		)
 	end,
@@ -32,24 +32,24 @@ vim.keymap.set({"n","i"},"<A-o>",function()
 	local path = vim.fn.expand("%:h")
 	local name,_ = vim.fn.expand("%:t"):gsub("%..*$","")
 	local ext = vim.fn.expand("%:e")
-	vim.cmd("!yona compile -p "..path.." -n "..name.." -e "..ext)
+	vim.cmd("!yona compile "..path.." -n "..name.." -e "..ext)
 end)
 vim.keymap.set({"n","i"},"<A-S-o>",function()
 	local path = vim.fn.expand("%:h")
 	local name,_ = vim.fn.expand("%:t"):gsub("%..*$","")
 	local ext = vim.fn.expand("%:e")
-	utils.terminal_vsplit("yona compile -p "..path.." -n "..name.." -e "..ext)
+	utils.terminal_vsplit("yona compile "..path.." -n "..name.." -e "..ext)
 end)
 
 vim.keymap.set({"n","i"},"<A-p>",function()
 	local path = vim.fn.expand("%:h")
 	local name,_ = vim.fn.expand("%:t"):gsub("%..*$","")
 	local ext = vim.fn.expand("%:e")
-	vim.cmd("!yona run -p "..path.." -n "..name.." -e "..ext)
+	vim.cmd("!yona run "..path.." -n "..name.." -e "..ext)
 end)
 vim.keymap.set({"n","i"},"<A-S-p>",function()
 	local path = vim.fn.expand("%:h")
 	local name,_ = vim.fn.expand("%:t"):gsub("%..*$","")
 	local ext = vim.fn.expand("%:e")
-	utils.terminal_vsplit("yona run -p "..path.." -n "..name.." -e "..ext)
+	utils.terminal_vsplit("yona run "..path.." -n "..name.." -e "..ext)
 end)

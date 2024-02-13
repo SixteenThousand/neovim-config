@@ -15,7 +15,7 @@ local dropdown_config = require("telescope.themes").get_dropdown{}
 -- title: string; the title that will be shown at the top of the prompt buffer
 -- options: list(string); a list of the options to be displayed to the user
 -- callback: function(string): the function to be called when the user selects 
--- an option. It should take 1 argument, the option selected.
+-- an option. It should take 1 argument: the option selected.
 function M.telescope_dropdown(title,options,callback)
 	pickers.new(
 		dropdown_config,
