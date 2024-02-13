@@ -26,10 +26,7 @@ function MyPyFoldLevel(line_num)
 end
 
 
-vim.o.foldcolumn = "2"
-vim.cmd.autocmd("FileType * set foldmethod=expr")
-	-- note foldmethod can be abbreviated to fdm,
-	-- and can be set to syntax or indent
+vim.o.foldcolumn = "0"
 vim.opt.foldtext = "v:lua.MyFoldText()"
 vim.cmd.set("fillchars+=fold:\\ ")
 vim.cmd.autocmd("FileType * set foldexpr=v:lua.MyFoldLevel(v:lnum)")
@@ -37,6 +34,38 @@ vim.cmd.autocmd("FileType py set foldexpr=v:lua.MyPyFoldLevel(v:lnum)")
 vim.cmd.autocmd("FileType hs set foldexpr=v:lua.MyPyFoldLevel(v:lnum)")
 vim.cmd("highlight Folded guibg=background")
 
+local fold_actions = {
+	["show"] = function()
+		if vim.o.foldcolumn == "0" then
+			vim.o.foldcolumn = "2"
+		else
+			vim.o.foldcolumn = "0"
+		end
+	end,
+	["off"] = function()
+		vim.o.foldmethod = "manual"
+		vim.cmd.normal("zE") -- deletes all folds
+		vim.o.foldcolumn = "0"
+	end,
+	["on"] = function()
+		vim.o.foldmethod = "expr"
+	end,
+	["auto"] = function()
+		vim.cmd.autocmd("FileType * set foldmethod=expr")
+	end,
+	["nohl"] = function()
+		vim.cmd("highlight Folded guibg=bg")
+	end,
+}
+vim.api.nvim_create_user_command(
+	"Fold",
+	function(opts)
+		fold_actions[opts.fargs[1]]()
+	end,
+	{nargs=1}
+)
+
+
 -- ++++++++++++ REMAPS ++++++++++++
-vim.keymap.set("n","zf",function() vim.o.foldlevel = vim.v.count end)
-vim.keymap.set("n","<leader>hf",function () vim.cmd("highlight Folded guibg=bg") end)
+vim.keymap.set("n","<leader>zl",function() vim.o.foldlevel = vim.v.count end)
+vim.keymap.set("n","<leader>zh",fold_actions["nohl"])
