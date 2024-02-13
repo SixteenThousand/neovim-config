@@ -11,7 +11,7 @@ lspconf.pylsp.setup{
 		pylsp = {
 			plugins = {
 				autopep8 = {
-					enabled = false,
+					enabled = true,
 				},
 				pycodestyle = {
 					enabled = false,

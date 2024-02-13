@@ -1,7 +1,8 @@
 >> fix fern trash bug?
->> refactor amber to fully utilise telescope API
-> use table for options instead of "list"
+>> refactor amber 
+> fully utilise telescope API; use table for options instead of "list"
+> use less commands (":Amber quit" instead of ":AmberQuit")
 >> set expandtab
 > create 4<BS> keymap
->> create bookmarks plugin
+>> create directory telescope picker
 > use telescope, much like w/ amber

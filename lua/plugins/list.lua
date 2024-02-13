@@ -89,7 +89,7 @@ return {
 	{
 		"alvan/vim-closetag",
 		config = function(plugin,opts)
-			vim.g.closetag_filenames = "*.html,*.xml,*.svg,*.js"
+			vim.g.closetag_filenames = "*.html,*.xml,*.svg,*.jsx"
 			vim.g.closetag_filetypes = "html,xml,svg"
 			vim.g.closetag_emptyTags_caseSensitive = 1
 			vim.g.closetag_shortcut = ">"
