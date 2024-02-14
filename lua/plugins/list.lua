@@ -1,13 +1,14 @@
 return {
 	-- colourschemes & appearancelist
-	"rebelot/kanagawa.nvim",
 	"sainnhe/everforest",
+	"rebelot/kanagawa.nvim",
 	"marko-cerovac/material.nvim",
-	"sainnhe/sonokai",
-	"rose-pine/neovim",
-	"ku-s-h/summerfruit256.vim",
-	"shaunsingh/nord.nvim",
 	"xero/miasma.nvim",
+	"rose-pine/neovim",
+	"EdenEast/nightfox.nvim",
+	"shaunsingh/nord.nvim",
+	"sainnhe/sonokai",
+	"ku-s-h/summerfruit256.vim",
 	"folke/tokyonight.nvim",
 	
 	{
