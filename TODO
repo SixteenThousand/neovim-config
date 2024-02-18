@@ -4,5 +4,3 @@
 > use less commands (":Amber quit" instead of ":AmberQuit")
 >> set expandtab
 > create 4<BS> keymap
->> create directory telescope picker
-> use telescope, much like w/ amber

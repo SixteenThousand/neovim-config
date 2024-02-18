@@ -1,8 +1,8 @@
 local M = {}
 
-local SESS_LOC = vim.fn.stdpath("data").."\\sessions"
+local SESS_LOC = vim.fn.stdpath("data").."/sessions"
 local SESS_PAT = "(.+)%.amber%.vim"
-local SESS_FMT = SESS_LOC.."\\%s.amber.vim"
+local SESS_FMT = SESS_LOC.."/%s.amber.vim"
 local NO_SESS_OPT = "continue sans session"
 
 

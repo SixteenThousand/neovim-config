@@ -14,8 +14,12 @@ vim.api.nvim_create_autocmd("BufEnter",{
 
 
 -- default places search will look; note this used to be ".,/usr/include/,,"
-	-- "**2" means "look at any subdirectory that are at most 2 levels down"
-vim.cmd.set("path=.,~/Documents/Programs/**2/,~/Documents/O-Backup_Management/,,")
+-- "**2" means "look at any subdirectory that are at most 2 levels down"
+vim.o.path = string.gsub(
+	".,~/Projects/**4,~/Documents/**4,~/Downloads,",
+	"~",
+	os.getenv("HOME")
+)
 
 -- indentation & autocommenting
 vim.o.smarttab = false

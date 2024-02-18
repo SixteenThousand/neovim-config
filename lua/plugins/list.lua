@@ -144,8 +144,12 @@ return {
 			end)
 			vim.keymap.set("n","<leader>gf",":Git commit -F ")
 			vim.keymap.set("n","<leader>gb",":Git branch ")
-			vim.keymap.set("n","<leader>gd",function ()
-				vim.cmd("Git diff")
+			-- git diff remaps
+			vim.keymap.set("n","<leader>gds",function ()
+				vim.cmd("tab Git diff")
+			end)
+			vim.keymap.set("n","<leader>gdc",function ()
+				vim.cmd("tab Git diff --cached")
 			end)
 		end,
 	},
