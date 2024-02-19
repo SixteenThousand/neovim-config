@@ -27,15 +27,15 @@ local get_dirs_cmd = table.concat(
 )
 local shell_output = io.popen(get_dirs_cmd,"r")
 local dirs = {}
-while true do
-	local line = shell_output:read()
-	if line == nil then
-		break
-	else
-		dirs[#dirs+1] = line
-	end
-end
 vim.keymap.set("n","<leader>ed",function()
+	while true do
+		local line = shell_output:read()
+		if line == nil then
+			break
+		else
+			dirs[#dirs+1] = line
+		end
+	end
 	popup.telescope_dropdown(
 		"Move To!",
 		dirs,
