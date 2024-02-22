@@ -48,3 +48,11 @@ vim.o.hlsearch = false
 
 -- change what "b" & "w" consider "words"
 -- vim.cmd.set("iskeyword-=_")
+
+-- change what is displayed by the 'list' option
+vim.opt.listchars = {
+	space = "-",
+	multispace = "--+",
+	tab = "> ",
+	nbsp = "+", -- honestly no idea what this one does but it is a default
+}
