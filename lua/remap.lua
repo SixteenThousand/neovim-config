@@ -151,3 +151,15 @@ end
 -- ++++++++++++ moving code around? visual mode?? ++++++++++++
 vim.keymap.set("v","J",":m '>+1<CR>gv=gv")
 vim.keymap.set("v","K",":m '<-2<CR>gv=gv")
+
+
+-- ++++++++++++ tabs ++++++++++++
+vim.keymap.set("n","H",function()
+	vim.cmd.normal(tostring(vim.bo.tabstop).."h")
+end)
+vim.keymap.set("n","L",function()
+	vim.cmd.normal(tostring(vim.bo.tabstop).."l")
+end)
+vim.keymap.set("n","<BS>",function()
+	vim.cmd.normal(tostring(vim.bo.tabstop).."X")
+end)

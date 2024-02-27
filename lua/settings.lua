@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("BufEnter",{
 		-- line numbers
 		vim.o.number = true
 		vim.o.relativenumber = true
-		vim.o.expandtab = false
+		vim.bo.expandtab = true
 		vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
 			-- stops vim from auto-inserting a bunch of comments
 		vim.o.textwidth = 79
