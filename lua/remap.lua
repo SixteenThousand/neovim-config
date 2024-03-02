@@ -99,6 +99,10 @@ vim.keymap.set("n","J","<C-e>")
 vim.keymap.set("n","K","<C-y>")
 vim.cmd("map <A-j> <C-e>")
 vim.cmd("map <A-k> <C-y>")
+vim.keymap.set("n","H","zh")
+vim.keymap.set("n","L","zl")
+vim.cmd("map <A-h> zh")
+vim.cmd("map <A-l> zl")
 
 
 -- +++++++++++++ window stuff +++++++++++++
@@ -160,6 +164,6 @@ end)
 vim.keymap.set("n","L",function()
 	vim.cmd.normal(tostring(vim.bo.tabstop).."l")
 end)
-vim.keymap.set("n","<BS>",function()
+vim.keymap.set({"n","i"},"<A-BS>",function()
 	vim.cmd.normal(tostring(vim.bo.tabstop).."X")
 end)
