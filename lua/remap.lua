@@ -38,7 +38,7 @@ vim.keymap.set("i","<C-S-f>","<C-y>")
 
 -- ++++++++++++ sometimes I just can't be bothered to write stuff, y'know? ++++++++++++
 local print_statements = {
-	["c"] = "printf(\"%d\\n\", ",
+	["c"] = "printf(",
 	["cs"] = "Console.WriteLine(",
 	["go"] = "fmt.Println(",
 	["hs"] = "putStrLn ",
@@ -52,6 +52,8 @@ local print_statements = {
 }
 vim.keymap.set("i","<C-p>",function ()
 	vim.cmd.normal("i"..print_statements[vim.fn.expand("%:e")])
+    local startpos = vim.fn.getpos(".")
+    vim.fn.cursor(startpos[2],startpos[3]+1)
 end)
 
 
