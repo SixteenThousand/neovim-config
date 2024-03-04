@@ -58,9 +58,11 @@ end)
 
 
 -- comment headers/comment highlighting
-vim.keymap.set("i","<A-m>",function ()
+vim.keymap.set({"n","i"},"<A-m>",function ()
 	vim.cmd.normal("i++++++++++++  ++++++++++++")
-	vim.cmd.normal("12h")
+    local pos = vim.fn.getpos(".")
+    vim.fn.cursor(pos[2],pos[3]-12)
+    vim.cmd.startinsert()
 end)
 -- debug
 vim.keymap.set({"n","i"},"<A-/>",function()
