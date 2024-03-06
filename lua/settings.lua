@@ -52,7 +52,7 @@ vim.o.hlsearch = false
 -- change what is displayed by the 'list' option
 vim.opt.listchars = {
 	space = "-",
-	multispace = "--+",
+	multispace = "---+",
 	tab = "> ",
 	nbsp = "+", -- honestly no idea what this one does but it is a default
 }
