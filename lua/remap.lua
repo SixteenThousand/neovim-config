@@ -45,10 +45,14 @@ local print_statements = {
 	["html"] = "console.log(",
 	["java"] = "System.out.println(",
 	["js"] = "console.log(",
+	["jsx"] = "console.log(",
 	["lua"] = "print(",
 	["ps1"] = "echo ",
 	["py"] = "print(",
+    ["rb"] = "puts ",
 	["rs"] = "println!(",
+    ["ts"] = "console.log(",
+    ["tsx"] = "console.log(",
 }
 vim.keymap.set("i","<C-p>",function ()
 	vim.cmd.normal("i"..print_statements[vim.fn.expand("%:e")])
@@ -171,3 +175,6 @@ end)
 vim.keymap.set({"n","i"},"<A-BS>",function()
 	vim.cmd.normal(tostring(vim.bo.tabstop).."X")
 end)
+
+-- ++++++++++++ substitution ++++++++++++
+vim.keymap.set("n","<leader>rr",":.-5,.+5s/")

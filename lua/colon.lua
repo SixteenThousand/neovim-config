@@ -13,7 +13,11 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
 	"Path",
 	function(opts)
-		vim.fn.setreg(opts.fargs[1],vim.fn.expand("%:p"))
+        if opts.fargs[1] ~= "" then
+            vim.fn.setreg("\"",vim.fn.expand("%:p"))
+        else
+            vim.fn.setreg(opts.fargs[1],vim.fn.expand("%:p"))
+        end
 	end,
 	{nargs="?"}
 )
@@ -50,4 +54,12 @@ vim.api.nvim_create_user_command(
 		vim.cmd.setlocal("formatoptions-=t formatoptions-=a formatoptions-=w")
 	end,
 	{}
+)
+
+vim.api.nvim_create_user_command(
+    "WhereAmI",
+    function()
+        print(vim.fn.expand("%:p"))
+    end,
+    {}
 )
