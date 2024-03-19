@@ -113,12 +113,6 @@ return {
 			require("mason").setup()
 		end,
 	},
-	-- completion
-	"dcampos/cmp-snippy",
-	"dcampos/nvim-snippy",
-	"hrsh7th/nvim-cmp",
-
-	
 	
 	-- git
 	{
@@ -172,6 +166,7 @@ return {
 			vim.keymap.set({"n","i","v"},"<C-/>",commapi.toggle.linewise.current)
 		end,
 	},
+    "tpope/vim-surround",
 	
 	-- fun
 	"ThePrimeagen/vim-be-good"

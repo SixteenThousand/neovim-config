@@ -172,8 +172,12 @@ end)
 vim.keymap.set("n","L",function()
 	vim.cmd.normal(tostring(vim.bo.tabstop).."l")
 end)
-vim.keymap.set({"n","i"},"<A-BS>",function()
-	vim.cmd.normal(tostring(vim.bo.tabstop).."X")
+vim.keymap.set({"i","n"},"<A-BS>",function()
+    vim.cmd.normal(string.format(
+        "%dh%dx",
+        tostring(vim.bo.tabstop),
+        tostring(vim.bo.tabstop)
+    ))
 end)
 
 -- ++++++++++++ substitution ++++++++++++
