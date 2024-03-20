@@ -149,12 +149,12 @@ return {
 	},
 	
 	
-	{
+	--[[ {
 		"ggandor/leap.nvim",
 		config = function(plugin,opts)
 			require("leap").create_default_mappings()
 		end,
-	},
+	}, ]]
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,

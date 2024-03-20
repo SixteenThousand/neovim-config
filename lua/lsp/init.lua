@@ -34,6 +34,10 @@ vim.api.nvim_create_autocmd("LspAttach",{
         local client = vim.lsp.get_client_by_id(evt.data.client_id)
         if client.server_capabilities.hoverProvider then
             vim.keymap.set("n","<leader>ii",vim.lsp.buf.hover)
+        else
+            vim.keymap.set("n","<leader>ii",function()
+                print("Sorry, this LSP doesn't support hover!")
+            end)
         end
     end,
 })

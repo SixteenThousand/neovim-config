@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("BufEnter",{
 -- default places search will look; note this used to be ".,/usr/include/,,"
 -- "**2" means "look at any subdirectory that are at most 2 levels down"
 vim.o.path = string.gsub(
-	".,~/Projects/**4,~/Documents/**4,~/Downloads,",
+	"~/AppData/Local/nvim/**4,~/Projects/**4,~/temp,~/Downloads,.,",
 	"~",
 	os.getenv("HOME")
 )

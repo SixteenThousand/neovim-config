@@ -151,7 +151,7 @@ basic_motions = {"h","j","k","l"}
 for i = 1,4 do
 	local move_cursor_map = string.format("<leader>w%s",basic_motions[i])
 	vim.keymap.set("n",move_cursor_map,function ()
-		vim.cmd.wincmd(basic_motions[i])
+		vim.cmd.wincmd(tostring(vim.v.count1)..basic_motions[i])
 	end)
 	local move_win_map = string.format("<leader>ww%s",basic_motions[i])
 	vim.keymap.set("n",move_win_map,function()
