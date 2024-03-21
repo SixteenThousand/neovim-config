@@ -35,7 +35,7 @@ function M.write_log(variable,logfile)
     logfile = logfile or M.MAIN_LOGFILE
     local fp = io.open(logfile,"a")
     fp:write(string.format(
-        "%s : %s",
+        "\n%s : %s",
         os.date(),
         tostring(variable)
     ))

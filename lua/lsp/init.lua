@@ -21,7 +21,9 @@ lspconf.pylsp.setup{
 	},
 }
 
-lspconf.rust_analyzer.setup{}
+lspconf.rust_analyzer.setup{
+    cmd = {"rust-analyzer"},
+}
 
 lspconf.texlab.setup{}
 

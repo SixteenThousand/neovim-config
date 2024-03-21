@@ -20,9 +20,10 @@ Please note this list is not really meant to be readable for anyone but me
 - [ ] refactor amber to fully utilise telescope API; use table for options 
   instead of "list" & use less commands (e.g. ":Amber quit" instead of 
   ":AmberQuit")
-- [ ] create :Salt command that deletes current buffer and goes to other  
+- [x] create :Salt command that deletes current buffer and goes to other  
   buffer; should take 1 arg that is passed to :b, and if no args, open 
   telescope buffer picker
 - [ ] create :Diff command to better handle :Git diff options?
     (vsplit/new tab and --cached optinos will have to handled)
-<!-- [ ]  -->
+- [ ] make extend capabilities of 
+  ![vim-closetag](https://github.com/alvan/vim-closetag) to any file
