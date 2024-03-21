@@ -1,11 +1,1 @@
->> fix fern trash bug?
->> refactor amber 
-> fully utilise telescope API; use table for options instead of "list"
-> use less commands (":Amber quit" instead of ":AmberQuit")
->> create :Salt command that deletes current buffer and goes to other 
-buffer
-> takes 1 arg that is passed to :b
-> if no args, open telescope buffer picker
->> create :Diff command to better handle :Git diff options?
-> vsplit/new tab
-> --cached or not
+>> I'm experimenting with putting this list back into the readme
