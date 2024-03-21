@@ -4,7 +4,7 @@ This is my new (for 2024) configuration of neovim, the editor that makes it
 feel like you built it yourself.
 
 It's probably not the most slick config out there, but it works and if you're
-interesting in writing one yourself it might be useful - feel free to contact
+interested in writing one yourself it might be useful - feel free to contact
 me with questions, although I make no promises about responding quickly!
 
 ---
