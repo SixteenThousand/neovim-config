@@ -1,14 +1,15 @@
 -- general navigation remaps; remaps for related to more specific things
 -- are in their respective modules
 vim.keymap.set("n","<leader>ee",":buffer ")
-vim.keymap.set("n","<leader>es",":sbuffer ")
+-- vim.keymap.set("n","<leader>es",":sbuffer ")
+vim.keymap.set("n","<leader>ef",":find ")
 
-vim.keymap.set("n","<leader>eh",function ()
+vim.keymap.set("n","<leader>el",function ()
 	vim.cmd.edit("~/Projects/Learning")
 	vim.o.number = true
 end)
 
-vim.keymap.set("n","<leader>ea",function ()
+vim.keymap.set("n","<leader>ep",function ()
 	vim.cmd.edit("~/Projects")
 	vim.o.number = true
 end)

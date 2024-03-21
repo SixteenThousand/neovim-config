@@ -132,6 +132,9 @@ end)
 vim.keymap.set({"n","i","t"},"<A-w>",function ()
 	local id = vim.fn.win_getid()
 	vim.cmd.wincmd("l")
+    if vim.fn.win_getid() == id then
+        vim.cmd.wincmd("k")
+    end
 	if vim.fn.win_getid() == id then
 		vim.cmd.wincmd("j")
 	end
@@ -140,6 +143,9 @@ end)
 vim.keymap.set({"n","i","t"},"<A-S-w>",function ()
 	local id = vim.fn.win_getid()
 	vim.cmd.wincmd("l")
+    if vim.fn.win_getid() == id then
+        vim.cmd.wincmd("k")
+    end
 	if vim.fn.win_getid() == id then
 		vim.cmd.wincmd("j")
 	end

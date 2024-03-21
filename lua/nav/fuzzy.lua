@@ -1,6 +1,7 @@
 -- module for use of telescope in navigation
 local tlscp = require("telescope.builtin")
 local popup = require("utils.popup")
+local utils = require("utils")
 
 vim.keymap.set("n","<leader>ff",function ()
 	tlscp.find_files({
@@ -9,22 +10,35 @@ vim.keymap.set("n","<leader>ff",function ()
 			"~/Projects",
 			"~/temp",
 			"~/Downloads",
-			vim.fn.stdpath("config")
-		}
+			vim.fn.stdpath("config"),
+		},
+        previewer = false,
 	})
 end)
-vim.keymap.set("n","<leader>fb",tlscp.buffers)
-vim.keymap.set("n","<leader>fh",tlscp.help_tags)
-vim.keymap.set("n","<leader>fj",tlscp.jumplist)
+vim.keymap.set("n","<leader>fb",function()
+    tlscp.buffers({previewer = false})
+end)
+vim.keymap.set("n","<leader>fh",function()
+    tlscp.help_tags({previewer = false})
+end)
+vim.keymap.set("n","<leader>fj",function()
+    tlscp.jumplist({previewer = false})
+end)
 
-local get_dirs_cmd = table.concat( 
-	{
-		"pwsh -c",
-		"\"Get-ChildItem ~ -Directory -Recurse -Depth 4",
-		"| Select-Object -ExpandProperty FullName\"",
-	},
-	" "
-)
+local get_dirs_cmd
+if utils.is_windows() then
+    get_dirs_cmd = table.concat( 
+        {
+            "pwsh -c",
+            "\"Get-ChildItem ~ -Directory -Recurse -Depth 4",
+            "| Select-Object -ExpandProperty FullName\"",
+        },
+        " "
+    )
+else
+    get_dirs_cmd = "echo 'neovim error!'"
+    utils.write_log("Not upgraded to linux yet!")
+end
 local shell_output = io.popen(get_dirs_cmd,"r")
 local dirs = {}
 vim.keymap.set("n","<leader>ed",function()
