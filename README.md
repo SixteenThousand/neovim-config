@@ -21,9 +21,15 @@ Please note this list is not really meant to be readable for anyone but me
   instead of "list" & use less commands (e.g. ":Amber quit" instead of 
   ":AmberQuit")
 - [x] create :Salt command that deletes current buffer and goes to other  
-  buffer; should take 1 arg that is passed to :b, and if no args, open 
-  telescope buffer picker
-- [ ] create :Diff command to better handle :Git diff options?
-    (vsplit/new tab and --cached optinos will have to handled)
-- [ ] make extend capabilities of 
-  ![vim-closetag](https://github.com/alvan/vim-closetag) to any file
+  buffer; should take 1 argument that is passed to :b, and if no arguments, 
+  open telescope buffer picker
+- [x] create :Diff command to better handle :Git diff options?
+    (vsplit/new tab and --cached options will have to handled)
+- [ ] incorporate :Git difftool into my workflow? (see 
+  ![vim-fugitive](https://github.com/tpope/vim-fugitive))
+- [ ] extend capabilities of 
+  ![vim-closetag](https://github.com/alvan/vim-closetag) to any filetype
+- [ ] use :make instead of Yona (see 
+  <https://github.com/SixteenThousand/Yona>)
+- [ ] bug: ![telescope](https://github.com/nvim-telescope/telescope.nvim) 
+  regularly crashes neovim

@@ -28,18 +28,27 @@ end
 
 -- logging
 M.LOGDIR = M.parse_path(vim.fn.stdpath("data").."/thom-logs")
-M.MAIN_LOGFILE = M.parse_path(M.LOGDIR.."/main.log")
+M.MAIN_LOGFILE = "main.log"
 M.force_exist_dir(M.LOGDIR)
 
-function M.write_log(variable,logfile)
-    logfile = logfile or M.MAIN_LOGFILE
-    local fp = io.open(logfile,"a")
+-- writes some output to a given logfile options are:
+-- var: a variable to be logged. will be converted to a string
+-- logfile: filename of a file in M.LOGDIR. defaults to M.MAIN_LOGFILE
+-- msg: message to print before the variable value
+function M.write_log(opts)
+    local logpath = string.format("%s/%s",
+        M.LOGDIR,
+        opts.logfile or M.MAIN_LOGFILE
+    )
+    local fp = io.open(logpath,"a")
     fp:write(string.format(
-        "\n%s : %s",
+        "\n%s; %s | <<%s>>",
         os.date(),
-        tostring(variable)
+        opts.msg,
+        tostring(opts.variable)
     ))
     fp:close()
 end
+
 
 return M
