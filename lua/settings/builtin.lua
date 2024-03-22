@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("BufEnter",{
 		vim.bo.expandtab = true
 		vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
 			-- stops vim from auto-inserting a bunch of comments
-		vim.o.textwidth = 79
+		vim.o.textwidth = 76
 		vim.o.foldlevel = 100
 	end
 })
@@ -56,3 +56,6 @@ vim.opt.listchars = {
 	tab = "> ",
 	nbsp = "+", -- honestly no idea what this one does but it is a default
 }
+
+-- getting spellcheck right
+vim.o.spelllang = "en_gb"

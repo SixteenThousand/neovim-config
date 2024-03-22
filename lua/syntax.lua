@@ -1,3 +1,5 @@
+local custom = require("settings.custom")
+
 -- user-defined syntax highlighting
 vim.api.nvim_create_autocmd({"BufEnter"}, {
 	pattern = {"*.podon"},
@@ -12,11 +14,28 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 vim.api.nvim_create_autocmd(
 	{"BufEnter"},
 	{
-		pattern = {"*.html"},
+        pattern = {"*.html","*.xml","*.svg","*.php","*.jsx","*.tsx",},
 		callback = function(event)
-			vim.bo.shiftwidth = 2
-			vim.bo.expandtab = true
-			vim.b.match_words = "<\\(\\w\\+\\)\\W:<\\/\\1"
-		end
+            custom.set_tabwidth(2)
+            custom.tag_mode()
+		end,
 	}
+)
+
+vim.api.nvim_create_autocmd(
+    {"BufEnter"},
+    {
+        pattern = {"*.md"},
+        callback = custom.text,
+    }
+)
+vim.api.nvim_create_autocmd(
+    {"BufLeave"},
+    {
+        pattern = {"*.md"},
+        callback = function()
+            custom.notext()
+            require("utils").write_log{msg="We got here!",var=vim.opt.formatoptions}
+        end,
+    }
 )
