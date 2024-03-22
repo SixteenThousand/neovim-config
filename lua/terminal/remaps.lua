@@ -1,8 +1,0 @@
-vim.keymap.set("n","<leader>tT",function()
-	vim.cmd.edit("term://"..vim.fn.expand("%:h").."//1:pwsh")
-end)
-vim.keymap.set("n","<leader>tt",function()
-	local parent = vim.fn.expand("%:h")
-	vim.cmd.tabnew()
-	vim.cmd.edit("term://"..parent.."//1:pwsh")
-end)
