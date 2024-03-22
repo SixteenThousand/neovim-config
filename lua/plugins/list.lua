@@ -119,36 +119,12 @@ return {
 		"tpope/vim-fugitive",
 		lazy = false,
 		config = function(plugins,opts)
-			vim.keymap.set("n","<leader>gg",":Git ")
-			vim.keymap.set("n","<leader>gs",function () vim.cmd("Git status") end)
-			vim.keymap.set("n","<leader>ge",function ()
-				vim.cmd("Git add -A")
-				print("All Changes Staged! Proceed to commit!")
-			end)
-			vim.keymap.set("n","<leader>ga",function ()
-				vim.cmd("Git add "..vim.fn.expand("%:p"))
-				print("This buffer has been staged!")
-			end)
-			vim.keymap.set("n","<leader>gc",function ()
-				vim.cmd.Git("commit")
-				vim.cmd.startinsert()
-			end)
-			vim.keymap.set("n","<leader>gy",function ()
-				vim.cmd("Yona commit")
-			end)
-			vim.keymap.set("n","<leader>gf",":Git commit -F ")
-			vim.keymap.set("n","<leader>gb",":Git branch ")
-			-- git diff remaps
-			vim.keymap.set("n","<leader>gds",function ()
-				vim.cmd("tab Git diff")
-			end)
-			vim.keymap.set("n","<leader>gdc",function ()
-				vim.cmd("tab Git diff --cached")
-			end)
+            require("plugins.fugitive")
 		end,
 	},
 	
 	
+    -- commented out because it conflicts with vim-surround
 	--[[ {
 		"ggandor/leap.nvim",
 		config = function(plugin,opts)
