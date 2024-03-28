@@ -8,12 +8,15 @@ require("syntax")
 require("terminal")
 
 -- plugin-dependent packages
-require("plugins")
-
-require("amber")
-require("lsp")
-require("nav")
-require("pretty")
+local pluginsOn,_ = pcall(require,"plugins")
+if pluginsOn then
+    require("amber")
+    require("lsp")
+    require("nav")
+    require("pretty")
+else
+    require("nav.remaps")
+end
 
 
 print("And It Goes On...")

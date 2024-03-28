@@ -33,3 +33,12 @@ Please note this list is not really meant to be readable for anyone but me
   <https://github.com/SixteenThousand/Yona>)
 - [ ] bug: ![telescope](https://github.com/nvim-telescope/telescope.nvim) 
   regularly crashes neovim
+
+---
+
+#### Notes
+- The config is now working on Linux, and updates to it are going to be 
+  pushed here. To avoid version conflicts when pulling to the windows 
+  version, lazy-lock.json has been `--assumed-unchanged`'ed *temporarily* on 
+  Linux.
+  In future, the Linux version will likely become the primary version.

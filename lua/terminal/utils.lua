@@ -1,4 +1,6 @@
 -- this is mainly here to hold the "make terminal window" function
+local utils = require("utils")
+
 local M = {}
 
 -- creates a new window to the right of the current one, and starts a terminal
@@ -37,6 +39,11 @@ function M.terminal_vsplit(cmd,focus)
 	if not focus then
 		vim.cmd.wincmd("h")
 	end
+end
+
+M.shell = os.getenv("SHELL")
+if utils.is_windows() then
+    M.shell = "pwsh"
 end
 
 

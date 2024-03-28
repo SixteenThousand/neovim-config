@@ -22,7 +22,7 @@ end
 
 function M.parse_path(path)
     -- converts a path to unix style & converts ~ to $HOME
-    return path:gsub("\\","/"):gsub("~",os.getenv("home"))
+    return path:gsub("\\","/"):gsub("~",os.getenv("HOME"))
 end
 
 

@@ -1,10 +1,13 @@
 local M = {}
 
+local utils = require("utils")
+
 local SESS_LOC = vim.fn.stdpath("data").."/sessions"
 local SESS_PAT = "(.+)%.amber%.vim"
 local SESS_FMT = SESS_LOC.."/%s.amber.vim"
 local NO_SESS_OPT = "continue sans session"
 
+utils.force_exist_dir(SESS_LOC)
 
 function M.get_filepath(name)
 	return string.format(SESS_FMT,name)
@@ -28,10 +31,10 @@ end
 
 function M.amber_quit(name)
 	if name == NO_SESS_OPT then
-		vim.cmd.quitall()
+		vim.cmd.quitall({bang=true})
 	else
 		vim.cmd("mksession! "..M.get_filepath(name))
-		vim.cmd("quitall!")
+        vim.cmd.quitall({bang=true})
 	end
 end
 
