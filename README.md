@@ -16,7 +16,7 @@ me with questions, although I make no promises about responding quickly!
 
 ### TODO
 Please note this list is not really meant to be readable for anyone but me
-- [ ] bug: fern-action-trash does not work
+- [ ] bug: fern-action-trash does not work on windows
 - [ ] refactor amber to fully utilise telescope API; use table for options 
   instead of "list" & use less commands (e.g. ":Amber quit" instead of 
   ":AmberQuit")
