@@ -26,6 +26,10 @@ vim.keymap.set("n","<leader>e;",function ()
     vim.cmd.edit(vim.fn.stdpath("data"))
 	vim.o.number = true
 end)
+vim.keymap.set("n","<leader>e#",function ()
+    vim.cmd.edit(os.getenv("XDG_CONFIG_HOME") or "~/.config")
+    vim.o.number = true
+end)
 
 
 vim.keymap.set("n","-",function ()
@@ -41,3 +45,5 @@ vim.keymap.set({"n","i"},"<C-S-t>",function() vim.cmd.tabnew() end)
 vim.keymap.set("n","gr",function ()
 	vim.cmd.tabprevious()
 end)
+vim.keymap.set({"n","i","t"},"<A-Left>",vim.cmd.tabprev)
+vim.keymap.set({"n","i","t"},"<A-Right>",vim.cmd.tabnext)

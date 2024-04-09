@@ -15,11 +15,14 @@ me with questions, although I make no promises about responding quickly!
 - Way too many colourschemes installed!
 
 ### TODO
-Please note this list is not really meant to be readable for anyone but me
+*Please note this list is not really meant to be readable for anyone but me*
 - [ ] bug: fern-action-trash does not work on windows
 - [ ] refactor amber to fully utilise telescope API; use table for options 
   instead of "list" & use less commands (e.g. ":Amber quit" instead of 
   ":AmberQuit")
+- [ ] add Amber function to wipe current buffer list without quitting vim 
+  (use special file as homepage to go to on wiping)
+- [ ] integrate shada files into Amber sessions?
 - [x] create :Salt command that deletes current buffer and goes to other  
   buffer; should take 1 argument that is passed to :b, and if no arguments, 
   open telescope buffer picker
@@ -42,3 +45,5 @@ Please note this list is not really meant to be readable for anyone but me
   version, lazy-lock.json has been `--assumed-unchanged`'ed *temporarily* on 
   Linux.
   In future, the Linux version will likely become the primary version.
+- Update: yup, it's the main version now. In a different copy of the repo 
+  now though, so no need to worry about the `--assume-unchanged` above

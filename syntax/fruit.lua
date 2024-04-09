@@ -28,6 +28,9 @@ vim.cmd.highlight("link fruitString string")
 vim.cmd.syntax([[match fruitTitle /+++ .* +++\|+{2,}/]])
 vim.cmd.highlight("link fruitTitle include")
 
+vim.cmd.syntax([[match fruitBullet />\|>>/]])
+vim.cmd.highlight("link fruitBullet include")
+
 vim.cmd.syntax("match fruitSeparator /;;/")
 vim.cmd.highlight("link fruitSeparator operator")
 
