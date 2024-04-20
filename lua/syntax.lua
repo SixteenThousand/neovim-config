@@ -14,7 +14,17 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 vim.api.nvim_create_autocmd(
 	{"BufEnter"},
 	{
-        pattern = {"*.html","*.xml","*.svg","*.php","*.jsx","*.tsx",},
+        pattern = {
+            "*.css",
+            "*.html",
+            "*.js",
+            "*.jsx",
+            "*.php",
+            "*.svg",
+            "*.ts",
+            "*.tsx",
+            "*.xml",
+        },
 		callback = function(event)
             custom.set_tabwidth(2)
             custom.tag_mode()
