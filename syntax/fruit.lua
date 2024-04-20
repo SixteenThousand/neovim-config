@@ -25,7 +25,7 @@ vim.cmd.highlight("link fruitBold exception")
 vim.cmd.syntax([[region fruitString start=/"/ skip=/\\"/ end=/"/]])
 vim.cmd.highlight("link fruitString string")
 
-vim.cmd.syntax([[match fruitTitle /+++ .* +++\|+{2,}/]])
+vim.cmd.syntax([[match fruitTitle /+.*+\|+{2,}/]])
 vim.cmd.highlight("link fruitTitle include")
 
 vim.cmd.syntax([[match fruitBullet />\|>>/]])
