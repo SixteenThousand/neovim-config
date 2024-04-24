@@ -24,6 +24,6 @@ vim.api.nvim_create_user_command(
 	{nargs="?"}
 )
 
-vim.g.neovide_cursor_vfx_mode = "none"
-vim.g.neovide_transparency = 0.8
+vim.g.neovide_cursor_vfx_mode = "railgun"
+vim.g.neovide_transparency = 0.9
 vim.g.neovide_hide_mouse_when_typing = true
