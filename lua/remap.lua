@@ -77,7 +77,7 @@ end)
 
 -- ++++++++++++ searching/highlighting ++++++++++++
 -- toggles whether searches are highlighted or not
-vim.keymap.set("n","<leader>\\",function()
+vim.keymap.set("n","<leader>hh",function()
 	vim.o.hlsearch = not vim.o.hlsearch
 end)
 
@@ -103,8 +103,6 @@ vim.keymap.set("i","<PageDown>","<Down>")
 
 
 -- ++++++++++++ folding & scrollling +++++++++++++
-vim.keymap.set("n","J","<C-e>")
-vim.keymap.set("n","K","<C-y>")
 vim.cmd("map <A-j> <C-e>")
 vim.cmd("map <A-k> <C-y>")
 vim.cmd("map <C-j> <C-e>")
