@@ -41,7 +41,8 @@ function M.terminal_vsplit(cmd,focus)
 	end
 end
 
-M.shell = os.getenv("SHELL")
+-- M.shell = os.getenv("SHELL")
+M.shell = "/bin/fish"
 if utils.is_windows() then
     M.shell = "pwsh"
 end
