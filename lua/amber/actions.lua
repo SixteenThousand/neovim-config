@@ -25,6 +25,7 @@ function M.amber_load(name)
 	if name == NO_SESS_OPT then
 		print("No session needed buddy!")
 	else
+        vim.cmd("%bd!")
 		vim.cmd.source(M.get_filepath(name))
 	end
 end
