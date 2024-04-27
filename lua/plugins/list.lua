@@ -10,6 +10,7 @@ return {
 	"sainnhe/sonokai",
 	"ku-s-h/summerfruit256.vim",
 	"folke/tokyonight.nvim",
+    "Rigellute/shades-of-purple.vim",
 	
 	{
 		"nvim-lualine/lualine.nvim",
