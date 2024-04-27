@@ -36,6 +36,13 @@ me with questions, although I make no promises about responding quickly!
   <https://github.com/SixteenThousand/Yona>)
 - [ ] bug: ![telescope](https://github.com/nvim-telescope/telescope.nvim) 
   regularly crashes neovim
+- [ ] create colour/style options popover/floating menu; should configure
+    - vim.o.background (dark/light)
+    - guibg (:highlight Normal guibg={NONE/DEFAULT})\
+    use
+    - nvim_open_win()
+    - nvim_create_buf()
+    - nvim_close_win()
 
 ---
 
