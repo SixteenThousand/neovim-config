@@ -54,3 +54,4 @@ me with questions, although I make no promises about responding quickly!
   In future, the Linux version will likely become the primary version.
 - Update: yup, it's the main version now. In a different copy of the repo 
   now though, so no need to worry about the `--assume-unchanged` above
+- The next overall review of the config is due in early June

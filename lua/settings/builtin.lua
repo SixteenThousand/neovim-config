@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("BufEnter",{
 			-- stops vim from auto-inserting a bunch of comments
 		vim.o.textwidth = 76
 		vim.o.foldlevel = 100
+        vim.o.wrap = true
 	end
 })
 
