@@ -45,9 +45,26 @@ function M.write_log(opts)
         "\n%s; %s | <<%s>>",
         os.date(),
         opts.msg,
-        tostring(opts.variable)
+        tostring(opts.var)
     ))
     fp:close()
+end
+
+-- gets the indentation of a given line as a string, accounting for the current 
+-- values of expandtab & shiftwidth. Adds on extra indentation based on a given 
+-- number of "tabs"; a "tab" here is just whatever comes out whenever the user 
+-- presses the tab key in insert mode
+--     @param line_num: int = the line no. of the given line
+--     @param extra: int = the number of extra "tabs" to add on the end of the 
+--     resulting string
+function M.indent_string(line_num,extra)
+    if vim.o.expandtab then
+        local indent = vim.fn.indent(line_num) + extra * vim.o.shiftwidth
+        return string.rep(" ",indent)
+    else
+        local indent = (vim.fn.indent(line_num) / vim.o.shiftwidth) + extra
+        return string.rep("\t",indent)
+    end
 end
 
 

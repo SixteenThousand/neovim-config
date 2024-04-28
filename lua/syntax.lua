@@ -45,7 +45,6 @@ vim.api.nvim_create_autocmd(
         pattern = {"*.md"},
         callback = function()
             custom.notext()
-            require("utils").write_log{msg="We got here!",var=vim.opt.formatoptions}
         end,
     }
 )
