@@ -31,12 +31,7 @@ local diffcomm_msg =
 vim.api.nvim_create_user_command(
     "Diff",
     function(opts)
-        if vim.fn.winlayout()[1] ~= "leaf" then
-            vim.cmd.echohl("WarningMsg")
-            vim.cmd.echo(diffcomm_msg)
-            vim.cmd.echohl("None")
-            return
-        end
+        vim.cmd("tab split")
         local start_loc = vim.fn.win_getid()
         if opts.fargs[1] == "commit" then
             vim.cmd("Git diff --cached")
