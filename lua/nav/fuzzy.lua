@@ -26,18 +26,25 @@ vim.keymap.set("n","<leader>fj",function()
 end)
 
 local get_dirs_cmd
+local MOVE_TO_MAXDEPTH = 5
 if utils.is_windows() then
     get_dirs_cmd = table.concat( 
         {
             "pwsh -c",
-            "\"Get-ChildItem ~ -Directory -Recurse -Depth 4",
+            "\"Get-ChildItem ~ -Directory -Recurse -Depth ",
+            tostring(MOVE_TO_MAXDEPTH),
             "| Select-Object -ExpandProperty FullName\"",
         },
         " "
     )
 else
-    get_dirs_cmd = "echo 'neovim error!'"
-    utils.write_log("Not upgraded to linux yet!")
+    get_dirs_cmd = table.concat({
+        "cd $HOME",
+        "&&",
+        "find * -type d",
+        "-maxdepth",
+        tostring(MOVE_TO_MAXDEPTH),
+    }, " ")
 end
 local shell_output = io.popen(get_dirs_cmd,"r")
 local dirs = {}
@@ -54,7 +61,7 @@ vim.keymap.set("n","<leader>ed",function()
 		"Move To!",
 		dirs,
 		function(path)
-			vim.cmd.edit(path)
+			vim.cmd.edit(os.getenv("HOME").."/"..path)
 		end
 	)
 end)
