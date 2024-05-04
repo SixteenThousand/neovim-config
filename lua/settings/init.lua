@@ -2,22 +2,32 @@ require("settings.builtin")
 local custom = require("settings.custom")
 
 
--- settings that have to be set for every buffer
-vim.api.nvim_create_augroup("ThomDefaults",{})
-vim.api.nvim_create_autocmd("BufEnter",{
-	callback = function(evt)
-		-- line numbers
-		vim.o.number = true
-		vim.o.relativenumber = true
-		vim.bo.expandtab = true
-		vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
-			-- stops vim from auto-inserting a bunch of comments
-		vim.o.textwidth = 76
-		vim.o.foldlevel = 100
-        vim.o.wrap = true
-	end,
-    group = "ThomDefaults",
+local SixteenDefaults
+local CollaborationMode
+SixteenDefaults = vim.api.nvim_create_autocmd({"BufEnter"},{
+    callback = function()
+        custom.sixteen_defaults()
+    end,
 })
+vim.api.nvim_create_user_command(
+    "Collaborate",
+    function(opts)
+        if opts.fargs[1] == "off" then
+            pcall(vim.api.nvim_del_autocmd,CollaborationMode)
+            custom.sixteen_defaults()
+            SixteenDefaults = vim.api.nvim_create_autocmd({"BufEnter"},{
+                callback = custom.sixteen_defaults,
+            })
+        else
+            pcall(vim.api.nvim_del_autocmd,SixteenDefaults)
+            custom.collab_mode()
+            CollaborationMode = vim.api.nvim_create_autocmd({"BufEnter"},{
+                callback = custom.collab_mode,
+            })
+        end
+    end,
+    {nargs="?"}
+)
 
 
 -- spellcheck

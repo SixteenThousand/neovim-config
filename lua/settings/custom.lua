@@ -6,6 +6,28 @@
 local utils = require("utils")
 local M = {}
 
+function M.sixteen_defaults()
+    -- line numbers
+    vim.o.number = true
+    vim.o.relativenumber = true
+    vim.bo.expandtab = true
+    vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
+        -- stops vim from auto-inserting a bunch of comments
+    vim.o.textwidth = 76
+    vim.o.foldlevel = 100
+    vim.o.wrap = false
+end
+function M.collab_mode()
+    vim.o.number = true
+    vim.o.relativenumber = false
+    vim.bo.expandtab = true
+    vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
+        -- stops vim from auto-inserting a bunch of comments
+    vim.o.textwidth = 76
+    vim.o.foldlevel = 0
+    vim.o.wrap = true
+end
+
 
 -- enter "Text mode"; enable a bunch of options that make writing long blocks of
 -- text much easier
@@ -21,8 +43,17 @@ function M.notext()
 end
 
 function M.set_tabwidth(num)
-    vim.bo.tabstop = num
-    vim.bo.shiftwidth = num
+    -- delete any existing autocommands that change the tab width
+    vim.api.nvim_del_augroup_by_name("TabWidth")
+    vim.api.nvim_create_augroup("TabWidth")
+    vim.api.nvim_create_autocmd({"BufEnter"},{
+        pattern = "<buffer>", -- only attach an autocmd to this buffer
+        callback = function()
+            vim.bo.tabstop = num
+            vim.bo.shiftwidth = num
+        end,
+        group = "TabWidth",
+    })
 end
 
 -- tag mode: for files which will use xml-like syntax at any point
