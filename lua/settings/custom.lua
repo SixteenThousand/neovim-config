@@ -26,6 +26,9 @@ function M.collab_mode()
     vim.o.textwidth = 76
     vim.o.foldlevel = 0
     vim.o.wrap = true
+    if vim.g.neovide then
+        vim.g.neovide_transparency = 0.9
+    end
 end
 
 

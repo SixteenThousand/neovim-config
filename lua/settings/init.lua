@@ -93,7 +93,7 @@ vim.api.nvim_create_autocmd(
         pattern = {
             "*.css",
             "*.html",
-            -- "*.js",
+            "*.js",
             "*.jsx",
             "*.php",
             "*.svg",
