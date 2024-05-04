@@ -2,7 +2,6 @@
 require("colon")
 require("remap") -- this has to come before lazy is called
 require("settings")
-require("syntax")
 
 -- packages
 require("terminal")
