@@ -43,8 +43,6 @@ vim.api.nvim_create_user_command(
         local gitwin_loc = vim.fn.win_getid()
         vim.cmd.wincmd("H")
         vim.fn.win_gotoid(start_loc)
-        vim.cmd("tab split")
-        vim.fn.win_gotoid(start_loc)
         vim.cmd.quit()
         vim.fn.win_gotoid(gitwin_loc)
     end,
