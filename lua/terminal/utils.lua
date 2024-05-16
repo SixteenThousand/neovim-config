@@ -16,26 +16,24 @@ local M = {}
 function M.terminal_vsplit(cmd,focus)
 	-- first check whether there is already a window to the right of the 
 	-- current one
-	local winid = vim.fn.win_getid()
+	local startwin = vim.fn.win_getid()
 	vim.cmd.wincmd("l")
-	if winid ~= vim.fn.win_getid() then
+	if startwin ~= vim.fn.win_getid() then
 		-- is this other window a terminal?
 		is_term,_ = vim.fn.bufname():find("term://")
-		if is_term == nil then
-			vim.cmd.wincmd("h")
-			vim.cmd.vsplit()
-			vim.cmd.wincmd("l")
+		if is_term ~= nil then
+            vim.cmd.bdelete()
 		end
-	else
-		vim.cmd.vsplit()
-		vim.cmd.wincmd("l")
-	end
+        vim.fn.win_gotoid(startwin)
+    end
+    vim.cmd.vsplit()
+    vim.cmd.wincmd("l")
 	if cmd == "" then
 		vim.cmd.terminal()
 	else
 		vim.cmd.terminal(cmd)
 	end
-	vim.o.bufhidden = "delete"
+	vim.o.bufhidden = "delete" -- for luck
 	if not focus then
 		vim.cmd.wincmd("h")
 	end
