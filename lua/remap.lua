@@ -103,14 +103,10 @@ vim.keymap.set("i","<PageDown>","<Down>")
 
 
 -- ++++++++++++ folding & scrollling +++++++++++++
-vim.cmd("map <A-j> <C-e>")
-vim.cmd("map <A-k> <C-y>")
 vim.cmd("map <C-j> <C-e>")
 vim.cmd("map <C-k> <C-y>")
-vim.keymap.set("n","H","zh")
-vim.keymap.set("n","L","zl")
-vim.cmd("map <A-h> zh")
-vim.cmd("map <A-l> zl")
+vim.cmd("map <C-h> zh")
+vim.cmd("map <C-l> zl")
 
 
 -- +++++++++++++ window stuff +++++++++++++
