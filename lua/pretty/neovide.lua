@@ -13,7 +13,7 @@ local fonts = {
     ["agave"] = "Agave Nerd Font Mono:h12", -- no ligatures
     ["cas-win"] = "Caskaydia Cove Nerd Font Mono:h12", -- ligatures, windows only?
     ["cas-arch"] = "CaskaydiaMono Nerd Font:h12", -- arch, no ligatures?
-    ["fant"] = "FantasqueSansM Nerd Font:h13", --ligatures
+    ["fant"] = "FantasqueSansM Nerd Font:h14", --ligatures
 }
 vim.o.guifont = fonts.fant
 vim.api.nvim_create_user_command(
@@ -25,5 +25,6 @@ vim.api.nvim_create_user_command(
 )
 
 vim.g.neovide_cursor_vfx_mode = "railgun"
-vim.g.neovide_transparency = 0.85
+vim.g.neovide_transparency = 0.70
 vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_window_blurred = true
