@@ -1,5 +1,6 @@
 return {
 	-- colourschemes & appearancelist
+    "catppuccin/nvim",
 	"sainnhe/everforest",
 	"rebelot/kanagawa.nvim",
 	"marko-cerovac/material.nvim",
@@ -80,14 +81,14 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		--[[ config = function(plugin,opts)
-			-- require("treesitter").setup()
-			require("treesitter.configs").setup({
-				highlight = {enable = true},
-				textobjects = {enable = true},
-			})
-		end, ]]
+        config = function()
+            require("plugins.treesitter")
+        end,
 	},
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = { "nvim-treesitter" },
+    },
 	{
 		"alvan/vim-closetag",
 		config = function(plugin,opts)
@@ -114,6 +115,7 @@ return {
 			require("mason").setup()
 		end,
 	},
+    "L3MON4D3/LuaSnip",
 	
 	-- git
 	{

@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
+  "LuaSnip": { "branch": "master", "commit": "de1a287c9cb525ae52bc846e8f6207e5ef1da5ac" },
   "everforest": { "branch": "master", "commit": "4d67edd8d4701b00cee37073d53053a650264541" },
   "fern-hijack.vim": { "branch": "master", "commit": "f65524899231b15528066744e714fb344abf0892" },
   "fern-renderer-nerdfont.vim": { "branch": "master", "commit": "84fae1b9caf2ec9e185bf150ce5e85cf8f18a268" },
@@ -15,8 +16,10 @@
   "nerdfont.vim": { "branch": "master", "commit": "e054fd135ee73db37cd5bf545e0ff9948ffec7bc" },
   "nightfox.nvim": { "branch": "main", "commit": "ce0cdf8538c8c0b9c8fb2884d3d1090c8faf515d" },
   "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
+  "nvim": { "branch": "main", "commit": "d97387aea8264f484bb5d5e74f2182a06c83e0d8" },
   "nvim-lspconfig": { "branch": "master", "commit": "da338c8d7e33fbb810368a808781f56224b4fea7" },
   "nvim-treesitter": { "branch": "master", "commit": "19c6b0c4c9b35962e45b782e2b85a3214d2ac4d5" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "5f9bf4b1ead7707e4e74e5319ee56bdc81fb73db" },
   "nvim-web-devicons": { "branch": "master", "commit": "beb6367ab8496c9e43f22e0252735fdadae1872d" },
   "plenary.nvim": { "branch": "master", "commit": "5129a3693c482fcbc5ab99a7706ffc4360b995a0" },
   "shades-of-purple.vim": { "branch": "master", "commit": "e806d38190a6a2e8b9244824c2953d6567f141f3" },
