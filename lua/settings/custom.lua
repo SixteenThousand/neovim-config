@@ -80,7 +80,7 @@ function M.tag_mode()
             local open_tag = [[^.*<([^/%s][^>%s]*)[^>]*$]]
             local open_match = line_before_cursor:match(open_tag)
             if open_match ~= nil then
-                if open_match:sub(-1) == "/" then
+                if line_before_cursor:sub(-1) == "/" then
                     vim.api.nvim_set_current_line(
                         line_before_cursor..">"..line_after_cursor)
                     vim.fn.cursor(startpos[2],startpos[3]+1)
@@ -112,6 +112,15 @@ function M.tag_mode()
                 vim.fn.cursor(startpos[2]+1,#vim.fn.getline(".")+20)
                 return
             end
+            vim.api.nvim_set_current_line(
+                line_before_cursor..">"..line_after_cursor)
+            vim.fn.cursor(startpos[2],startpos[3]+1)
+        end,
+        {buffer = true}
+    )
+    vim.keymap.set("i","<C-.>",
+        function()
+            local startpos = vim.fn.getpos(".")
             vim.api.nvim_set_current_line(
                 line_before_cursor..">"..line_after_cursor)
             vim.fn.cursor(startpos[2],startpos[3]+1)
