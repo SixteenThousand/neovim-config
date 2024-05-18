@@ -31,4 +31,9 @@ lspconf.texlab.setup{}
 lspconf.gopls.setup{}
 
 lspconf.cssls.setup{}
--- lspconf.eslint_lsp.setup{}
+
+lspconf.eslint.setup{}
+
+lspconf.sqls.setup{}
+
+lspconf.tsserver.setup{}
