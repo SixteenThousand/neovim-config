@@ -16,12 +16,14 @@ me with questions, although I make no promises about responding quickly!
 
 ### TODO
 *Please note this list is not really meant to be readable for anyone but me*
-- [-] bug: fern-action-trash does not work on windows
+- [-] bug: fern-action-trash does not work on windows (canclled: who use 
+  windows anyway?)
 - [ ] refactor amber to fully utilise telescope API; use table for options 
   instead of "list" & use less commands (e.g. ":Amber quit" instead of 
   ":AmberQuit")
 - [-] add Amber function to wipe current buffer list without quitting vim 
-  (use special file as homepage to go to on wiping)
+  (use special file as homepage to go to on wiping) (turns out this exists 
+  in vim already)
 - [ ] integrate shada files into Amber sessions?
 - [x] create :Salt command that deletes current buffer and goes to other  
   buffer; should take 1 argument that is passed to :b, and if no arguments, 
@@ -44,7 +46,8 @@ me with questions, although I make no promises about responding quickly!
     - nvim_create_buf()
     - nvim_close_win()
 - [ ] add proper code completion & snippet support
-- [ ] add use of window jumping features of leap.nvim
+- [ ] add some kind of window switcher, possibly just using 
+  ggandor/leap.nvim
 
 ---
 
