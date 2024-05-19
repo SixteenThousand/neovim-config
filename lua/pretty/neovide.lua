@@ -16,15 +16,23 @@ local fonts = {
     ["fant"] = "FantasqueSansM Nerd Font:h14", --ligatures
 }
 vim.o.guifont = fonts.fant
-vim.api.nvim_create_user_command(
-	"Fancy",
-	function(opts)
-		vim.o.guifont = fonts[opts.fargs[1] or "agave"]
-	end,
-	{nargs="?"}
-)
 
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_transparency = 0.70
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_window_blurred = true
+
+vim.api.nvim_create_user_command(
+	"Fancy",
+	function(opts)
+		-- vim.o.guifont = fonts[opts.fargs[1] or "agave"]
+        if opts.fargs[1] == "off" then
+            vim.g.neovide_transparency = 1.0
+            vim.g.neovide_window_blurred = false
+        else
+            vim.g.neovide_transparency = 0.7
+            vim.g.neovide_window_blurred = true
+        end
+	end,
+	{nargs="?"}
+)
