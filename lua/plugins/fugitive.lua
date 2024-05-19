@@ -48,3 +48,6 @@ vim.api.nvim_create_user_command(
     end,
     {nargs="?"}
 )
+
+-- logging
+vim.keymap.set("n","<leader>gl",":Git log ")
