@@ -54,7 +54,7 @@ local print_statements = {
     ["ts"] = "console.log(",
     ["tsx"] = "console.log(",
 }
-vim.keymap.set("i","<A-d>",function ()
+vim.keymap.set("i","<C-x><C-p>",function ()
 	vim.cmd.normal("i"..print_statements[vim.fn.expand("%:e")])
     local startpos = vim.fn.getpos(".")
     vim.fn.cursor(startpos[2],startpos[3]+1)
@@ -184,3 +184,8 @@ end)
 
 -- ++++++++++++ substitution ++++++++++++
 vim.keymap.set("n","<leader>rr",":.-5,.+5s/")
+
+-- turn off/toggle autocomplete
+vim.keymap.set({"n","i"}, "<A-f>", function()
+    vim.g.minicompletion_disable = not vim.g.minicompletion_disable
+end)

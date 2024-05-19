@@ -116,6 +116,14 @@ return {
 		end,
 	},
     "L3MON4D3/LuaSnip",
+    {
+        "echasnovski/mini.completion",
+        version = false,
+        config = function()
+            require("mini.completion").setup()
+            vim.g.minicompletion_disable = true
+        end,
+    },
 	
 	-- git
 	{
