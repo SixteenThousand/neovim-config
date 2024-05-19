@@ -11,6 +11,8 @@ vim.api.nvim_create_autocmd("LspAttach",{
                 print("Sorry, this LSP doesn't support hover!")
             end)
         end
+        vim.keymap.set("n","gd",vim.lsp.buf.definition,{buffer=true})
+        vim.opt.completeopt:remove("preview")
     end,
 })
 
