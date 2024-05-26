@@ -115,13 +115,18 @@ return {
 			require("mason").setup()
 		end,
 	},
-    "L3MON4D3/LuaSnip",
+    {
+        "L3MON4D3/LuaSnip",
+        config = function()
+            require("snippets")
+        end
+    },
     {
         "echasnovski/mini.completion",
         version = false,
         config = function()
             require("mini.completion").setup()
-            vim.g.minicompletion_disable = true
+            -- vim.g.minicompletion_disable = true
         end,
     },
 	
@@ -135,6 +140,7 @@ return {
 	},
 	
 	
+    -- misc.
     -- commented out because it conflicts with vim-surround
 	--[[ {
 		"ggandor/leap.nvim",
@@ -154,6 +160,7 @@ return {
 		end,
 	},
     "tpope/vim-surround",
+    "vim-test/vim-test",
 	
 	-- fun
 	"ThePrimeagen/vim-be-good"

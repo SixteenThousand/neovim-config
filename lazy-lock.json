@@ -33,5 +33,6 @@
   "vim-fugitive": { "branch": "master", "commit": "dac8e5c2d85926df92672bf2afb4fc48656d96c7" },
   "vim-jsx-pretty": { "branch": "master", "commit": "6989f1663cc03d7da72b5ef1c03f87e6ddb70b41" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
+  "vim-test": { "branch": "master", "commit": "79c8d972e46862d67a30af2807262e03d4c5eed6" },
   "vimtex": { "branch": "master", "commit": "6c01660a99c0cc0906b39094f4a2d086b28fa995" }
 }
