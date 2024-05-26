@@ -48,6 +48,8 @@ me with questions, although I make no promises about responding quickly!
 - [ ] add proper code completion & snippet support
 - [ ] add some kind of window switcher, possibly just using 
   ggandor/leap.nvim
+- [ ] bug: auto-generated code folding done by the :Fold command is 
+  basically useless, just folding everything
 
 ---
 
