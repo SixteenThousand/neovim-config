@@ -14,7 +14,6 @@ function M.sixteen_defaults()
     vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
         -- stops vim from auto-inserting a bunch of comments
     vim.o.textwidth = 76
-    vim.o.foldlevel = 100
     vim.o.wrap = false
 end
 function M.collab_mode()
@@ -178,10 +177,15 @@ M.fold_actions = {
 	["auto"] = function()
 		vim.cmd.autocmd("FileType * set foldmethod=expr")
 	end,
-	["nohl"] = function()
-		vim.cmd("highlight Folded guibg=bg")
-	end,
 }
+
+-- stop folds being highlighted
+vim.cmd("highlight Folded guibg=bg")
+vim.api.nvim_create_autocmd("ColorScheme",{
+    callback = function()
+		vim.cmd("highlight Folded guibg=bg")
+    end,
+})
 
 
 return M
