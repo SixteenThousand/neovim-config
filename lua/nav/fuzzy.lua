@@ -19,7 +19,7 @@ vim.keymap.set("n","<leader>fb",function()
     tlscp.buffers({previewer = false})
 end)
 vim.keymap.set("n","<leader>fh",function()
-    tlscp.help_tags({previewer = false})
+    tlscp.help_tags({previewer = true})
 end)
 vim.keymap.set("n","<leader>fj",function()
     tlscp.jumplist({previewer = false})
@@ -28,7 +28,7 @@ end)
 local get_dirs_cmd
 local MOVE_TO_MAXDEPTH = 5
 if utils.is_windows() then
-    get_dirs_cmd = table.concat( 
+    get_dirs_cmd = table.concat(
         {
             "pwsh -c",
             "\"Get-ChildItem ~ -Directory -Recurse -Depth ",
