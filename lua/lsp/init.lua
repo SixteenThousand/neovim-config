@@ -32,8 +32,14 @@ lspconf.gopls.setup{}
 
 lspconf.cssls.setup{}
 
+lspconf.html.setup{}
+
 lspconf.eslint.setup{}
 
 lspconf.sqls.setup{}
 
 lspconf.tsserver.setup{}
+
+-- lspconf.lua_ls.setup{}
+
+lspconf.clangd.setup{}
