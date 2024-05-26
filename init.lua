@@ -1,3 +1,8 @@
+if vim.g.vscode then
+    require("vscode")
+    return
+end
+
 -- loose config files
 require("colon")
 require("remap") -- this has to come before lazy is called
