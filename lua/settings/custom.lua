@@ -53,7 +53,7 @@ end
 -- tag mode: for files which will use xml-like syntax at any point
 function M.tag_mode()
     -- lets % toggle between start & end tags
-    vim.b.match_words = "<\\(\\w\\+\\)\\W:<\\/\\1"
+    vim.b.match_words = [[<\(\w\+\)\W:<\/\1]]
     vim.keymap.set(
         "i",
         ">",
