@@ -44,22 +44,10 @@ function M.notext()
     vim.wo.spell = false
 end
 
+-- actually set the tab width
 function M.set_tabwidth(num)
-    -- actually set the tab width
     vim.bo.tabstop = num
     vim.bo.shiftwidth = num
-    -- delete any existing autocommands that change the tab width
-    -- pcall(vim.api.nvim_del_augroup_by_name, "TabWidth")
-    -- vim.api.nvim_del_augroup_by_name("TabWidth")
-    vim.api.nvim_create_augroup("TabWidth",{})
-    vim.api.nvim_create_autocmd({"BufEnter"},{
-        pattern = "<buffer>", -- only attach an autocmd to this buffer
-        callback = function()
-            vim.bo.tabstop = num
-            vim.bo.shiftwidth = num
-        end,
-        group = "TabWidth",
-    })
 end
 
 -- tag mode: for files which will use xml-like syntax at any point
