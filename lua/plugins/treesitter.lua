@@ -1,4 +1,7 @@
 require("nvim-treesitter.configs").setup({
+    highlight = {
+        enable = false,
+    },
     textobjects = {
         move = {
             enable = true,
