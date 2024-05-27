@@ -16,7 +16,7 @@ me with questions, although I make no promises about responding quickly!
 
 ### TODO
 *Please note this list is not really meant to be readable for anyone but me*
-- [-] bug: fern-action-trash does not work on windows (canclled: who use 
+- [-] bug: fern-action-trash does not work on windows (canclled: who uses 
   windows anyway?)
 - [ ] refactor amber to fully utilise telescope API; use table for options 
   instead of "list" & use less commands (e.g. ":Amber quit" instead of 
@@ -36,20 +36,25 @@ me with questions, although I make no promises about responding quickly!
   ![vim-closetag](https://github.com/alvan/vim-closetag) to any filetype
 - [ ] use :make instead of Yona (see 
   <https://github.com/SixteenThousand/Yona>)
-- [ ] bug: ![telescope](https://github.com/nvim-telescope/telescope.nvim) 
-  regularly crashes neovim
+- [-] bug: ![telescope](https://github.com/nvim-telescope/telescope.nvim) 
+  regularly crashes neovim (fixed in later vim updates)
 - [ ] create colour/style options popover/floating menu; should configure
     - vim.o.background (dark/light)
     - guibg (:highlight Normal guibg={NONE/DEFAULT})\
+    - ![neovide](https://neovide.dev/index.html) settings
     use
     - nvim_open_win()
     - nvim_create_buf()
     - nvim_close_win()
-- [ ] add proper code completion & snippet support
+- [x] add proper code completion & snippet support
 - [ ] add some kind of window switcher, possibly just using 
   ggandor/leap.nvim
 - [ ] bug: auto-generated code folding done by the :Fold command is 
   basically useless, just folding everything
+- [ ] refactor terminal opening keymaps with `:rightbelow`, `:vertical`, 
+  etc.
+- [ ] refactor current snippets & add more snippets using new vim.snippets 
+  module
 
 ---
 
