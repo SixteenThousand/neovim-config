@@ -23,6 +23,7 @@ vim.keymap.set("n","<leader>gf",":Git commit -F ")
 
 -- branching
 vim.keymap.set("n","<leader>gb",":Git branch ")
+vim.keymap.set("n","<leader>gm",":Git merge ")
 
 -- git diffing
 vim.keymap.set("n","<leader>gd",":Git diff ")
