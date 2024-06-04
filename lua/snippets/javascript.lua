@@ -4,6 +4,19 @@ ls.setup_snip_env()
 -- ls.cleanup() -- for debugging snippets
 
 ls.add_snippets("javascript",{
-    s("des",fmt([[describe("<>", () =>> {<>});]], {i(1),i(2)},{delimiters="<>"})),
-    s("tes",fmt([[test("<>", () =>> {<>});]], {i(1),i(2)},{delimiters="<>"})),
+    s("des",fmt(
+        [[describe("<>", () =>> {<>]],
+        {i(1),i(2)},{delimiters="<>"})),
+    s("tes",fmt(
+        [[test("<>", () =>> {<>]],
+        {i(1),i(2)},{delimiters="<>"})),
+    s("tea",fmt(
+        [[test("<>", async () =>> {<>]],
+        {i(1),i(2)},{delimiters="<>"})),
+    s("ar",fmt(
+        [[(<>) =>> {<>]],
+        {i(1),i(2)},{delimiters="<>"})),
+    s("ex",fmt(
+        [[expect.any({}]],
+        {i(1)})),
 })

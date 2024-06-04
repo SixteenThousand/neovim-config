@@ -18,6 +18,7 @@ if pluginsOn then
     require("lsp")
     require("nav")
     require("pretty")
+    require("snippets")
 else
     require("nav.remaps")
 end
