@@ -27,3 +27,5 @@ function fern_remaps()
 end
 
 vim.cmd.autocmd("FileType fern lua fern_remaps()")
+
+vim.cmd("let g:fern#default_hidden=1")
