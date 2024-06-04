@@ -99,6 +99,7 @@ vim.api.nvim_create_autocmd(
             "*.ts",
             "*.tsx",
             "*.xml",
+            "*.json",
         },
 		callback = function(event)
             custom.set_tabwidth(2)
