@@ -27,20 +27,14 @@ vim.keymap.set("n","<leader>gm",":Git merge ")
 
 -- git diffing
 vim.keymap.set("n","<leader>gd",":Git diff ")
-local diffcomm_msg = 
-    "'Warning: Only use Diff command with only 1 file in tab!'"
 vim.api.nvim_create_user_command(
     "Diff",
     function(opts)
         vim.cmd("tab split")
         local start_loc = vim.fn.win_getid()
-        if opts.fargs[1] == "commit" then
-            vim.cmd("Git diff --cached")
-        else
-            vim.cmd("Git diff")
-        end
+        vim.cmd("Git diff "..(opts.fargs[1] or ""))
         vim.fn.win_gotoid(start_loc)
-        vim.cmd("Git "..(opts.fargs[1] or ""))
+        vim.cmd("Git")
         local gitwin_loc = vim.fn.win_getid()
         vim.cmd.wincmd("H")
         vim.fn.win_gotoid(start_loc)
