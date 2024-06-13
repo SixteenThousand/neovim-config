@@ -67,5 +67,26 @@ function M.indent_string(line_num,extra)
     end
 end
 
+-- just stringifies a table.
+--     @param depth: int = the recursion depth of the print, i.e., the maximum 
+--     level of nesting that will be shown. Defaults to infinity
+function M.stringify(t, depth)
+    if type(t) ~= "table" then
+        return tostring(t)
+    end
+    if depth ~= nil then
+        depth = depth - 1
+    end
+    local s = "{"
+    for k,v in pairs(t) do
+        s = s + string.format("\n%s = %s,",k,M.stringify(v,depth))
+    end
+    if #s > 1 then
+        s = s + "\n"
+    end
+    s = s + "}"
+    return s
+end
+
 
 return M
