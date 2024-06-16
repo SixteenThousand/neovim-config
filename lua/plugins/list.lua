@@ -23,13 +23,16 @@ return {
 				-- note lualine is also mentioned in the <A-r> remap in 
 				-- remap.lua
 				-- 
-				section_separators = { left = '', right = '' },
-				component_separators = { left = '', right = '' },
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
 		    },
 			sections = {
-				lualine_x = {"encoding","fileformat","filesize","filetype"},
-				lualine_y = {"progress"},
-				lualine_z = {"location"}
+                lualine_a = {"mode"},
+                lualine_b = {"filename","branch","diff"},
+                lualine_c = {"diagnostics"},
+				lualine_x = {"fileformat","encoding","filesize"},
+				lualine_y = {"progress","filetype"},
+				lualine_z = {"location"},
 			},
 		},
 	},
@@ -115,17 +118,12 @@ return {
 			require("mason").setup()
 		end,
 	},
-    {
-        "L3MON4D3/LuaSnip",
-        config = function()
-            require("snippets")
-        end
-    },
+    L3MON4D3/LuaSnip",
     {
         "echasnovski/mini.completion",
         version = false,
         config = function()
-            require("mini.completion").setup()
+            -- require("mini.completion").setup()
             -- vim.g.minicompletion_disable = true
         end,
     },
