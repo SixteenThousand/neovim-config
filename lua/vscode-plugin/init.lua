@@ -1,0 +1,7 @@
+-- require("utils").write_log({ msg = "We got in to VSCode!" })
+vim.cmd("map <C-S-t> :!ls<CR>")
+require("remap")
+vim.cmd("map <C-j> <C-e>")
+vim.cmd("map <C-k> <C-y>")
+vim.cmd("map <C-h> zh")
+vim.cmd("map <C-l> zl")

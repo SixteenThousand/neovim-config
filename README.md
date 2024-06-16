@@ -18,7 +18,7 @@ me with questions, although I make no promises about responding quickly!
 *Please note this list is not really meant to be readable for anyone but me*
 - [-] bug: fern-action-trash does not work on windows (canclled: who uses 
   windows anyway?)
-- [ ] refactor amber to fully utilise telescope API; use table for options 
+- [x] refactor amber to fully utilise telescope API; use table for options 
   instead of "list" & use less commands (e.g. ":Amber quit" instead of 
   ":AmberQuit")
 - [-] add Amber function to wipe current buffer list without quitting vim 
