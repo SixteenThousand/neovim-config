@@ -68,6 +68,7 @@ function M.indent_string(line_num,extra)
 end
 
 -- just stringifies a table.
+--     @param t: table = the table to be stringified
 --     @param depth: int = the recursion depth of the print, i.e., the maximum 
 --     level of nesting that will be shown. Defaults to infinity
 function M.stringify(t, depth)
@@ -86,6 +87,21 @@ function M.stringify(t, depth)
     end
     s = s.."}"
     return s
+end
+
+-- determines the "project toplevel" directory of the current buffer.
+-- Mostly this will just be the git repo toplevel
+--     @param allow_error: boolean = if true, then when yona cannot find the 
+--     project directory, the function will throw an error. Else it will return 
+--     the parent of the current buffer.
+function M.get_project_dir(allow_error)
+    local yona_pipe = io.popen("cd "..vim.fn.expand("%:h").." && yona root 2>/dev/null","r")
+    local yona_result = yona_pipe:read()
+    if (not allow_error) and yona_result == nil then
+        return vim.fn.expand("%:h")
+    end
+    yona_pipe:close()
+    return yona_result
 end
 
 

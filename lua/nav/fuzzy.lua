@@ -1,4 +1,4 @@
--- module for use of telescope in navigation
+-- telescope.nvim configuration
 local tlscp = require("telescope.builtin")
 local popup = require("utils.popup")
 local utils = require("utils")
@@ -6,12 +6,7 @@ local utils = require("utils")
 vim.keymap.set("n","<leader>ff",function ()
 	tlscp.find_files({
 		["no_ignore"] = true,
-		["search_dirs"] = {
-			"~/Projects",
-			"~/temp",
-			"~/Downloads",
-			vim.fn.stdpath("config"),
-		},
+		["search_dirs"] = { utils.get_project_dir() },
         previewer = false,
 	})
 end)
@@ -48,15 +43,16 @@ else
 end
 local shell_output = io.popen(get_dirs_cmd,"r")
 local dirs = {}
+while true do
+    local line = shell_output:read()
+    if line == nil then
+        break
+    else
+        dirs[#dirs+1] = line
+    end
+end
+shell_output:close()
 vim.keymap.set("n","<leader>ed",function()
-	while true do
-		local line = shell_output:read()
-		if line == nil then
-			break
-		else
-			dirs[#dirs+1] = line
-		end
-	end
 	popup.telescope_dropdown(
 		"Move To!",
 		dirs,
