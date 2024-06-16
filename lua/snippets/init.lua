@@ -8,6 +8,7 @@ function source_snippets(opts)
     require("snippets.javascript")
     require("snippets.tagged")
     require("snippets.sql")
+    require("snippets.git")
 end
 vim.api.nvim_create_user_command("Snippets",source_snippets,{nargs=1})
 
