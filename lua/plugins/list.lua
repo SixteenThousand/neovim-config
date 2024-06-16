@@ -118,7 +118,7 @@ return {
 			require("mason").setup()
 		end,
 	},
-    L3MON4D3/LuaSnip",
+    "L3MON4D3/LuaSnip",
     {
         "echasnovski/mini.completion",
         version = false,
