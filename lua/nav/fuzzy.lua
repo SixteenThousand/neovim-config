@@ -4,9 +4,15 @@ local popup = require("utils.popup")
 local utils = require("utils")
 
 vim.keymap.set("n","<leader>ff",function ()
+    local search_dir = "~/Documents"
+    if vim.bo.ft == "fern" then
+        search_dir = utils.get_fern_path()
+    else
+        search_dir = utils.get_project_dir()
+    end
 	tlscp.find_files({
 		["no_ignore"] = true,
-		["search_dirs"] = { utils.get_project_dir() },
+		["search_dirs"] = { search_dir },
         previewer = false,
 	})
 end)

@@ -104,5 +104,11 @@ function M.get_project_dir(allow_error)
     return yona_result
 end
 
+-- gets the (relative to directory vim was opened in) path of the current fern 
+-- buffer
+function M.get_fern_path()
+    return vim.fn.expand("%:p"):match("fern://.*/file://(.*)%$$")
+end
+
 
 return M
