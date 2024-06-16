@@ -1,6 +1,7 @@
 -- module for any standalone user-defined commands that I make
 
 -- system-open the current buffer (probably in a browser)
+-- this only works in windows!!
 vim.api.nvim_create_user_command(
 	"Open",
 	function()
@@ -20,12 +21,4 @@ vim.api.nvim_create_user_command(
         end
 	end,
 	{nargs="?"}
-)
-
-vim.api.nvim_create_user_command(
-    "WhereAmI",
-    function()
-        print(vim.fn.expand("%:p"))
-    end,
-    {}
 )
