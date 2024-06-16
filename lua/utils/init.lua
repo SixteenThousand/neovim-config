@@ -79,12 +79,12 @@ function M.stringify(t, depth)
     end
     local s = "{"
     for k,v in pairs(t) do
-        s = s + string.format("\n%s = %s,",k,M.stringify(v,depth))
+        s = s..string.format("\n%s = %s,",k,M.stringify(v,depth))
     end
     if #s > 1 then
-        s = s + "\n"
+        s = s.."\n"
     end
-    s = s + "}"
+    s = s.."}"
     return s
 end
 
