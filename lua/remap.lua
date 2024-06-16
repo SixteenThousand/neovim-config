@@ -147,7 +147,6 @@ vim.keymap.set({"n","i","t"},"<A-S-w>",function ()
 	end
 	vim.cmd { cmd="bdelete", bang=true }
 end)
--- vim.keymap.set("n","<A-S-d>",":bdelete term*<C-a><CR>")
 -- navigating windows
 basic_motions = {"h","j","k","l"}
 for i = 1,4 do
@@ -160,6 +159,13 @@ for i = 1,4 do
 		vim.cmd.wincmd(string.upper(basic_motions[i]))
 	end)
 end
+-- window splits
+vim.keymap.set("n","<C-w>v",function()
+    vim.cmd.vsplit(vim.fn.expand("%:h"))
+end)
+vim.keymap.set("n","<C-w>s",function()
+    vim.cmd.split(vim.fn.expand("%:h"))
+end)
 
 
 -- ++++++++++++ moving code around? visual mode?? ++++++++++++
