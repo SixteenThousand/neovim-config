@@ -18,4 +18,31 @@ ls.add_snippets("javascript",{
     s("ex",fmt(
         [[expect.any({}]],
         {i(1)})),
+    s("portdf", fmt(
+        [[export default function <>() {
+  <>
+}]],
+        {i(1),i(2)},
+        {delimiters="<>"})),
+    s("portf", fmt(
+        [[export function <>() {
+  <>
+}]],
+        {i(1),i(2)},
+        {delimiters="<>"})),
+})
+
+ls.add_snippets("javascriptreact",{
+    s("portdf", fmt(
+        [[export default function <>({<>}) {
+  <>
+}]],
+        {i(1),i(2),i(3)},
+        {delimiters="<>"})),
+    s("portf", fmt(
+        [[export function <>({<>}) {
+  <>
+}]],
+        {i(1),i(2),i(3)},
+        {delimiters="<>"})),
 })
