@@ -42,9 +42,10 @@ else
     get_dirs_cmd = table.concat({
         "cd $HOME",
         "&&",
-        "find * -type d",
+        "find *",
         "-maxdepth",
         tostring(MOVE_TO_MAXDEPTH),
+        "-type d",
     }, " ")
 end
 local shell_output = io.popen(get_dirs_cmd,"r")
