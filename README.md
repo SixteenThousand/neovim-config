@@ -37,6 +37,9 @@ me with questions, although I make no promises about responding quickly!
   basically useless, just folding everything
 - [ ] refactor terminal opening keymaps with `:rightbelow`, `:vertical`, 
   etc.
+- [ ] fix close tag shortcut bugs:
+    - >><< breaks it
+    - => in a tag breaks it
 
 ---
 
