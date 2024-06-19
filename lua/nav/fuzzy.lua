@@ -11,21 +11,15 @@ vim.keymap.set("n","<leader>ff",function ()
         search_dir = utils.get_project_dir()
     end
 	tlscp.find_files({
-		["no_ignore"] = true,
-		["search_dirs"] = { search_dir },
+		no_ignore = true,
+		search_dirs = { search_dir },
         previewer = false,
 	})
 end)
 vim.keymap.set("n","<leader>fg",function ()
-    local search_dir = "~/Documents"
-    if vim.bo.ft == "fern" then
-        search_dir = utils.get_fern_path()
-    else
-        search_dir = utils.get_project_dir()
-    end
 	tlscp.git_files({
-		["no_ignore"] = true,
-		["search_dirs"] = { search_dir },
+		no_ignore = true,
+        use_file_path = true,
         previewer = false,
 	})
 end)
