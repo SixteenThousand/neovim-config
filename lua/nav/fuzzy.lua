@@ -17,11 +17,16 @@ vim.keymap.set("n","<leader>ff",function ()
 	})
 end)
 vim.keymap.set("n","<leader>fg",function ()
-	tlscp.git_files({
+	local scopeRan,_ = pcall(tlscp.git_files,{
 		no_ignore = true,
         use_file_path = true,
         previewer = false,
 	})
+    if not scopeRan then
+        vim.cmd.echohl("WarningMsg")
+        vim.cmd.echo("\"Not in a git repo (sorry)\"")
+        vim.cmd.echohl("None")
+    end
 end)
 vim.keymap.set("n","<leader>fb",function()
     tlscp.buffers({previewer = false})

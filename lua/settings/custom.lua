@@ -67,7 +67,8 @@ function M.tag_mode()
             local open_tag = [[^.*<([^/%s][^>%s]*)[^>]*$]]
             local open_match = line_before_cursor:match(open_tag)
             if open_match ~= nil then
-                if line_before_cursor:sub(-1) == "/" then
+                local last_char = line_before_cursor:sub(-1)
+                if last_char == "/" or last_char == "=" then
                     vim.api.nvim_set_current_line(
                         line_before_cursor..">"..line_after_cursor)
                     vim.fn.cursor(startpos[2],startpos[3]+1)
