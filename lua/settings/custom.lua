@@ -126,25 +126,15 @@ function MyFoldLevel(line_num)
 		return 0
 	else
 		return math.floor(
-			math.max(vim.fn.indent(line_num),
-				vim.fn.indent(line_num-1),
-				vim.fn.indent(line_num+1)
-			) / vim.o.shiftwidth
+			math.max(vim.fn.indent(line_num), vim.fn.indent(line_num+1))
+                / vim.o.shiftwidth
 		)
 	end
-end
-function MyPyFoldLevel(line_num)
-	return math.max(
-		vim.fn.indent(line_num),
-		vim.fn.indent(line_num+1)
-	)
 end
 vim.o.foldcolumn = "0"
 vim.opt.foldtext = "v:lua.MyFoldText()"
 vim.cmd.set("fillchars+=fold:\\ ")
 vim.cmd.autocmd("FileType * set foldexpr=v:lua.MyFoldLevel(v:lnum)")
-vim.cmd.autocmd("FileType py set foldexpr=v:lua.MyPyFoldLevel(v:lnum)")
-vim.cmd.autocmd("FileType hs set foldexpr=v:lua.MyPyFoldLevel(v:lnum)")
 vim.cmd("highlight Folded guibg=background")
 
 M.fold_actions = {
