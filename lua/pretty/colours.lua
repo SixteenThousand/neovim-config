@@ -1,7 +1,12 @@
 -- colourscheme management
 
 -- default
-vim.cmd.colorscheme("sonokai")
+local defaultColourSchemeOn, _ = require,"sonokai")
+if defaultColourSchemeOn then
+    vim.cmd.colorscheme("sonokai")
+else
+    vim.cmd.colorscheme("slate")
+end
 
 vim.keymap.set("n","<leader>cb",function()
     if vim.o.background == "dark" then
