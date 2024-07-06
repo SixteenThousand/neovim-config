@@ -30,13 +30,13 @@ return {
                 lualine_a = {"mode"},
                 lualine_b = {"filename","branch","diff"},
                 lualine_c = {"diagnostics"},
-				lualine_x = {"fileformat","encoding","filesize"},
-				lualine_y = {"progress","filetype"},
+				lualine_x = {"fileformat","filesize"},
+				lualine_y = {"progress","filetype","tabs"},
 				lualine_z = {"location"},
 			},
 		},
 	},
-	"equalsraf/neovim-gui-shim",
+	-- "equalsraf/neovim-gui-shim",
 	
 	
 	-- find things! maybe explore some files!!

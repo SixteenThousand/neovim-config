@@ -46,3 +46,5 @@ vim.opt.listchars = {
 
 -- getting spellcheck right
 vim.o.spelllang = "en_gb"
+
+vim.o.showtabline = 0
