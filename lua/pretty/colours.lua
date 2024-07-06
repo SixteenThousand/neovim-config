@@ -1,7 +1,7 @@
 -- colourscheme management
 
 -- default
-vim.cmd.colorscheme("desert")
+vim.cmd.colorscheme("sonokai")
 
 vim.keymap.set("n","<leader>cb",function()
     if vim.o.background == "dark" then
