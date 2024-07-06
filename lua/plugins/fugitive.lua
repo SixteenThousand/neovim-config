@@ -45,4 +45,10 @@ vim.api.nvim_create_user_command(
 )
 
 -- logging
-vim.keymap.set("n","<leader>gl",":Git log ")
+vim.keymap.set("n","<leader>gl",function()
+    if vim.v.count == 0 then
+        vim.cmd("Git log")
+    else
+        vim.cmd("Git log -"..vim.v.count)
+    end
+end)
