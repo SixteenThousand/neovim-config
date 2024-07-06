@@ -19,7 +19,6 @@ vim.keymap.set("n","<leader>gc",function ()
     vim.cmd.Git("commit")
     vim.cmd.startinsert()
 end)
-vim.keymap.set("n","<leader>gf",":Git commit -F ")
 
 -- branching
 vim.keymap.set("n","<leader>gb",":Git branch ")
@@ -27,6 +26,7 @@ vim.keymap.set("n","<leader>gm",":Git merge ")
 
 -- git diffing
 vim.keymap.set("n","<leader>gd",":Git diff ")
+vim.keymap.set("n","<leader>gdg",":Git diff %<CR>")
 vim.api.nvim_create_user_command(
     "Diff",
     function(opts)
