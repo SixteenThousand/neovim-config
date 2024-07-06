@@ -88,10 +88,6 @@ vim.keymap.set("t","<Esc>","<C-\\><C-N>")
 vim.keymap.set("t","<C-PageUp>","<C-\\><C-N><C-PageUp>")
 vim.keymap.set("t","<C-PageDown>","<C-\\><C-N><C-PageDown>")
 -- save current buffer
-vim.keymap.set({"n","i","v"},"<C-s>",function()
-	vim.cmd.stopinsert()
-	vim.cmd.write()
-end)
 vim.keymap.set({"n","i","v"},"<A-s>",function()
 	vim.cmd.stopinsert()
 	vim.cmd.write()
@@ -162,9 +158,13 @@ end
 -- window splits
 vim.keymap.set("n","<C-w>v",function()
     vim.cmd.vsplit(vim.fn.expand("%:h"))
+    vim.cmd.wincmd(tostring(vim.fn.winnr("#").."x"))
+    vim.cmd.wincmd("l")
 end)
 vim.keymap.set("n","<C-w>s",function()
     vim.cmd.split(vim.fn.expand("%:h"))
+    vim.cmd.wincmd(tostring(vim.fn.winnr("#").."x"))
+    vim.cmd.wincmd("j")
 end)
 
 
