@@ -1,10 +1,8 @@
 -- colourscheme management
 
 -- default
-local defaultColourSchemeOn, _ = require,"sonokai")
-if defaultColourSchemeOn then
-    vim.cmd.colorscheme("sonokai")
-else
+local defaultColourSchemeOn, _ = pcall(vim.cmd.colorscheme,"sonokai")
+if not defaultColourSchemeOn then
     vim.cmd.colorscheme("slate")
 end
 
