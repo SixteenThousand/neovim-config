@@ -18,9 +18,20 @@ local fonts = {
 vim.o.guifont = fonts.fant
 
 vim.g.neovide_cursor_vfx_mode = "railgun"
-vim.g.neovide_transparency = 0.70
+vim.g.neovide_transparency = 1.0
 vim.g.neovide_hide_mouse_when_typing = true
-vim.g.neovide_window_blurred = true
+vim.g.neovide_window_blurred = false
+
+-- remove separators from lualine
+local lualineOn, lualine = pcall(require, "lualine")
+if lualineOn then
+    lualine.setup({
+        options = {
+            section_separators = { left = "", right = "" },
+            component_separators = { left = "", right = "" },
+        },
+    })
+end
 
 vim.api.nvim_create_user_command(
 	"Fancy",
