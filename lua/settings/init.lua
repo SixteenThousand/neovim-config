@@ -86,6 +86,10 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 	pattern = {"*.fruit"},
 	command = "set syntax=fruit"
 })
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+	pattern = {"*.rasi"},
+	command = "set syntax=rasi"
+})
 vim.api.nvim_create_autocmd(
 	{"BufEnter"},
 	{
