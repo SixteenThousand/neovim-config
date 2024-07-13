@@ -28,3 +28,21 @@ vim.api.nvim_create_user_command(
 	end,
 	{nargs="?"}
 )
+
+--[[
+Inserts a list of identical lines with numbers (integers) in them, counting up.
+Parameters represent {expression lower_bound upper_bound} in that order.
+Put a `%d` in the expression parameter wherever you want the number to appear.
+--]]
+vim.api.nvim_create_user_command(
+    "Number",
+    function(opts)
+        local startline = vim.fn.getcurpos()[2]
+        local numbered_list = {}
+        for i=tonumber(opts.fargs[2]),tonumber(opts.fargs[3]) do
+            numbered_list[#numbered_list+1] = opts.fargs[1]:gsub("%%d",tostring(i))
+        end
+        vim.api.nvim_buf_set_lines(0,startline,startline,nil,numbered_list)
+    end,
+    { nargs = "*", bang = true }
+)
