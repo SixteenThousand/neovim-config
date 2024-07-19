@@ -41,21 +41,21 @@ local print_statements = {
 	["c"] = "printf(",
 	["cs"] = "Console.WriteLine(",
 	["go"] = "fmt.Println(",
-	["hs"] = "putStrLn ",
+	["haskell"] = "putStrLn ",
 	["html"] = "console.log(",
 	["java"] = "System.out.println(",
-	["js"] = "console.log(",
-	["jsx"] = "console.log(",
+	["javascript"] = "console.log(",
+	["javascriptreact"] = "console.log(",
 	["lua"] = "print(",
 	["ps1"] = "echo ",
-	["py"] = "print(",
-    ["rb"] = "puts ",
-	["rs"] = "println!(",
-    ["ts"] = "console.log(",
-    ["tsx"] = "console.log(",
+	["python"] = "print(",
+    ["ruby"] = "puts ",
+	["rust"] = "println!(",
+    ["typescript"] = "console.log(",
+    ["typescriptreact"] = "console.log(",
 }
 vim.keymap.set("i","<C-x><C-p>",function ()
-	vim.cmd.normal("i"..print_statements[vim.fn.expand("%:e")])
+	vim.cmd.normal("i"..print_statements[vim.o.filetype])
     local startpos = vim.fn.getpos(".")
     vim.fn.cursor(startpos[2],startpos[3]+1)
 end)
