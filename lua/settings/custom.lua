@@ -63,17 +63,26 @@ function M.tag_mode()
             local startpos = vim.fn.getpos(".")
             local line_before_cursor = line:sub(1,startpos[3]-1)
             local line_after_cursor = line:sub(startpos[3])
-            -- closing an open tag
+            -- see if we're at an open tag
             local open_tag = [[^.*<([^/%s][^>%s]*)[^>]*$]]
             local open_match = line_before_cursor:match(open_tag)
             if open_match ~= nil then
+                -- check that we're actually closing a legit HTML tag
                 local last_char = line_before_cursor:sub(-1)
-                if last_char == "/" or last_char == "=" then
-                    vim.api.nvim_set_current_line(
-                        line_before_cursor..">"..line_after_cursor)
-                    vim.fn.cursor(startpos[2],startpos[3]+1)
-                    return
+                local bad_last_chars = {
+                    "/", -- becuase end tags
+                    "=", -- becuase react event handlers
+                    "?", -- becuase PHP
+                }
+                for _,char in pairs(bad_last_chars) do
+                    if last_char == char then
+                        vim.api.nvim_set_current_line(
+                            line_before_cursor..">"..line_after_cursor)
+                        vim.fn.cursor(startpos[2],startpos[3]+1)
+                        return
+                    end
                 end
+                -- close the tag
                 vim.api.nvim_set_current_line(string.format(
                     "%s></%s>%s",
                     line_before_cursor,
@@ -91,8 +100,6 @@ function M.tag_mode()
             if match_before ~= nil and match_before == match_after then
                 vim.api.nvim_set_current_line(line_before_cursor)
                 vim.fn.append(startpos[2],{
-                    -- string.rep(" ",indent+vim.o.shiftwidth),
-                    -- string.rep(" ",indent)..line_after_cursor,
                     utils.indent_string(startpos[2],1),
                     utils.indent_string(startpos[2],0)..line_after_cursor,
                 })
