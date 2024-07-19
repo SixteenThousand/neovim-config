@@ -93,17 +93,6 @@ return {
         dependencies = { "nvim-treesitter" },
     },
 	{
-		"alvan/vim-closetag",
-		config = function(plugin,opts)
-			vim.g.closetag_filenames = "*.html,*.xml,*.svg,*.jsx"
-			vim.g.closetag_filetypes = "html,xml,svg"
-			vim.g.closetag_emptyTags_caseSensitive = 1
-			vim.g.closetag_shortcut = ">"
-			vim.g.closetag_close_shortcut = "<C-A-F1>"
-			-- this one is designed to never be used
-		end,
-	},
-	{
 		"lervag/vimtex",
 		config = function(plugin,opts)
 			vim.cmd("filetype plugin on")
@@ -136,8 +125,7 @@ return {
             require("plugins.fugitive")
 		end,
 	},
-	
-	
+    
     -- misc.
     -- commented out because it conflicts with vim-surround
 	--[[ {
