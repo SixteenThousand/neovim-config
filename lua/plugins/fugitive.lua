@@ -26,7 +26,7 @@ vim.keymap.set("n","<leader>gm",":Git merge ")
 
 -- git diffing
 vim.keymap.set("n","<leader>gd",":Git diff ")
-vim.keymap.set("n","<leader>gdg",":Git diff %<CR>")
+vim.keymap.set("n","<leader>gf",":Git diff %<CR>")
 vim.api.nvim_create_user_command(
     "Diff",
     function(opts)
@@ -52,3 +52,6 @@ vim.keymap.set("n","<leader>gl",function()
         vim.cmd("Git log -"..vim.v.count)
     end
 end)
+
+-- git man pages
+vim.keymap.set("n","<leader>gh",":Git help ")
