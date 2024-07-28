@@ -33,5 +33,23 @@ lspconf.html.setup{}
 -- lspconf.eslint.setup{}
 lspconf.sqls.setup{}
 lspconf.tsserver.setup{}
--- lspconf.lua_ls.setup{}
+lspconf.lua_ls.setup{
+    settings = {
+        Lua = {
+            runtime = {
+                version = "LuaJIT",
+            },
+            diagnostics = {
+                globals = { "vim", },
+            },
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME,
+                },
+            },
+        },
+    }
+}
 lspconf.clangd.setup{}
+lspconf.jdtls.setup{}
