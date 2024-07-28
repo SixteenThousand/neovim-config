@@ -51,6 +51,7 @@ local print_statements = {
 	["python"] = "print(",
     ["ruby"] = "puts ",
 	["rust"] = "println!(",
+    ["sh"] = "echo -e ",
     ["typescript"] = "console.log(",
     ["typescriptreact"] = "console.log(",
 }

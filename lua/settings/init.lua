@@ -115,7 +115,11 @@ vim.api.nvim_create_autocmd(
     {"BufEnter"},
     {
         pattern = {"*.md"},
-        callback = custom.text,
+        callback = function()
+            custom.text()
+            vim.fn.setreg("h",[[0i## ]])
+            vim.fn.setreg("l",[[vip:s/^\s\+/ - /]])
+        end,
     }
 )
 vim.api.nvim_create_autocmd(
