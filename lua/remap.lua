@@ -182,11 +182,14 @@ vim.keymap.set("n","L",function()
 	vim.cmd.normal(tostring(vim.bo.tabstop).."l")
 end)
 vim.keymap.set({"i","n"},"<A-BS>",function()
-    vim.cmd.normal(string.format(
-        "%dh%dx",
-        tostring(vim.bo.tabstop),
-        tostring(vim.bo.tabstop)
-    ))
+    local line = vim.fn.getline(".")
+    local startpos = vim.fn.getpos(".")
+    if startpos[3] >= #line then
+        vim.cmd.normal(string.format("%dXx",vim.bo.tabstop-1))
+        vim.fn.cursor(startpos[2],startpos[3]+1)
+    else
+        vim.cmd.normal(string.format("%dX",vim.bo.tabstop))
+    end
 end)
 
 -- ++++++++++++ substitution ++++++++++++
