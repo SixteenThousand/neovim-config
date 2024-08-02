@@ -90,6 +90,10 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 	pattern = {"*.rasi"},
 	command = "set syntax=rasi"
 })
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+	pattern = {"*.clifm","clifmrc"},
+	command = "set syntax=clifm"
+})
 vim.api.nvim_create_autocmd(
 	{"BufEnter"},
 	{
