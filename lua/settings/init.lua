@@ -105,7 +105,7 @@ vim.api.nvim_create_autocmd(
             "*.xml",
             "*.json",
         },
-		callback = function(event)
+		callback = function()
             custom.set_tabwidth(2)
             custom.tag_mode()
 		end,
@@ -128,6 +128,15 @@ vim.api.nvim_create_autocmd(
         pattern = {"*.md"},
         callback = function()
             custom.notext()
+        end,
+    }
+)
+vim.api.nvim_create_autocmd(
+    {"BufEnter"},
+    {
+        pattern = {"Makefile"},
+        callback = function()
+            vim.bo.expandtab = false
         end,
     }
 )
