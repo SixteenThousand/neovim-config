@@ -6,7 +6,7 @@ return {
 	"marko-cerovac/material.nvim",
 	"xero/miasma.nvim",
 	"rose-pine/neovim",
-	"EdenEast/nightfox.nvim",
+    "EdenEast/nightfox.nvim",
 	"shaunsingh/nord.nvim",
 	"sainnhe/sonokai",
 	"ku-s-h/summerfruit256.vim",
