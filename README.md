@@ -19,7 +19,7 @@ me with questions, although I make no promises about responding quickly!
 - [ ] refactor amber to fully utilise telescope API; use table for options 
   instead of "list"
 - [ ] integrate shada files into Amber sessions?
-- [ ] incorporate :Git difftool into my workflow? (see 
+- [x] incorporate :Git difftool into my workflow? (see 
   ![vim-fugitive](https://github.com/tpope/vim-fugitive))
 - [ ] use :make instead of Yona (see 
   <https://github.com/SixteenThousand/Yona>)
@@ -35,9 +35,9 @@ me with questions, although I make no promises about responding quickly!
   ggandor/leap.nvim
 - [ ] bug: auto-generated code folding done by the :Fold command is 
   basically useless, just folding everything
-- [ ] refactor terminal opening keymaps with `:rightbelow`, `:vertical`, 
+- [ ] refactor terminal opening keymaps to use `:rightbelow`, `:vertical`, 
   etc.
-- [ ] fix close tag shortcut bugs:
+- [x] fix close tag shortcut bugs:
     - >><< breaks it
     - => in a tag breaks it
 
