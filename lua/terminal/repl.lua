@@ -3,17 +3,16 @@ local M = {}
 local term_utils = require("terminal.utils")
 
 local repls = {
-	["cs"] = "csi",
-	["hs"] = "ghci",
+	["haskell"] = "ghci",
 	["java"] = "jshell",
-	["js"] = "node",
+	["javascript"] = "node",
 	["lisp"] = "sbcl",
     ["lua"] = "lua",
-	["py"] = "python",
+	["python"] = "python",
 }
 function M.start_repl()
 	term_utils.terminal_vsplit(
-        repls[vim.fn.expand("%:e")] or term_utils.shell,true)
+        repls[vim.bo.filetype] or term_utils.shell,true)
 end
 
 vim.api.nvim_create_user_command(
