@@ -21,6 +21,7 @@ lspconf.pylsp.setup{
 		},
 	},
 }
+lspconf.pyright.setup{}
 
 lspconf.rust_analyzer.setup{
     cmd = {"rust-analyzer"},
