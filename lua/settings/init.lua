@@ -144,3 +144,18 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+vim.api.nvim_create_autocmd(
+    {"BufEnter"},
+    {
+        pattern = {"*"},
+        callback = function()
+            if vim.bo.filetype == "sh" then
+                -- use tabs instead of spaces to make writing heredocs 
+                -- (<< EOF) easier
+                vim.bo.expandtab = false
+            elseif vim.bo.filetype == "lisp" then
+                custom.set_tabwidth(2)
+            end
+        end,
+    }
+)
