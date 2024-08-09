@@ -1,7 +1,8 @@
 -- colourscheme management
 
 -- default
-local defaultColourSchemeOn, _ = pcall(vim.cmd.colorscheme,"sonokai")
+vim.o.background = "dark"
+local defaultColourSchemeOn, _ = pcall(vim.cmd.colorscheme,"everforest")
 if not defaultColourSchemeOn then
     vim.cmd.colorscheme("slate")
 end
