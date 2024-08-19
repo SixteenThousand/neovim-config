@@ -1,4 +1,5 @@
 require("settings.builtin")
+require("settings.filetype")
 local custom = require("settings.custom")
 
 
@@ -74,88 +75,4 @@ vim.api.nvim_create_user_command(
 		custom.fold_actions[opts.fargs[1]]()
 	end,
 	{nargs=1}
-)
-
--- filetype-specific
--- user-defined syntax highlighting
-vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.podon"},
-	command = "set syntax=podon"
-})
-vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.fruit"},
-	command = "set syntax=fruit"
-})
-vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.rasi"},
-	command = "set syntax=rasi"
-})
-vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.clifm","clifmrc"},
-	command = "set syntax=clifm"
-})
-vim.api.nvim_create_autocmd(
-	{"BufEnter"},
-	{
-        pattern = {
-            "*.css",
-            "*.html",
-            "*.js",
-            "*.jsx",
-            "*.php",
-            "*.svg",
-            "*.ts",
-            "*.tsx",
-            "*.xml",
-            "*.json",
-        },
-		callback = function()
-            custom.set_tabwidth(2)
-            custom.tag_mode()
-		end,
-	}
-)
-vim.api.nvim_create_autocmd(
-    {"BufEnter"},
-    {
-        pattern = {"*.md"},
-        callback = function()
-            custom.text()
-            vim.fn.setreg("h",[[0i## ]])
-            vim.fn.setreg("l",[[vip:s/^\s\+/ - /]])
-        end,
-    }
-)
-vim.api.nvim_create_autocmd(
-    {"BufLeave"},
-    {
-        pattern = {"*.md"},
-        callback = function()
-            custom.notext()
-        end,
-    }
-)
-vim.api.nvim_create_autocmd(
-    {"BufEnter"},
-    {
-        pattern = {"Makefile"},
-        callback = function()
-            vim.bo.expandtab = false
-        end,
-    }
-)
-vim.api.nvim_create_autocmd(
-    {"BufEnter"},
-    {
-        pattern = {"*"},
-        callback = function()
-            if vim.bo.filetype == "sh" then
-                -- use tabs instead of spaces to make writing heredocs 
-                -- (<< EOF) easier
-                vim.bo.expandtab = false
-            elseif vim.bo.filetype == "lisp" then
-                custom.set_tabwidth(2)
-            end
-        end,
-    }
 )
