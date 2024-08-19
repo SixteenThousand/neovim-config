@@ -30,3 +30,6 @@ vim.keymap.set({"n","i"},"<C-t>",function() vim.cmd.tabnew("%:h") end)
 vim.keymap.set("t","<C-t>",vim.cmd.tabnew)
 vim.keymap.set({"n","i","t"},"<A-Left>",vim.cmd.tabprev)
 vim.keymap.set({"n","i","t"},"<A-Right>",vim.cmd.tabnext)
+
+-- go back to the previous *viewed* buffer
+vim.keymap.set({"n","i"},"<A-e>",function() vim.cmd.buffer("#") end)
