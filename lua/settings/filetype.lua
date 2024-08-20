@@ -23,6 +23,10 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 	pattern = {"*.clifm","clifmrc"},
 	command = "set syntax=clifm"
 })
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+    pattern = {".phase"},
+    callback = function() vim.bo.filetype = "toml" end,
+})
 
 -- HTML/XML-like  languages
 vim.api.nvim_create_autocmd(
