@@ -1,3 +1,5 @@
+local custom = require("settings.custom")
+
 vim.g.python_indent = {
     open_paren = "shiftwidth()",
     continue =  "shiftwidth()",
