@@ -36,3 +36,45 @@ vim.api.nvim_create_user_command(
 	end,
 	{nargs="?"}
 )
+
+
+
+local term_utils = require("terminal.utils")
+
+local mux_bindings = {
+    c = function()
+        local current_dir = vim.fn.expand("%:h")
+        local _,pathStart = vim.fn.bufname():find("///")
+        if pathStart ~= nil then
+            current_dir = current_dir:sub(pathStart+1)
+        end
+        vim.cmd.tabnew()
+        vim.cmd.edit(string.format(
+            "term://%s//1:%s",
+            current_dir,
+            term_utils.shell
+        ))
+        vim.cmd.startinsert()
+    end,
+    a = function()
+        vim.cmd.tabprev()
+        if vim.bo.buftype == "terminal" then
+            vim.cmd.startinsert()
+        else
+            vim.cmd.stopinsert()
+        end
+    end,
+    d = function()
+        vim.cmd.tabnext()
+        if vim.bo.buftype == "terminal" then
+            vim.cmd.startinsert()
+        else
+            vim.cmd.stopinsert()
+        end
+    end,
+    q = vim.cmd.quit,
+}
+
+for key,binding in pairs(mux_bindings) do
+    vim.keymap.set({"n","i","t"},"<C-s>"..key,binding)
+end
