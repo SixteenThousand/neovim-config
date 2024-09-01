@@ -27,8 +27,8 @@ return {
                 component_separators = { left = "", right = "" },
 		    },
 			sections = {
-                lualine_a = {"mode"},
-                lualine_b = {"filename","branch","diff"},
+                lualine_a = {"filename"},
+                lualine_b = {"branch","diff"},
                 lualine_c = {"diagnostics"},
 				lualine_x = {"fileformat","filesize"},
 				lualine_y = {"progress","filetype","tabs"},
