@@ -14,6 +14,15 @@ vim.api.nvim_create_user_command(
 	{}
 )
 
+-- open current file in broswer (i.e. firefox)
+vim.api.nvim_create_user_command(
+    "Fox",
+    function()
+        vim.cmd("!firefox --new-tab %")
+    end,
+    {}
+)
+
 -- get path of current buffer
 vim.api.nvim_create_user_command(
 	"Path",
