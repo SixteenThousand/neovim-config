@@ -8,20 +8,20 @@ vim.g.python_indent = {
 
 -- user-defined syntax highlighting
 vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.podon"},
-	command = "set syntax=podon"
+    pattern = {"*.podon"},
+    command = "set syntax=podon"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.fruit"},
-	command = "set syntax=fruit"
+    pattern = {"*.fruit"},
+    command = "set syntax=fruit"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.rasi"},
-	command = "set syntax=rasi"
+    pattern = {"*.rasi"},
+    command = "set syntax=rasi"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
-	pattern = {"*.clifm","clifmrc"},
-	command = "set syntax=clifm"
+    pattern = {"*.clifm","clifmrc"},
+    command = "set syntax=clifm"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
     pattern = {".phase"},
@@ -30,8 +30,8 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 
 -- HTML/XML-like  languages
 vim.api.nvim_create_autocmd(
-	{"BufEnter"},
-	{
+    {"BufEnter"},
+    {
         pattern = {
             "*.css",
             "*.html",
@@ -44,11 +44,11 @@ vim.api.nvim_create_autocmd(
             "*.xml",
             "*.json",
         },
-		callback = function()
+        callback = function()
             custom.set_tabwidth(2)
             custom.tag_mode()
-		end,
-	}
+        end,
+    }
 )
 
 -- markdown
@@ -78,7 +78,7 @@ vim.api.nvim_create_autocmd(
     {
         pattern = "lisp",
         callback = function()
-			custom.set_tabwidth(2)
+            custom.set_tabwidth(2)
         end,
     }
 )
@@ -86,12 +86,12 @@ vim.api.nvim_create_autocmd(
 -- tabs vs spaces settings
 vim.api.nvim_create_autocmd(
     {"FileType"},
-	{
-		pattern = "*",
-		callback = function()
-			if vim.bo.filetype ~= "make" and vim.bo.filetype ~= "sh" then
-				vim.bo.expandtab = true
-			end
-		end,
-	}
+    {
+        pattern = "*",
+        callback = function()
+            if vim.bo.filetype ~= "make" and vim.bo.filetype ~= "sh" then
+                vim.bo.expandtab = true
+            end
+        end,
+    }
 )
