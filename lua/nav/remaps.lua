@@ -2,6 +2,7 @@
 -- are in their respective modules
 vim.keymap.set("n","<leader>ee",":buffer ")
 vim.keymap.set("n","<leader>ef",":find ")
+vim.keymap.set("n","<leader>ec",function() vim.cmd.Fern(".") end)
 
 local bookmarks = {
     ["'"] = vim.fn.stdpath("config"),
