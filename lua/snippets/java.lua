@@ -28,7 +28,7 @@ ls.add_snippets("java",{
         "httphandler",
         fmt(
             HTTP_HANDLER_SNIPPET,
-            {i(1),i(2),i(3),i(4),i(5),},
+            {i(1),i(2),i(3),i(4),},
             {delimiters="<>"}
         )
     ),
