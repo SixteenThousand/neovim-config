@@ -10,7 +10,6 @@ function M.sixteen_defaults()
     -- line numbers
     vim.o.number = true
     vim.o.relativenumber = true
-    vim.bo.expandtab = true
     vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
         -- stops vim from auto-inserting a bunch of comments
     vim.o.textwidth = 76

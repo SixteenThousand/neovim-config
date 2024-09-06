@@ -73,31 +73,25 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
-
--- filetypes that require tabs instead of spaces
--- or other weird tab options
--- makefile recipes
 vim.api.nvim_create_autocmd(
-    {"BufEnter"},
+    {"FileType"},
     {
-        pattern = {"Makefile"},
+        pattern = "lisp",
         callback = function()
-            vim.bo.expandtab = false
+			custom.set_tabwidth(2)
         end,
     }
 )
+
+-- tabs vs spaces settings
 vim.api.nvim_create_autocmd(
-    {"BufEnter"},
-    {
-        pattern = {"*"},
-        callback = function()
-            if vim.bo.filetype == "sh" then
-                -- use tabs instead of spaces to make writing heredocs 
-                -- (<< EOF) easier
-                vim.bo.expandtab = false
-            elseif vim.bo.filetype == "lisp" then
-                custom.set_tabwidth(2)
-            end
-        end,
-    }
+    {"FileType"},
+	{
+		pattern = "*",
+		callback = function()
+			if vim.bo.filetype ~= "make" and vim.bo.filetype ~= "sh" then
+				vim.bo.expandtab = true
+			end
+		end,
+	}
 )
