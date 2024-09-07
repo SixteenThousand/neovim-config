@@ -8,15 +8,19 @@ require("nvim-treesitter.configs").setup({
             set_jumps = true,
             goto_next_start  = {
                 ["]m"] = "@function.outer",
+                ["]o"] = "@class.outer",
             },
             goto_next_end = {
                 ["]M"] = "@function.outer",
+                ["]O"] = "@class.outer",
             },
             goto_previous_start  = {
                 ["[m"] = "@function.outer",
+                ["[o"] = "@class.outer",
             },
             goto_previous_end = {
                 ["[M"] = "@function.outer",
+                ["[O"] = "@class.outer",
             },
         },
         select = {
@@ -27,6 +31,7 @@ require("nvim-treesitter.configs").setup({
                 ["as"] = "@scope",
                 ["ar"] = "@parameter.outer",
                 ["ir"] = "@parameter.inner",
+                ["ac"] = "@class.outer",
             },
             selection_modes = {
                 ["@function.inner"] = "V",
