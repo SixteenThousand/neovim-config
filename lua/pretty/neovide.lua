@@ -13,7 +13,7 @@ local fonts = {
     ["agave"] = "Agave Nerd Font Mono:h12", -- no ligatures
     ["cas-win"] = "Caskaydia Cove Nerd Font Mono:h12", -- ligatures, windows only?
     ["cas-arch"] = "CaskaydiaMono Nerd Font:h12", -- arch, no ligatures?
-    ["fant"] = "FantasqueSansM Nerd Font:h14", --ligatures
+    ["fant"] = "FantasqueSansM Nerd Font:h13", --ligatures
 }
 vim.o.guifont = fonts.fant
 
