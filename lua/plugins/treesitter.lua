@@ -46,8 +46,7 @@ require("nvim-treesitter.configs").setup({
                 ["<leader>sr"] = "@parameter.inner",
             },
             swap_previous = {
-                ["<Leader>sR"] = "@parameter.outer",
-                ["<Leader>sf"] = "@parameter.outer",
+                ["<Leader>sR"] = "@parameter.inner",
             },
         },
     },
