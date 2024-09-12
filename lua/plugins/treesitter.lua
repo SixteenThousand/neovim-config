@@ -36,6 +36,8 @@ require("nvim-treesitter.configs").setup({
             selection_modes = {
                 ["@function.inner"] = "V",
                 ["@function.outer"] = "V",
+                ["@class.inner"] = "V",
+                ["@class.outer"] = "V",
             },
         },
         swap = {
