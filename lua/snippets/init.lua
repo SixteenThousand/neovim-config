@@ -1,24 +1,193 @@
 local luasnip = require("luasnip")
+luasnip.setup_snip_env()
 
-
-function source_snippets(opts)
-    if opts ~= nil and opts.fargs[1] == "clean" then
-        require("luasnip").cleanup()
-    end
-    require("snippets.javascript")
-    require("snippets.tagged")
-    require("snippets.sql")
-    require("snippets.git")
-    require("snippets.markdown")
-    require("snippets.java")
-    require("snippets.tex")
-end
-vim.api.nvim_create_user_command("Snippets",source_snippets,{nargs="?"})
-
-source_snippets()
 
 -- keymaps
 vim.keymap.set("i","<C-f>",luasnip.expand_or_jump)
 vim.keymap.set("i","<C-b>",function()
     luasnip.jump(-1)
 end)
+
+
+luasnip.add_snippets("gitcommit",{
+    s("upr",fmt(
+        ">> update README",
+        {}
+    )),
+    s("upt",fmt(
+        ">> update TODO",
+        {}
+    )),
+})
+
+luasnip.add_snippets("java", {
+    s("start",fmt(
+[[public class <> {
+public static void main(String[] args) {
+    <>
+}]],
+        {i(1),i(2),},
+        {delimiters="<>"}
+    )),
+    s("httphandler", fmt([[
+import java.io.OutputStream;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpExchange;
+import java.io.IOException;
+
+public class <> implements HttpHandler {
+    public void handle(HttpExchange exchange) throws IOException {
+        exchange.sendResponseHeaders(<>,<>);
+        OutputStream response = exchange.getResponseBody();
+        <>
+        response.close();
+    }
+}]],
+        {i(1),i(2),i(3),i(4),},
+        {delimiters="<>"}
+    )),
+})
+
+
+luasnip.add_snippets("javascript",{
+    s("des",fmt(
+        [[describe("<>", () =>> {<>]],
+        {i(1),i(2)},
+        {delimiters="<>"}
+    )),
+    s("tes",fmt(
+        [[test("<>", () =>> {<>]],
+        {i(1),i(2)},
+        {delimiters="<>"}
+    )),
+    s("tea",fmt(
+        [[test("<>", async () =>> {<>]],
+        {i(1),i(2)},
+        {delimiters="<>"}
+    )),
+    s("ar",fmt(
+        [[(<>) =>> {<>]],
+        {i(1),i(2)},
+        {delimiters="<>"}
+    )),
+    s("ex",fmt(
+        [[expect.any({}]],
+        {i(1)}
+    )),
+    s("portdf", fmt(
+[[export default function <>() {
+  <>
+}]],
+        {i(1),i(2)},
+        {delimiters="<>"}
+    )),
+    s("portf", fmt(
+[[export function <>() {
+  <>
+}]],
+        {i(1),i(2)},
+        {delimiters="<>"}
+    )),
+})
+
+luasnip.add_snippets("javascriptreact",{
+    s("portdf", fmt(
+[[export default function <>({<>}) {
+  <>
+}]],
+        {i(1),i(2),i(3)},
+        {delimiters="<>"})),
+    s("portf", fmt(
+[[export function <>({<>}) {
+  <>
+}]],
+        {i(1),i(2),i(3)},
+        {delimiters="<>"})),
+})
+
+
+
+
+luasnip.add_snippets("markdown",{
+    s("gh",fmt("https://github.com/{}/{}",{i(1),i(2)})),
+    s("un",fmt("SixteenThousand",{})),
+})
+
+
+luasnip.add_snippets("sql",{
+    s("sel", fmt( [[SELECT {} FROM {};]], {i(1),i(2)} )),
+    s("selw", fmt( [[SELECT {} FROM {} WHERE {};]], {i(1),i(2),i(3)} )),
+    s(
+        "selj",
+        fmt(
+            [[SELECT {} FROM {} JOIN {} ON {}]],
+            {i(1),i(2),i(3),i(4)}
+        )
+    ),
+})
+
+local tag_snippets = {
+    s("inp",fmt(
+        [[<input id="{}" type="{}"{}>]],
+        {i(1),i(2),i(3)}
+    )),
+    s("lab",fmt(
+        [[<label for="{}"{}>{}</label>]],
+        {i(1),i(2),i(3)}
+    )),
+    s("htmlmeta",fmt(
+[[<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="{}">
+	<script src="{}" defer></script>
+	<link rel="stylesheet" href="{}" />
+	<title>{}</title>
+</head>
+<body>
+  {}
+</body>
+</html>]],
+        {i(1),i(2),i(3),i(4),i(5),}
+    )),
+    s("port{", fmt(
+        [[import {<>} from '<>';]],
+        {i(1),i(2)},
+        {delimiters="<>"}
+    )),
+    s("port", fmt(
+        [[import {} from '{}';]],
+        {i(1),i(2)}
+    )),
+    s("svg", fmt(
+        [[<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">]],
+        {}
+    )),
+}
+
+local tag_fts = {
+    "html",
+    "svg",
+}
+
+for i = 1,#tag_fts do
+    luasnip.add_snippets(tag_fts[i], tag_snippets)
+end
+
+
+luasnip.add_snippets("tex", {
+    s("\\be",fmt(
+[[\begin{<a>}
+    \item <b>
+\end{<a>}]],
+        {
+            a = i(1), b = i(2)
+        },
+        {
+            delimiters = "<>",
+            repeat_duplicates = true,
+        }
+    )),
+})
