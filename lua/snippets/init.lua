@@ -11,6 +11,7 @@ function source_snippets(opts)
     require("snippets.git")
     require("snippets.markdown")
     require("snippets.java")
+    require("snippets.tex")
 end
 vim.api.nvim_create_user_command("Snippets",source_snippets,{nargs="?"})
 
