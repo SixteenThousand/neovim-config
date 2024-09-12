@@ -8,7 +8,7 @@ local START_SNIPPET = [[public class <> {
     }
 }]]
 
-local HTTP_HANDLER_SNIPPET = [[ import java.io.OutputStream;
+local HTTP_HANDLER_SNIPPET = [[import java.io.OutputStream;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
