@@ -9,15 +9,15 @@ vim.g.python_indent = {
 -- user-defined syntax highlighting
 vim.api.nvim_create_autocmd({"BufEnter"}, {
     pattern = {"*.podon"},
-    command = "set syntax=podon"
+    command = "set filetype=podon"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
     pattern = {"*.fruit"},
-    command = "set syntax=fruit"
+    command = "set filetype=fruit"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
     pattern = {"*.rasi"},
-    command = "set syntax=rasi"
+    command = "set filetype=rasi"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
     pattern = {"*.clifm","clifmrc"},
