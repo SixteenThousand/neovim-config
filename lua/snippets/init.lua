@@ -10,14 +10,8 @@ end)
 
 
 luasnip.add_snippets("gitcommit",{
-    s("upr",fmt(
-        ">> update README",
-        {}
-    )),
-    s("upt",fmt(
-        ">> update TODO",
-        {}
-    )),
+    s("upr",fmt(">> update README",{})),
+    s("upt",fmt(">> update TODO",{})),
 })
 
 luasnip.add_snippets("java", {
@@ -96,21 +90,23 @@ luasnip.add_snippets("javascriptreact",{
   <>
 }]],
         {i(1),i(2),i(3)},
-        {delimiters="<>"})),
+        {delimiters="<>"}
+    )),
     s("portf", fmt(
 [[export function <>({<>}) {
   <>
 }]],
         {i(1),i(2),i(3)},
-        {delimiters="<>"})),
+        {delimiters="<>"}
+    )),
 })
 
 
 
 
 luasnip.add_snippets("markdown",{
-    s("gh",fmt("https://github.com/{}/{}",{i(1),i(2)})),
-    s("un",fmt("SixteenThousand",{})),
+    s("gh", fmt("https://github.com/{}/{}",{i(1),i(2)})),
+    s("un", fmt("SixteenThousand",{})),
 })
 
 
@@ -126,7 +122,7 @@ luasnip.add_snippets("sql",{
     ),
 })
 
-local tag_snippets = {
+luasnip.add_snippets("html", {
     s("inp",fmt(
         [[<input id="{}" type="{}"{}>]],
         {i(1),i(2),i(3)}
@@ -161,30 +157,21 @@ local tag_snippets = {
         [[import {} from '{}';]],
         {i(1),i(2)}
     )),
+})
+
+luasnip.add_snippets("svg", {
     s("svg", fmt(
         [[<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">]],
         {}
     )),
-}
-
-local tag_fts = {
-    "html",
-    "svg",
-}
-
-for i = 1,#tag_fts do
-    luasnip.add_snippets(tag_fts[i], tag_snippets)
-end
-
+})
 
 luasnip.add_snippets("tex", {
     s("\\be",fmt(
 [[\begin{<a>}
     \item <b>
 \end{<a>}]],
-        {
-            a = i(1), b = i(2)
-        },
+        {a=i(1),b=i(2)},
         {
             delimiters = "<>",
             repeat_duplicates = true,
