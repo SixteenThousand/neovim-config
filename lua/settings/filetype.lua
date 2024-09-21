@@ -20,6 +20,10 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
     command = "set filetype=rasi"
 })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
+    pattern = {"*.owl"},
+    command = "set filetype=owl"
+})
+vim.api.nvim_create_autocmd({"BufEnter"}, {
     pattern = {"*.clifm","clifmrc"},
     command = "set syntax=clifm"
 })
