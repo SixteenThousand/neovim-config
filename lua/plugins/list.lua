@@ -7,10 +7,8 @@ return {
 	"xero/miasma.nvim",
 	"rose-pine/neovim",
     "EdenEast/nightfox.nvim",
-	"shaunsingh/nord.nvim",
 	"sainnhe/sonokai",
 	"ku-s-h/summerfruit256.vim",
-	"folke/tokyonight.nvim",
     "Rigellute/shades-of-purple.vim",
 	
 	{
