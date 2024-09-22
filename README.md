@@ -11,9 +11,16 @@ me with questions, although I make no promises about responding quickly!
 
 ### Features
 
-- Fuzzy-finding for any directory on your system with Telescope
 - A session manager (see lua/amber)
-- Way too many colourschemes!
+- Hand-written HTML tag completion (see `./lua/settings/custom.lua -> 
+  tag_mode` for the code)
+- Key bindings to run unit tests or build a project (uses 
+  [Yona](https://github.com/SixteenThousand/Yona))
+- Good error checking for plugin loading (always good if you want to drop 
+  your config onto a new machine)
+- Cross-platform functionality (i.e., this *should* still work on windows, 
+  at least mostly ;))
+- Way too many colourschemes!! You can never have enough colour schemes.
 
 
 ### TODO
