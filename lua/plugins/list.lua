@@ -90,12 +90,6 @@ return {
         "nvim-treesitter/nvim-treesitter-textobjects",
         dependencies = { "nvim-treesitter" },
     },
-	{
-		"lervag/vimtex",
-		config = function(plugin,opts)
-			vim.cmd("filetype plugin on")
-		end,
-	},
 	"maxmellon/vim-jsx-pretty",
 	-- lsps
 	"neovim/nvim-lspconfig",
