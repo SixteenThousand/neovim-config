@@ -2,11 +2,6 @@ local lspconf = require("lspconfig")
 require("lsp.keymaps")
 
 
-lspconf.java_language_server.setup {
-	cmd = {"java-language-server.cmd"},
-	filetypes = {"java"},
-}
-
 lspconf.pylsp.setup{
 	settings = {
 		pylsp = {
