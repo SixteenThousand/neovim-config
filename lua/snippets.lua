@@ -15,10 +15,11 @@ luasnip.add_snippets("gitcommit",{
 })
 
 luasnip.add_snippets("java", {
-    s("start",fmt(
+    s("boiler",fmt(
 [[public class <> {
-public static void main(String[] args) {
-    <>
+    public static void main(String[] args) {
+        <>
+    }
 }]],
         {i(1),i(2),},
         {delimiters="<>"}
