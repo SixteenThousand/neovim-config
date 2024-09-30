@@ -35,3 +35,4 @@ lspconf.sqls.setup{}
 lspconf.tsserver.setup{}
 lspconf.clangd.setup{}
 lspconf.jdtls.setup{}
+lspconf.csharp_ls.setup{}
