@@ -2,7 +2,7 @@ set commentstring=#\ %s
 
 set cindent
 
-syntax keyword owlSpecial range copy move link remove
+syntax keyword owlSpecial copy move link remove rename mkfile mkdir cp mv ln rm mf md
 highlight link owlSpecial Special
 
 syntax match owlCapture /([^)]*)/
