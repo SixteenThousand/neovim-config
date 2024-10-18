@@ -1,18 +1,32 @@
+local popupOn,popup = pcall(require,"utils.popup")
+
 -- recording the current state so default settings can shared across instances
 local COLOUR_SCHEME_FILE = vim.fn.stdpath("config").."/state/colourscheme"
+vim.g.sixteen_colourscheme = "sonokai"
 local OPACITY_FILE = vim.fn.stdpath("config").."/state/opacity"
+vim.g.sixteen_transparency = false
+
+
 vim.api.nvim_create_autocmd("ColorScheme",{
     callback = function()
-        local csFp = io.open(COLOUR_SCHEME_FILE,"w")
-        if csFp then
-            csFp:write(vim.fn.expand("<amatch>"))
-            csFp:close()
+        local colourschemeFp = io.open(COLOUR_SCHEME_FILE,"w")
+        if colourschemeFp then
+            colourschemeFp:write(vim.fn.expand("<amatch>"))
+            colourschemeFp:close()
+        end
+        local opacityFp = io.open(OPACITY_FILE,"w")
+        if opacityFp then
+            if vim.g.sixteen_transparency then
+                opacityFp:write("1")
+            else
+                opacityFp:write("0")
+            end
+            opacityFp:close()
         end
     end,
 })
 
-
--- dark/light mode
+-- toggle dark/light mode
 vim.o.background = "dark"
 vim.keymap.set("n","<leader>cb",function()
     if vim.o.background == "dark" then
@@ -22,83 +36,85 @@ vim.keymap.set("n","<leader>cb",function()
     end
 end)
 
--- colourscheme
-local csFp = io.open(COLOUR_SCHEME_FILE, "r")
-local defaultCs
-if csFp then
-    defaultCs = csFp:read()
-    csFp:close()
-else
-    defaultCs = "sonokai"
-end
-local defaultColourSchemeOn, _ = pcall(vim.cmd.colorscheme,defaultCs)
-if not defaultColourSchemeOn then
-    vim.cmd.colorscheme("zaibatsu")
-end
--- change colourscheme
-local scopeOn,tlscp = pcall(require,"telescope.builtin")
-if scopeOn then
-	vim.keymap.set("n","<leader>fc",tlscp.colorscheme)
-end
-
--- opacity
-function set_opacity(use_transparency)
+function set_colours()
     if vim.g.neovide then
-        if use_transparency then
+        if vim.g.sixteen_transparency then
             vim.g.neovide_transparency = 0.9
-       else
-            vim.g.neovide_transparency = 1.0
+        else
+            vim.g.neovide_transparency = 1
         end
         return
     end
-    if vim.g.colors_name == "everforest" then
-        vim.g.everforest_transparent_background = use_transparency
-    elseif vim.g.colors_name == "sonokai" then
-        vim.g.sonokai_transparent_background = use_transparency
-    elseif vim.g.colors_name:match("^kanagawa") then
+    if vim.g.sixteen_colourscheme == "everforest" then
+        vim.g.everforest_transparent_background = vim.g.sixteen_transparency
+    elseif vim.g.sixteen_colourscheme == "sonokai" then
+        vim.g.sonokai_transparent_background = vim.g.sixteen_transparency
+    elseif vim.g.sixteen_colourscheme:match("^kanagawa") then
         require("kanagawa").setup({
-            transparent = use_transparency
+            transparent = vim.g.sixteen_transparency
         })
-    elseif vim.g.colors_name:match("^catppuccin") then
+    elseif vim.g.sixteen_colourscheme:match("^catppuccin") then
         require("catppuccin").setup({
-            transparent_background = use_transparency
+            transparent_background = vim.g.sixteen_transparency
         })
-    elseif vim.g.colors_name:match("^material") then
+    elseif vim.g.sixteen_colourscheme:match("^material") then
         require("material").setup({
             disable = {
-                background = not use_transparency
+                background = not vim.g.sixteen_transparency
             }
         })
-    elseif vim.g.colors_name:match("fox$") then
+    elseif vim.g.sixteen_colourscheme:match("fox$") then
         require("nightfox").setup({
             options = {
-                transparent = use_transparency
+                transparent = vim.g.sixteen_transparency
             }
         })
     end
-    vim.cmd.colorscheme(vim.g.colors_name)
+    vim.cmd.colorscheme(vim.g.sixteen_colourscheme)
 end
+
+
+
+-- load default opacity
 local opacityFp = io.open(OPACITY_FILE,"r")
 if opacityFp then
-    set_opacity(opacityFp:read() == "1")
+    vim.g.sixteen_transparency = opacityFp:read() == "1"
     opacityFp:close()
 end
-vim.keymap.set("n","<leader>co",function()
-    local opacityFp = io.open(OPACITY_FILE,"r")
-    if opacityFp then
-        local use_transparency = opacityFp:read() ~= "1"
-        opacityFp:close()
-        opacityFp = io.open(OPACITY_FILE,"w")
-        if opacityFp then
-            if use_transparency then
-                opacityFp:write("1")
-            else
-                opacityFp:write("0")
+
+-- load default colourscheme
+-- see if there's a state file for it
+local colourschemeFp = io.open(COLOUR_SCHEME_FILE,"r")
+if colourschemeFp then
+    vim.g.sixteen_colourscheme = colourschemeFp:read()
+    colourschemeFp:close()
+else
+    vim.g.sixteen_colourscheme = "zaibatsu"
+end
+-- check the plugin for the colourscheme has been loaded
+local defaultColourSchemeOn,_ = pcall(set_colours)
+if not defaultColourSchemeOn then
+    vim.g.sixteen_colourscheme = "zaibatsu"
+    set_colours()
+end
+
+-- key bindings
+if popupOn then
+    vim.keymap.set("n","<leader>fc",function()
+        -- some lines may be copied from the telescope buitlin with the same purpose
+        local before_background = vim.o.background
+        popup.telescope_dropdown(
+            "Change Colourscheme",
+            vim.fn.getcompletion("","color"),
+            function(scheme)
+                vim.g.sixteen_colourscheme = scheme
+                set_colours()
             end
-            opacityFp:close()
-        end
-        set_opacity(use_transparency)
-    else
-        print("No opacity state file found!")
-    end
+        )
+        vim.o.background = before_background
+    end)
+end
+vim.keymap.set("n","<leader>co",function()
+    vim.g.sixteen_transparency = not vim.g.sixteen_transparency
+    set_colours()
 end)
