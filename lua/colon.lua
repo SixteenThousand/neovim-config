@@ -38,6 +38,14 @@ vim.api.nvim_create_user_command(
 	{nargs="?"}
 )
 
+vim.api.nvim_create_user_command(
+    "Html",
+    function(opts)
+        vim.cmd("TOhtml "..vim.fn.expand("%:p")..".html")
+    end,
+   {}
+)
+
 --[[
 Inserts a list of identical lines with numbers (integers) in them, counting up.
 Parameters represent {expression lower_bound upper_bound} in that order.
