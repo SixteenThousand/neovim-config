@@ -98,7 +98,6 @@ vim.keymap.set("n","<leader>co",function()
             opacityFp:close()
         end
         set_opacity(use_transparency)
-        print(use_transparency) -- debug
     else
         print("No opacity state file found!")
     end
