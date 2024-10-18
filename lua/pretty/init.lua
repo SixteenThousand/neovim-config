@@ -1,5 +1,4 @@
 require("pretty.colours")
-require("pretty.opacity")
 if vim.g.neovide then
 	require("pretty.neovide")
 else
