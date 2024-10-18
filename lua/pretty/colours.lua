@@ -101,7 +101,6 @@ end
 -- key bindings
 if popupOn then
     vim.keymap.set("n","<leader>fc",function()
-        -- some lines may be copied from the telescope buitlin with the same purpose
         local before_background = vim.o.background
         popup.telescope_dropdown(
             "Change Colourscheme",
