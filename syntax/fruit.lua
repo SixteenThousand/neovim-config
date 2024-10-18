@@ -14,10 +14,10 @@
 vim.cmd.syntax([[match fruitSection /- .* {\|\(^\|\s\)}/]])
 vim.cmd.highlight("link fruitSection function")
 
-vim.cmd.syntax("match fruitComment /#.*/")
+vim.cmd.syntax("match fruitComment /\\/\\/.*/")
 vim.cmd.highlight("link fruitComment comment")
 
-vim.o.commentstring = "#%s"
+vim.o.commentstring = "// %s"
 
 vim.cmd.syntax([[match fruitBold /\*\*[^*]*\*\*/]])
 vim.cmd.highlight("link fruitBold exception")
@@ -48,3 +48,5 @@ vim.cmd.highlight("link fruitVariable Identifier")
 
 
 vim.o.textwidth = 70
+
+vim.o.cindent = true
