@@ -4,6 +4,7 @@ else
 	CONF_DIR=$(XDG_CONFIG_DIR)/nvim
 endif
 install:
-	ln -s . $(CONF_DIR)
+	ln -s $(PWD) $(CONF_DIR)
+	mkdir -p ./state
 uninstall:
 	trash $(CONF_DIR)
