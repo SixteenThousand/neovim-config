@@ -12,6 +12,7 @@ end)
 luasnip.add_snippets("gitcommit",{
     s("upr",fmt(">> update README",{})),
     s("upt",fmt(">> update TODO",{})),
+    s("kb",fmt("key bindings",{})),
 })
 
 luasnip.add_snippets("java", {
@@ -132,7 +133,7 @@ luasnip.add_snippets("html", {
         [[<label for="{}"{}>{}</label>]],
         {i(1),i(2),i(3)}
     )),
-    s("htmlmeta",fmt(
+    s("boiler",fmt(
 [[<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,13 +162,22 @@ luasnip.add_snippets("html", {
 })
 
 luasnip.add_snippets("svg", {
-    s("svg", fmt(
+    s("boiler", fmt(
         [[<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">]],
         {}
     )),
 })
 
 luasnip.add_snippets("tex", {
+    s("boiler",fmt(
+[[\documentclass[12pt]{article}
+    <b>
+\begin{document}
+    <a>
+\end{document}]],
+        {a=i(1),b=i(2)},
+        {delimiters = "<>"}
+    )),
     s("\\be",fmt(
 [[\begin{<a>}
     \item <b>
