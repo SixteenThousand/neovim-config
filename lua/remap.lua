@@ -176,12 +176,6 @@ vim.keymap.set("v","K",":m '<-2<CR>gv=gv")
 
 
 -- ++++++++++++ tabs ++++++++++++
-vim.keymap.set("n","H",function()
-	vim.cmd.normal(tostring(vim.bo.tabstop).."h")
-end)
-vim.keymap.set("n","L",function()
-	vim.cmd.normal(tostring(vim.bo.tabstop).."l")
-end)
 vim.keymap.set({"i","n"},"<A-BS>",function()
     local line = vim.fn.getline(".")
     local startpos = vim.fn.getpos(".")
