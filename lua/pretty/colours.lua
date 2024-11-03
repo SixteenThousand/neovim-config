@@ -39,10 +39,11 @@ end)
 function set_colours()
     if vim.g.neovide then
         if vim.g.sixteen_transparency then
-            vim.g.neovide_transparency = 0.9
+            vim.g.neovide_transparency = 0.95
         else
             vim.g.neovide_transparency = 1
         end
+        vim.cmd.colorscheme(vim.g.sixteen_colourscheme)
         return
     end
     if vim.g.sixteen_colourscheme == "everforest" then
