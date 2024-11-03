@@ -1,5 +1,6 @@
 local fuzzyOn,fuzzy = pcall(require,"nav.fuzzy")
 require("nav.remaps")
+require("nav.quickfix")
 -- nav.manager is sourced from the relevant file manager`s config
 
 -- opens a view on some given buffer(specified as with :buffer) and deletes the 
