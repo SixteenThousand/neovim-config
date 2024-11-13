@@ -63,13 +63,13 @@ function M.tag_mode()
             local line_before_cursor = line:sub(1,startpos[3]-1)
             local line_after_cursor = line:sub(startpos[3])
             -- see if we're at an open tag
-            local open_tag = [[^.*<([^/%s][^>%s]*)[^>]*$]]
+            local open_tag = [[^.*<([^/!%s][^>%s]*)[^>]*$]]
             local open_match = line_before_cursor:match(open_tag)
             if open_match ~= nil then
                 -- check that we're actually closing a legit HTML tag
                 local last_char = line_before_cursor:sub(-1)
                 local bad_last_chars = {
-                    "/", -- becuase end tags
+                    "/", -- becuase self-closing tags
                     "=", -- becuase react event handlers
                     "?", -- becuase PHP
                 }
