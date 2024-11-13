@@ -16,7 +16,7 @@ vim.cmd.set("cpoptions+=I")
 
 -- buffers?? save?? saving?? idk what to call this bit
 vim.o.autowrite = true
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 2
 	-- keeps at least {number} lines beneath the cursor (unless at end of file)
 
 -- close & reload settings
