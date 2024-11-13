@@ -8,6 +8,7 @@ require("colon")
 require("remap") -- this has to come before lazy is called
 require("settings")
 require("mercurial")
+require("format")
 
 -- packages
 require("terminal")
