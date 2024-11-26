@@ -38,45 +38,55 @@ vim.keymap.set("n","<leader>fj",function()
     tlscp.jumplist({previewer = false})
 end)
 
-local get_dirs_cmd
-local MOVE_TO_MAXDEPTH = 5
-if utils.is_windows() then
-    get_dirs_cmd = table.concat(
-        {
-            "pwsh -c",
-            "\"Get-ChildItem ~ -Directory -Recurse -Depth ",
-            tostring(MOVE_TO_MAXDEPTH),
-            "| Select-Object -ExpandProperty FullName\"",
-        },
-        " "
-    )
-else
-    get_dirs_cmd = table.concat({
-        "cd $HOME",
-        "&&",
-        "find *",
-        "-maxdepth",
-        tostring(MOVE_TO_MAXDEPTH),
-        "-type d",
-    }, " ")
-end
-local shell_output = io.popen(get_dirs_cmd,"r")
-local dirs = {}
-while true do
-    local line = shell_output:read()
-    if line == nil then
-        break
-    else
-        dirs[#dirs+1] = line
+local move_to_dirs = {}
+function move_to()
+    local HOME = os.getenv("HOME")
+    if #move_to_dirs == 0 then
+        print("Move TO!: finding directories...")
+        local get_dirs_cmd
+        local MAXDEPTH = "5"
+        if utils.is_windows() then
+            get_dirs_cmd = table.concat(
+                {
+                    "pwsh -c",
+                    "\"Get-ChildItem",
+                    HOME,
+                    "-Directory -Recurse -Depth",
+                    MAXDEPTH,
+                    "| Select-Object -ExpandProperty FullName\"",
+                },
+                " "
+            )
+        else
+            get_dirs_cmd = table.concat(
+                {
+                    "find",
+                    HOME,
+                    "-maxdepth",
+                    MAXDEPTH,
+                    "-type d",
+                    "2>/dev/null",
+                },
+                " "
+            )
+        end
+        local shell_output = io.popen(get_dirs_cmd,"r")
+        while true do
+            local line = shell_output:read()
+            if line == nil then
+                break
+            else
+                move_to_dirs[#move_to_dirs+1] = line:sub(#HOME+2)
+            end
+        end
+        shell_output:close()
     end
-end
-shell_output:close()
-vim.keymap.set("n","<leader>ed",function()
 	popup.telescope_dropdown(
 		"Move To!",
-		dirs,
+		move_to_dirs,
 		function(path)
-			vim.cmd.edit(os.getenv("HOME").."/"..path)
+			vim.cmd.edit(HOME.."/"..path)
 		end
 	)
-end)
+end
+vim.keymap.set("n","<leader>ed",move_to)
