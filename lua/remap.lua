@@ -189,7 +189,7 @@ end)
 
 -- rename the thing under the cursor
 vim.keymap.set("n", "<A-8>", "*:%s/<C-r>///gc<Left><Left><Left>")
-vim.keymap.set("n", "<C-8>", "*:%s/<C-r>///g<Left><Left>")
+vim.keymap.set("n", "<A-7>", "*:%s/<C-r>///g<Left><Left>")
 
 -- turn off/toggle autocomplete
 vim.keymap.set({"n","i"}, "<A-f>", function()
