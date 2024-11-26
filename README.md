@@ -23,25 +23,32 @@ me with questions, although I make no promises about responding quickly!
 - Way too many colourschemes!! You can never have enough colour schemes.
 
 
-### TODO
+### Development
 
 *Please note this list is not really meant to be readable for anyone but me*
-- [ ] refactor amber to fully utilise telescope API; use table for options 
-  instead of "list"
-- [ ] integrate shada files into Amber sessions?
-- [ ] use :make instead of Yona (see 
-  <https://github.com/SixteenThousand/Yona>)
-- [ ] bug: auto-generated code folding done by the :Fold command is 
-  basically useless, just folding everything
-- [ ] refactor terminal opening keymaps to use `:rightbelow`, `:vertical`, 
-  etc.
-- [ ] investigate startup time
-- [ ] make quickfix keymaps
+- [ ] refactor amber session manager:
+    - [ ] split into actual plugin?
+    - [ ] remove need to use telescope?
+    - [ ] give option to save session files in project directory
+    - [ ] fully utilise telescope API; use table for options instead of 
+      "list"
+    - [ ] integrate shada files into Amber sessions?
+- [ ] fix & extend `:Fold` command:
+    - [ ] have python-style indentation folding, OR more C-style indentation 
+      folding, OR just use braces as fold markers
+    - [ ] make folds respect indentation
 - [ ] make *list.nvim*, a plugin for editing lists in text
-    - add :Number command
-    - make keymap for putting a list on one line
-    - make a keymap for putting a one-line list on separate lines; MUST be 
+    - [x] add :Number command
+    - [ ] make keymap for putting a list on one line
+    - [ ] make a keymap for putting a one-line list on separate lines; MUST be 
       able to deal with surrounding brackets, that's the whole point
+- [ ] Yona/terminal integration (see 
+  <https://github.com/SixteenThousand/Yona>):
+    - [ ] use `:make` with `yona build`?
+    - [ ] get output from yona into quickfix list (may need to do filetype 
+      detection)
+    - [ ] refactor terminal opening keymaps to use `:rightbelow`, 
+      `:vertical`, etc.
 
 ---
 
