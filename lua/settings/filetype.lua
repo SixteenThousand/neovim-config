@@ -77,15 +77,6 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
-vim.api.nvim_create_autocmd(
-    {"FileType"},
-    {
-        pattern = "lisp",
-        callback = function()
-            custom.set_tabwidth(2)
-        end,
-    }
-)
 
 -- tabs vs spaces settings
 vim.api.nvim_create_autocmd(
@@ -99,3 +90,32 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+
+-- lisp stuff
+vim.g.lisp_rainbow = 1
+vim.api.nvim_create_autocmd(
+    {"BufEnter"},
+    {
+        pattern = "*",
+        callback = function()
+            if vim.fn.getline(1):find("#!.*sbcl %-%-script") ~= nil then
+                vim.bo.filetype = "lisp"
+                --[[ require("utils").write_log{ -- debug
+                    msg = "We got a lisp file, lads!",
+                    var = vim.fn.getline(1):find("#!.*sbcl --script") ~= nil,
+                } -- debug ]]
+            end
+        end,
+    }
+)
+vim.api.nvim_create_autocmd(
+    {"FileType"},
+    {
+        callback = function()
+            if vim.bo.filetype == "lisp" then
+                vim.bo.lisp = true
+            end
+        end,
+    }
+)
+   
