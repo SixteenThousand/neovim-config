@@ -27,7 +27,7 @@ lspconf.gopls.setup{}
 lspconf.cssls.setup{}
 lspconf.html.setup{}
 lspconf.sqls.setup{}
-lspconf.tsserver.setup{}
+lspconf.ts_ls.setup{}
 lspconf.clangd.setup{}
 lspconf.jdtls.setup{}
 lspconf.csharp_ls.setup{}
