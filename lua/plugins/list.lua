@@ -3,13 +3,12 @@ return {
     "catppuccin/nvim",
 	"sainnhe/everforest",
 	"rebelot/kanagawa.nvim",
-	"marko-cerovac/material.nvim",
 	"xero/miasma.nvim",
 	"rose-pine/neovim",
     "EdenEast/nightfox.nvim",
 	"sainnhe/sonokai",
 	"ku-s-h/summerfruit256.vim",
-    "Rigellute/shades-of-purple.vim",
+    "folke/tokyonight.nvim",
 	
 	{
 		"nvim-lualine/lualine.nvim",

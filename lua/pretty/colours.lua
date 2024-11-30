@@ -70,6 +70,10 @@ function set_colours()
                 transparent = vim.g.sixteen_transparency
             }
         })
+    elseif vim.g.sixteen_colourscheme:match("^tokyonight") then
+        require("tokyonight").setup({
+            transparent = vim.g.sixteen_transparency
+        })
     end
     vim.cmd.colorscheme(vim.g.sixteen_colourscheme)
 end
