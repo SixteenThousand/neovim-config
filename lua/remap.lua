@@ -48,6 +48,7 @@ local print_statements = {
 	["javascript"] = "console.log(",
 	["javascriptreact"] = "console.log(",
 	["lua"] = "print(",
+    ["ocaml"] = "Printf.printf ",
 	["ps1"] = "echo ",
 	["python"] = "print(",
     ["ruby"] = "print ",
@@ -57,7 +58,12 @@ local print_statements = {
     ["typescriptreact"] = "console.log(",
 }
 vim.keymap.set("i","<C-x><C-p>",function ()
-	vim.cmd.normal("i"..print_statements[vim.o.filetype])
+    local print_statement = print_statements[vim.o.filetype]
+    if not print_statement then
+        vim.cmd.echoerr("\"No print statement defined for this filetype!\"")
+        return
+    end
+	vim.cmd.normal("i"..print_statement)
     local startpos = vim.fn.getpos(".")
     vim.fn.cursor(startpos[2],startpos[3]+1)
 end)
