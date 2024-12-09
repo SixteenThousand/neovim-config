@@ -189,3 +189,21 @@ luasnip.add_snippets("tex", {
         }
     )),
 })
+
+luasnip.add_snippets("go", {
+    s("boiler", fmt(
+[[package main
+
+import (
+    "fmt"
+    <>
+)
+
+func main() {
+    <>
+}]],
+        {i(1),i(2)},
+        {delimiters = "<>"}
+    )),
+})
+            
