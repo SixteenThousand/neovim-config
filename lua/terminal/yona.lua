@@ -1,6 +1,7 @@
 -- time to write a new version of yona???
 
 local utils = require("terminal.utils")
+local TERM_CTRL_CHARS_FILTER = [[ | sed 's/\x1b\[[^m]*m//g']]
 
 vim.api.nvim_create_user_command(
 	"Yona",
@@ -9,7 +10,7 @@ vim.api.nvim_create_user_command(
 		if opts.bang then
 			utils.terminal_vsplit(yona)
 		else
-			vim.cmd("!"..yona)
+			vim.cmd("!"..yona..TERM_CTRL_CHARS_FILTER)
 		end
 	end,
 	{nargs=1,bang=true}
@@ -33,7 +34,7 @@ vim.keymap.set({"n","i"},"<A-S-p>",":Yona! run<CR>")
 
 
 vim.keymap.set({"n","i"},"<A-j>",function()
-	vim.cmd("!yona -f compile %:p")
+	vim.cmd("!yona -f compile %:p"..TERM_CTRL_CHARS_FILTER)
 end)
 vim.keymap.set({"n","i"},"<A-S-j>",function()
 	local path = vim.fn.expand("%:h")
@@ -41,7 +42,7 @@ vim.keymap.set({"n","i"},"<A-S-j>",function()
 end)
 
 vim.keymap.set({"n","i"},"<A-k>",function()
-	vim.cmd("!yona -f run %:p")
+	vim.cmd("!yona -f run %:p"..TERM_CTRL_CHARS_FILTER)
 end)
 vim.keymap.set({"n","i"},"<A-S-k>",function()
 	utils.terminal_vsplit("yona -f run "..vim.fn.expand("%:p"))
