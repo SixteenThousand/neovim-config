@@ -207,3 +207,6 @@ func main() {
     )),
 })
             
+luasnip.add_snippets("php", {
+    s("p", fmt([[<?php {}; ?>{}]], {i(1),i(2)})),
+})
