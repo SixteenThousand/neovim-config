@@ -25,7 +25,6 @@ lspconf.rust_analyzer.setup{
 lspconf.texlab.setup{}
 lspconf.gopls.setup{}
 lspconf.cssls.setup{}
-lspconf.html.setup{}
 lspconf.sqls.setup{}
 lspconf.ts_ls.setup{}
 lspconf.clangd.setup{}
