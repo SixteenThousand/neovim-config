@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("TermOpen",{
         vim.wo.scrolloff = 0
     end,
 })
-vim.go.shell = "/bin/fish"
+vim.go.shell = "/bin/bash"
 
 -- keymaps
 vim.keymap.set("n","<leader>tT",function()
