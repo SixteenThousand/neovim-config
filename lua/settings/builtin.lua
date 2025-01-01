@@ -48,3 +48,8 @@ vim.opt.listchars = {
 vim.o.spelllang = "en_gb"
 
 vim.o.showtabline = 0
+
+-- let :grep (not :vimgrep) search hidden files
+if vim.o.grepprg:find("rg") == 1 then
+    vim.o.grepprg = "rg --hidden --vimgrep -uu"
+end
