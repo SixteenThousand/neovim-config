@@ -14,15 +14,6 @@ vim.api.nvim_create_autocmd("ColorScheme",{
             colourschemeFp:write(vim.fn.expand("<amatch>"))
             colourschemeFp:close()
         end
-        local opacityFp = io.open(OPACITY_FILE,"w")
-        if opacityFp then
-            if vim.g.sixteen_transparency then
-                opacityFp:write("1")
-            else
-                opacityFp:write("0")
-            end
-            opacityFp:close()
-        end
     end,
 })
 
@@ -74,6 +65,13 @@ function set_colours()
         require("tokyonight").setup({
             transparent = vim.g.sixteen_transparency
         })
+    else
+        if vim.g.sixteen_transparency then
+            vim.cmd.colorscheme(vim.g.sixteen_colourscheme)
+            vim.api.nvim_set_hl(0, "Normal", { bg="none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg="none" })
+            return
+        end
     end
     vim.cmd.colorscheme(vim.g.sixteen_colourscheme)
 end
@@ -121,4 +119,13 @@ end
 vim.keymap.set("n","<leader>co",function()
     vim.g.sixteen_transparency = not vim.g.sixteen_transparency
     set_colours()
+    local opacityFp = io.open(OPACITY_FILE,"w")
+    if opacityFp then
+        if vim.g.sixteen_transparency then
+            opacityFp:write("1")
+        else
+            opacityFp:write("0")
+        end
+        opacityFp:close()
+    end
 end)
