@@ -201,3 +201,9 @@ vim.keymap.set("n", "<A-7>", "*:%s/<C-r>///g<Left><Left>")
 vim.keymap.set({"n","i"}, "<A-f>", function()
     vim.g.minicompletion_disable = not vim.g.minicompletion_disable
 end)
+
+-- toggle line numbering
+vim.keymap.set({"n","i"}, "<C-#>", function()
+    vim.o.number = not vim.o.number
+    vim.o.relativenumber = not vim.o.relativenumber
+end)
