@@ -1,18 +1,4 @@
 -- module for any standalone user-defined commands that I make
-local utils = require("utils")
-
--- system-open the current buffer (probably in a browser)
-vim.api.nvim_create_user_command(
-	"Open",
-	function()
-        if utils.is_windows() then
-            vim.cmd("!invoke-item %")
-        else
-            vim.cmd("!xdg-open %")
-        end
-	end,
-	{}
-)
 
 -- open current file in broswer (i.e. firefox)
 vim.api.nvim_create_user_command(
@@ -38,14 +24,6 @@ vim.api.nvim_create_user_command(
 	{nargs="?"}
 )
 
-vim.api.nvim_create_user_command(
-    "Html",
-    function(opts)
-        vim.cmd("TOhtml "..vim.fn.expand("%:p")..".html")
-    end,
-   {}
-)
-
 --[[
 Inserts a list of identical lines with numbers (integers) in them, counting up.
 Parameters represent {expression lower_bound upper_bound} in that order.
@@ -62,4 +40,13 @@ vim.api.nvim_create_user_command(
         vim.api.nvim_buf_set_lines(0,startline,startline,nil,numbered_list)
     end,
     { nargs = "*", bang = true }
+)
+
+-- trying to recreate vim-fugitive but for mercurial
+vim.api.nvim_create_user_command(
+    "Hg",
+    function(opts)
+        vim.cmd("!cd %:h && hg "..(opts.fargs[1] or ""))
+    end,
+    {nargs="?"}
 )

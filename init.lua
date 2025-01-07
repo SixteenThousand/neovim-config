@@ -1,13 +1,7 @@
-if vim.g.vscode then
-    require("vscode-plugin")
-    return
-end
-
 -- loose config files
 require("colon")
 require("remap") -- this has to come before lazy is called
 require("settings")
-require("mercurial")
 require("format")
 
 -- packages
