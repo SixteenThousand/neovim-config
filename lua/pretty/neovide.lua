@@ -15,7 +15,7 @@ local fonts = {
     ["cas-arch"] = "CaskaydiaMono Nerd Font:h12", -- arch, no ligatures?
     ["fant"] = "FantasqueSansM Nerd Font:h13", --ligatures
 }
-vim.o.guifont = fonts.fant
+vim.g.guifont = fonts.fant
 
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_transparency = 1.0

@@ -18,12 +18,12 @@ vim.api.nvim_create_autocmd("ColorScheme",{
 })
 
 -- toggle dark/light mode
-vim.o.background = "dark"
+vim.go.background = "dark"
 vim.keymap.set("n","<leader>cb",function()
-    if vim.o.background == "dark" then
-        vim.o.background = "light"
+    if vim.go.background == "dark" then
+        vim.go.background = "light"
     else
-        vim.o.background = "dark"
+        vim.go.background = "dark"
     end
 end)
 
@@ -104,7 +104,7 @@ end
 -- key bindings
 if popupOn then
     vim.keymap.set("n","<leader>fc",function()
-        local before_background = vim.o.background
+        local before_background = vim.go.background
         popup.telescope_dropdown(
             "Change Colourscheme",
             vim.fn.getcompletion("","color"),
@@ -113,7 +113,7 @@ if popupOn then
                 set_colours()
             end
         )
-        vim.o.background = before_background
+        vim.go.background = before_background
     end)
 end
 vim.keymap.set("n","<leader>co",function()

@@ -33,7 +33,7 @@ function M.terminal_vsplit(cmd,focus)
 	else
 		vim.cmd.terminal(cmd)
 	end
-	vim.o.bufhidden = "delete" -- for luck
+	vim.bo.bufhidden = "delete" -- for luck
 	if not focus then
 		vim.cmd.wincmd("h")
 	end

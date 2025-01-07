@@ -8,6 +8,6 @@ else
         vim.g.GuiMouseHide = 1
         vim.cmd.call("GuiWindowFullScreen(1)")
         -- vim.cmd.call("GuiWindowFrameless(1)")
-        vim.o.guifont = "FantasqueSansM Nerd Font Mono:h9"
+        vim.g.guifont = "FantasqueSansM Nerd Font Mono:h9"
     end
 end

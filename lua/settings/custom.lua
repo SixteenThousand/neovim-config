@@ -8,22 +8,22 @@ local M = {}
 
 function M.sixteen_defaults()
     -- line numbers
-    vim.o.number = true
-    vim.o.relativenumber = true
-    vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
+    vim.wo.number = true
+    vim.wo.relativenumber = true
+    vim.opt_local.formatoptions:remove{ "r", "o", "l" }
         -- stops vim from auto-inserting a bunch of comments
-    vim.o.textwidth = 76
-    vim.o.wrap = false
+    vim.bo.textwidth = 76
+    vim.wo.wrap = false
 end
 function M.collab_mode()
-    vim.o.number = true
-    vim.o.relativenumber = false
+    vim.wo.number = true
+    vim.wo.relativenumber = false
     vim.bo.expandtab = true
-    vim.cmd.set("formatoptions-=r formatoptions-=o formatoptions-=l")
+    vim.opt_local.formatoptions:remove{ "r", "o", "l" }
         -- stops vim from auto-inserting a bunch of comments
-    vim.o.textwidth = 76
-    vim.o.foldlevel = 0
-    vim.o.wrap = true
+    vim.bo.textwidth = 76
+    vim.wo.foldlevel = 0
+    vim.wo.wrap = true
     if vim.g.neovide then
         vim.g.neovide_transparency = 0.9
     end
@@ -33,13 +33,11 @@ end
 -- enter "Text mode"; enable a bunch of options that make writing long blocks of
 -- text much easier
 function M.text()
-    vim.opt.formatoptions:append("taw")
+    vim.opt_local.formatoptions:append("taw")
     vim.wo.spell = true
 end
 function M.notext()
-    vim.opt.formatoptions:remove("t")
-    vim.opt.formatoptions:remove("a")
-    vim.opt.formatoptions:remove("w")
+    vim.opt_local.formatoptions:remove{ "t", "a", "w", }
     vim.wo.spell = false
 end
 
@@ -137,39 +135,39 @@ function py_indent_foldlevel(line_num, maxlevel)
     return math.min(level, maxlevel)
 end
         
-vim.o.foldcolumn = "0"
+vim.wo.foldcolumn = "0"
 vim.go.foldtext = "v:lua.sixteen_fold_text()"
-vim.cmd.set("fillchars+=fold:\\ ")
+vim.opt_global.fillchars:append{ fold = " " }
 
 M.fold_actions = {
     ["show"] = function()
-        if vim.o.foldcolumn == "0" then
-            vim.o.foldcolumn = "2"
+        if vim.wo.foldcolumn == "0" then
+            vim.wo.foldcolumn = "2"
         else
-            vim.o.foldcolumn = "0"
+            vim.wo.foldcolumn = "0"
         end
     end,
     ["wipe"] = function()
-        vim.o.foldmethod = "manual"
+        vim.wo.foldmethod = "manual"
         vim.cmd.normal("zE") -- deletes all folds
-        vim.o.foldcolumn = "0"
+        vim.wo.foldcolumn = "0"
     end,
     -- python-style indentation folding
     ["py"] = function()
-        vim.o.foldexpr = "v:lua.py_indent_foldlevel(v:lnum,99)"
-        vim.o.foldmethod = "expr"
-        vim.o.foldcolumn = "2"
+        vim.wo.foldexpr = "v:lua.py_indent_foldlevel(v:lnum,99)"
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldcolumn = "2"
     end,
     ["max1"] = function()
-        vim.o.foldexpr = "v:lua.py_indent_foldlevel(v:lnum,1)"
-        vim.o.foldmethod = "expr"
-        vim.o.foldcolumn = "2"
+        vim.wo.foldexpr = "v:lua.py_indent_foldlevel(v:lnum,1)"
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldcolumn = "2"
     end,
     -- c-style marker folding
     ["c"] = function()
-        vim.o.foldmethod = "marker"
-        vim.o.foldmarker = "{,}"
-        vim.o.foldcolumn = "2"
+        vim.wo.foldmethod = "marker"
+        vim.wo.foldmarker = "{,}"
+        vim.wo.foldcolumn = "2"
     end,
 }
 

@@ -17,7 +17,6 @@ local bookmarks = {
 for key,path in pairs(bookmarks) do
     vim.keymap.set("n","<leader>e"..key, function ()
         vim.cmd.edit(path)
-        vim.o.number = true
     end)
 end
 

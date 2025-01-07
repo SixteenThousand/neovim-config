@@ -58,7 +58,7 @@ local print_statements = {
     ["typescriptreact"] = "console.log(",
 }
 vim.keymap.set("i","<C-x><C-p>",function ()
-    local print_statement = print_statements[vim.o.filetype]
+    local print_statement = print_statements[vim.bo.filetype]
     if not print_statement then
         vim.cmd.echoerr("\"No print statement defined for this filetype!\"")
         return
@@ -86,7 +86,7 @@ end)
 -- ++++++++++++ searching/highlighting ++++++++++++
 -- toggles whether searches are highlighted or not
 vim.keymap.set("n","<leader>hh",function()
-	vim.o.hlsearch = not vim.o.hlsearch
+	vim.go.hlsearch = not vim.go.hlsearch
 end)
 
 
@@ -204,6 +204,6 @@ end)
 
 -- toggle line numbering
 vim.keymap.set({"n","i"}, "<C-#>", function()
-    vim.o.number = not vim.o.number
-    vim.o.relativenumber = not vim.o.relativenumber
+    vim.wo.number = not vim.wo.number
+    vim.wo.relativenumber = not vim.wo.relativenumber
 end)
