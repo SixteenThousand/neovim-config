@@ -68,11 +68,10 @@ vim.api.nvim_create_user_command(
 )
 
 -- folding
-vim.keymap.set("n","<leader>zl",function() vim.o.foldlevel = vim.v.count end)
 vim.api.nvim_create_user_command(
 	"Fold",
-	function(opts)
-		custom.fold_actions[opts.fargs[1]]()
-	end,
-	{nargs=1}
+    function(opts)
+        custom.fold_actions[opts.fargs[1]]()
+    end,
+    {nargs=1}
 )

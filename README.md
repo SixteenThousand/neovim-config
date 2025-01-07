@@ -33,10 +33,10 @@ me with questions, although I make no promises about responding quickly!
     - [ ] fully utilise telescope API; use table for options instead of 
       "list"
     - [ ] integrate shada files into Amber sessions?
-- [ ] fix & extend `:Fold` command:
-    - [ ] have python-style indentation folding, OR more C-style indentation 
+- [x] fix & extend `:Fold` command:
+    - [x] have python-style indentation folding, OR more C-style indentation 
       folding, OR just use braces as fold markers
-    - [ ] make folds respect indentation
+    - [x] make folds respect indentation
 - [ ] make *list.nvim*, a plugin for editing lists in text
     - [x] add :Number command
     - [ ] make keymap for putting a list on one line
