@@ -1,7 +1,4 @@
--- time to write a new version of yona???
-
 local utils = require("terminal.utils")
-local TERM_CTRL_CHARS_FILTER = [[ | sed 's/\x1b\[[^m]*m//g']]
 
 vim.api.nvim_create_user_command(
 	"Yona",
@@ -15,16 +12,7 @@ vim.api.nvim_create_user_command(
 	end,
 	{nargs=1,bang=true}
 )
-vim.api.nvim_create_user_command(
-	"RipgrepYona",
-	function(opts)
-		utils.terminal_vsplit(
-			"cd "..vim.fn.expand("%:h").." && yona -s rg "..opts.fargs[1],
-			true
-		)
-	end,
-	{nargs=1}
-)
+
 vim.keymap.set({"n","i"},"<A-i>",":Yona test<CR>")
 vim.keymap.set({"n","i"},"<A-S-i>",":Yona! test<CR>")
 vim.keymap.set({"n","i"},"<A-o>",":Yona build<CR>")
@@ -47,3 +35,12 @@ end)
 vim.keymap.set({"n","i"},"<A-S-k>",function()
 	utils.terminal_vsplit("yona -f run "..vim.fn.expand("%:p"))
 end)
+
+-- grep with yona, or yonagrep
+vim.go.grepformat = "%f:%l,%f:%l%m,%f  %l%m"
+vim.go.grepprg = table.concat({
+    "cd %:h &&",
+    "grep -RHIn",
+    "--exclude-dir .git --exclude-dir node_modules",
+    "$* $(yona -s pwd 2>/dev/null)",
+}, " ")

@@ -89,7 +89,8 @@ function M.stringify(t, depth)
     return s
 end
 
--- determines the "project toplevel" directory of the current buffer.
+-- determines the "project toplevel" directory of the current buffer, using
+-- yona (see the "terminal.yona" module).
 -- Mostly this will just be the git repo toplevel
 --     @param allow_error: boolean = if true, then when yona cannot find the 
 --     project directory, the function will throw an error. Else it will return 
