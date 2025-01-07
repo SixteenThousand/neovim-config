@@ -84,9 +84,12 @@ vim.api.nvim_create_autocmd(
     {
         pattern = "*",
         callback = function()
-            if vim.bo.filetype ~= "make" and vim.bo.filetype ~= "sh" then
-                vim.bo.expandtab = true
-            end
+            local use_tabs = {
+                make = true,
+                sh = true,
+                go = true,
+            }
+            vim.bo.expandtab = not use_tabs[vim.bo.filetype]
         end,
     }
 )
