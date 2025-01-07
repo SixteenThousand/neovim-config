@@ -23,9 +23,9 @@ me with questions, although I make no promises about responding quickly!
 - Way too many colourschemes!! You can never have enough colour schemes.
 
 
-### Development
+### TODO
 
-*Please note this list is not really meant to be readable for anyone but me*
+*Please note this list is for my use only*
 - [ ] refactor amber session manager:
     - [ ] split into actual plugin?
     - [ ] remove need to use telescope?
@@ -54,5 +54,5 @@ me with questions, although I make no promises about responding quickly!
 
 #### Notes
 
-- the next review of the todo list will be in early December
+- the next review of the todo list will be in March
 - echohl seems cool. That is all.
