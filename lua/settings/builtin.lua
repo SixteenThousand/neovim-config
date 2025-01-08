@@ -4,10 +4,12 @@ vim.opt_global.path = { ".", "../**3" }
 
 -- indentation & autocommenting
 vim.go.smarttab = false
-vim.bo.shiftwidth = 4
-vim.bo.tabstop = 4
 vim.opt_global.cpoptions:append("I")
-	-- means autoindenting doesn't get deleted all the time
+     -- means autoindenting doesn't get deleted all the tim
+-- tab width; buffer-local options
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.expandtab = true
 
 
 -- keeps at least {number} lines beneath the cursor (unless at end of file)
@@ -20,8 +22,8 @@ vim.go.autowriteall = true
 -- allow h & l to take you to a new line
 vim.opt_global.whichwrap:append("h,l")
 
--- let`s try horzontal scrolling
-vim.wo.wrap = false
+-- let`s try horzontal scrolling; window option
+vim.o.wrap = false
 
 -- search stuff, incl. file & buffer search
 vim.go.hlsearch = false
@@ -39,7 +41,7 @@ vim.opt_global.listchars = {
 	nbsp = "+", -- honestly no idea what this one does but it is a default
 }
 
--- getting spellcheck right
-vim.bo.spelllang = "en_gb"
+-- getting spellcheck right; buffer option
+vim.o.spelllang = "en_gb"
 
 vim.go.showtabline = 0
