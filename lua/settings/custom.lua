@@ -6,27 +6,17 @@
 local utils = require("utils")
 local M = {}
 
-function M.sixteen_defaults()
-    -- line numbers
-    vim.wo.number = true
-    vim.wo.relativenumber = true
-    vim.opt_local.formatoptions:remove{ "r", "o", "l" }
-        -- stops vim from auto-inserting a bunch of comments
-    vim.bo.textwidth = 76
-    vim.wo.wrap = false
-end
-function M.collab_mode()
-    vim.wo.number = true
-    vim.wo.relativenumber = false
-    vim.bo.expandtab = true
-    vim.opt_local.formatoptions:remove{ "r", "o", "l" }
-        -- stops vim from auto-inserting a bunch of comments
-    vim.bo.textwidth = 76
+-- Collaboration Mode; for screensharing neovim with someone else,
+-- especially someone unfamiliar with vim
+function M.collab()
+    vim.o.relativenumber = false
+    vim.o.wrap = true
     vim.wo.foldlevel = 0
-    vim.wo.wrap = true
-    if vim.g.neovide then
-        vim.g.neovide_transparency = 0.9
-    end
+    vim.cmd.colorscheme("slate")
+end
+function M.nocollab()
+    vim.o.relativenumber = true
+    vim.o.wrap = false
 end
 
 

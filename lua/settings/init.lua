@@ -3,31 +3,19 @@ require("settings.filetype")
 local custom = require("settings.custom")
 
 
-local SixteenDefaults
-local CollaborationMode
-SixteenDefaults = vim.api.nvim_create_autocmd({"BufEnter"},{
-    callback = function()
-        custom.sixteen_defaults()
-    end,
-})
 vim.api.nvim_create_user_command(
-    "Collaborate",
+    "Collab",
     function(opts)
-        if opts.fargs[1] == "off" then
-            pcall(vim.api.nvim_del_autocmd,CollaborationMode)
-            custom.sixteen_defaults()
-            SixteenDefaults = vim.api.nvim_create_autocmd({"BufEnter"},{
-                callback = custom.sixteen_defaults,
-            })
-        else
-            pcall(vim.api.nvim_del_autocmd,SixteenDefaults)
-            custom.collab_mode()
-            CollaborationMode = vim.api.nvim_create_autocmd({"BufEnter"},{
-                callback = custom.collab_mode,
-            })
-        end
+        custom.collab()
     end,
-    {nargs="?"}
+    {}
+)
+vim.api.nvim_create_user_command(
+    "NoCollab",
+    function(opts)
+        custom.nocollab()
+    end,
+    {}
 )
 
 
