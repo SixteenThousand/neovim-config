@@ -48,6 +48,3 @@ vim.api.nvim_create_autocmd(
 
 -- lisp stuff
 vim.g.lisp_rainbow = 1
-
--- man pages
-vim.g.man_hardwrap = false
