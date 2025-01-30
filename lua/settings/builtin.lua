@@ -1,6 +1,6 @@
 -- default places :find & co will look
 -- note this used to be ".,/usr/include/,,"
-vim.opt_global.path = { ".", "../**3" }
+vim.opt_global.path = { ".", "./**3", "../**3" }
 
 -- indentation & autocommenting
 vim.go.smarttab = false
