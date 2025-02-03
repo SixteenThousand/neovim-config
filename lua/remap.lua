@@ -166,13 +166,9 @@ end
 -- window splits
 vim.keymap.set("n","<C-w>v",function()
     vim.cmd.vsplit(vim.fn.expand("%:h"))
-    vim.cmd.wincmd(tostring(vim.fn.winnr("#").."x"))
-    vim.cmd.wincmd("l")
 end)
 vim.keymap.set("n","<C-w>s",function()
     vim.cmd.split(vim.fn.expand("%:h"))
-    vim.cmd.wincmd(tostring(vim.fn.winnr("#").."x"))
-    vim.cmd.wincmd("j")
 end)
 
 
