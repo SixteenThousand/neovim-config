@@ -33,6 +33,7 @@ me with questions, although I make no promises about responding quickly!
     - [ ] fully utilise telescope API; use table for options instead of 
       "list"
     - [ ] integrate shada files into Amber sessions?
+    - [ ] check for session file on start up
 - [x] fix & extend `:Fold` command:
     - [x] have python-style indentation folding, OR more C-style indentation 
       folding, OR just use braces as fold markers
@@ -54,5 +55,5 @@ me with questions, although I make no promises about responding quickly!
 
 #### Notes
 
-- the next review of the todo list will be in March
+- the next review of the TODO list will be in March
 - echohl seems cool. That is all.
