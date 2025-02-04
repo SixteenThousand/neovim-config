@@ -3,12 +3,10 @@ return {
     "catppuccin/nvim",
 	"sainnhe/everforest",
 	"rebelot/kanagawa.nvim",
-	"xero/miasma.nvim",
 	"rose-pine/neovim",
     "EdenEast/nightfox.nvim",
 	"sainnhe/sonokai",
 	"ku-s-h/summerfruit256.vim",
-    "folke/tokyonight.nvim",
 	
 	{
 		"nvim-lualine/lualine.nvim",
@@ -99,14 +97,6 @@ return {
 		end,
 	},
     "L3MON4D3/LuaSnip",
-    {
-        "echasnovski/mini.completion",
-        version = false,
-        config = function()
-            -- require("mini.completion").setup()
-            -- vim.g.minicompletion_disable = true
-        end,
-    },
 	
 	-- git
 	{
@@ -118,13 +108,6 @@ return {
 	},
     
     -- misc.
-    -- commented out because it conflicts with vim-surround
-	--[[ {
-		"ggandor/leap.nvim",
-		config = function(plugin,opts)
-			require("leap").create_default_mappings()
-		end,
-	}, ]]
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
@@ -137,8 +120,4 @@ return {
 		end,
 	},
     "tpope/vim-surround",
-    "vim-test/vim-test",
-	
-	-- fun
-	"ThePrimeagen/vim-be-good"
 }
