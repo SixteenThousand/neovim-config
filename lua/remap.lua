@@ -130,15 +130,14 @@ vim.keymap.set("n","<A-_>",function()
 end)
 -- exiting a buffer/window
 vim.keymap.set({"n","i","t"},"<A-w>",function ()
-	local id = vim.fn.win_getid()
-	vim.cmd.wincmd("l")
+    local id = vim.fn.win_getid()
+    vim.cmd.wincmd("j")
     if vim.fn.win_getid() == id then
+        vim.cmd.wincmd("l")
+    elseif vim.fn.win_getid() == id then
         vim.cmd.wincmd("k")
     end
-	if vim.fn.win_getid() == id then
-		vim.cmd.wincmd("j")
-	end
-	vim.cmd.quit()
+    vim.cmd.quit()
 end)
 vim.keymap.set({"n","i","t"},"<A-S-w>",function ()
 	local id = vim.fn.win_getid()
