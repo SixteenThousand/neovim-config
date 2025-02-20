@@ -34,8 +34,11 @@ end)
 vim.keymap.set("n","<leader>fh",function()
     tlscp.help_tags({previewer = true})
 end)
-vim.keymap.set("n","<leader>fj",function()
-    tlscp.jumplist({previewer = false})
+vim.keymap.set("n","<leader>fq",function()
+    tlscp.quickfix({previewer = false})
+end)
+vim.keymap.set("n","<leader>fl",function()
+    tlscp.loclist({previewer = false})
 end)
 
 local move_to_dirs = {}
