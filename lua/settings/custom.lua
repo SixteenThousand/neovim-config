@@ -159,6 +159,14 @@ M.fold_actions = {
         vim.wo.foldmarker = "{,}"
         vim.wo.foldcolumn = "2"
     end,
+    ["marker"] = function()
+        vim.wo.foldmethod = "marker"
+        vim.wo.foldmarker = "{{{,}}}"
+        vim.wo.foldcolumn = "2"
+    end,
+    ["?"] = function()
+        print("show wipe py max1 c")
+    end,
 }
 
 -- stop folds being highlighted
