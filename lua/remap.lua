@@ -134,7 +134,8 @@ vim.keymap.set({"n","i","t"},"<A-w>",function ()
     vim.cmd.wincmd("j")
     if vim.fn.win_getid() == id then
         vim.cmd.wincmd("l")
-    elseif vim.fn.win_getid() == id then
+    end
+    if vim.fn.win_getid() == id then
         vim.cmd.wincmd("k")
     end
     vim.cmd.quit()
