@@ -2,7 +2,12 @@ return {
     --- DEPENDENCIES
     "plenary.nvim",
     "nvim-web-devicons",
-    "nvim-treesitter",
+    {
+        dirname = "nvim-treesitter",
+        config = function()
+            require("plugins.treesitter")
+        end,
+    },
     --- EXTENSIONS PROPER
     -- colourschemes
     "everforest",
@@ -39,7 +44,13 @@ return {
     "LuaSnip",
     {
         dirname = "Comment.nvim",
-        setup = "Comment",
+        config = function()
+            require("Comment").setup()
+            local commapi = require("Comment.api")
+            -- for some reason, "<C-_>" translates to "Ctrl+/"
+            vim.keymap.set({"n","i","v"},"<C-_>",commapi.toggle.linewise.current)
+            vim.keymap.set({"n","i","v"},"<C-/>",commapi.toggle.linewise.current)
+        end,
     },
     {
         dirname = "nvim-treesitter-textobjects",
