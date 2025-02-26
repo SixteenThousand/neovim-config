@@ -45,6 +45,10 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+vim.g.markdown_fenced_languages = {
+    "sh",
+    "bash=sh",
+}
 
 -- lisp stuff
 vim.g.lisp_rainbow = 1
