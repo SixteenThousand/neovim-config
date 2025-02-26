@@ -21,7 +21,7 @@ function M.get_amber_files()
 	return results
 end
 
-function M.amber_load(name)
+function M.load(name)
 	if name == NO_SESS_OPT then
 		print("No session needed buddy!")
 	else
@@ -30,7 +30,7 @@ function M.amber_load(name)
 	end
 end
 
-function M.amber_quit(name)
+function M.quit(name)
 	if name == NO_SESS_OPT then
 		vim.cmd.quitall({bang=true})
 	else
@@ -39,7 +39,7 @@ function M.amber_quit(name)
 	end
 end
 
-function M.amber_save(name)
+function M.save(name)
 	if name == NO_SESS_OPT then
 		print(
 			"Welp, don't blame me if lose your place in all those documents!"
@@ -50,7 +50,7 @@ function M.amber_save(name)
 	end
 end
 
-function M.amber_list()
+function M.list()
 	local results = ""
 	for filename,_ in vim.fs.dir(SESS_LOC) do
 		local _,_,session = filename:find(SESS_PAT)
@@ -59,14 +59,14 @@ function M.amber_list()
 	print(results)
 end
 
-function M.amber_wipe(name)
+function M.wipe(name)
 	local fp = io.open(M.get_filepath(name), "w")
 	fp:write(":echo 'This session has been wiped'")
 	fp:close()
 	print("Session <"..name.."> has been wiped!")
 end
 
-function M.amber_delete(name)
+function M.delete(name)
 	os.remove(M.get_filepath(name))
 	print("Session <"..name.."> has been deleted entirely!")
 end

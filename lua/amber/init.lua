@@ -2,13 +2,13 @@
 local actions = require("amber.actions")
 
 local subcommands = {
-    save = actions.amber_save,
-    new = actions.amber_save,
-    list = actions.amber_list,
-    delete = actions.amber_delete,
-    wipe = actions.amber_wipe,
-    load = actions.amber_load,
-    quit = actions.amber_quit,
+    save = actions.save,
+    new = actions.save,
+    list = actions.list,
+    delete = actions.delete,
+    wipe = actions.wipe,
+    load = actions.load,
+    quit = actions.quit,
 }
 
 vim.api.nvim_create_user_command(
@@ -31,7 +31,7 @@ if utilsOn then
 		popup.telescope_dropdown(
 			"Amber: Load Session",
 			actions.get_amber_files(),
-			actions.amber_load
+			actions.load
 		)
 	end)
 
@@ -39,7 +39,7 @@ if utilsOn then
 		popup.telescope_dropdown(
 			"Amber: Quit",
 			actions.get_amber_files(),
-			actions.amber_quit
+			actions.quit
 		)
 	end)
 
@@ -47,7 +47,7 @@ if utilsOn then
 		popup.telescope_dropdown(
 			"Amber: Save Session",
 			actions.get_amber_files(),
-			actions.amber_save
+			actions.save
 		)
 	end)
 end
