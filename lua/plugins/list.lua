@@ -37,10 +37,6 @@ return {
         end,
     },
     -- IDE-like stuff
-    {
-        dirname = "mason.nvim",
-        setup = "mason",
-    },
     "nvim-lspconfig",
     "LuaSnip",
     {

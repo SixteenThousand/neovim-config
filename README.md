@@ -53,6 +53,20 @@ me with questions, although I make no promises about responding quickly!
 
 ---
 
+## Installing Language Servers
+For future reference, here is how I installed the language servers that I 
+use:
+- [pyright](https://github.com/Microsoft/pyright) was installed globally via 
+  pnpm
+- [typescript-language-server](https://github.com/typescript-language-server/typescript-language-server) 
+  was installed globally via pnpm
+- [gopls](https://github.com/golang/tools) was installed using my system 
+  package manager
+- [clangd](https://clangd.llvm.org/installation) was installed by my system 
+  package manager; the package is `clang-tools-extra` on Fedora, `clangd` on 
+  Debian
+
+
 #### Notes
 
 - the next review of the TODO list will be in March
