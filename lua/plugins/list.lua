@@ -62,7 +62,6 @@ return {
             require("plugins.fugitive")
         end,
     },
-    "vim-jsx-pretty",
     "vim-surround",
     {
         dirname = "markdown.nvim",
