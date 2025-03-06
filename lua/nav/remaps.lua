@@ -3,15 +3,13 @@
 vim.keymap.set("n","<leader>ee",":buffer ")
 vim.keymap.set("n","<leader>ev",":vertical sbuffer ")
 vim.keymap.set("n","<leader>ef",":find ")
-vim.keymap.set("n","<leader>ec",function() vim.cmd.Fern(".") end)
+vim.keymap.set("n","<leader>ec",function() vim.cmd("Explore "..os.getenv("PWD")) end)
 
 local bookmarks = {
     ["'"] = vim.fn.stdpath("config"),
     [";"] = vim.fn.stdpath("data"),
-    ["#"] = os.getenv("XDG_CONFIG_HOME") or "~/.config",
-    ["l"] = "~/Projects/Learning",
-    ["p"] = "~/Projects",
-    ["i"] = "~/Projects/Ideas/ideas.md",
+    ["p"] = "~/Projects/Current",
+    ["i"] = "~/Projects/Current/ideas.md",
     ["t"] = "~/temp",
 }
 
