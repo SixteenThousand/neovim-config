@@ -1,6 +1,7 @@
 -- general navigation remaps; remaps for related to more specific things
 -- are in their respective modules
 vim.keymap.set("n","<leader>ee",":buffer ")
+vim.keymap.set("n","<leader>ev",":vertical sbuffer ")
 vim.keymap.set("n","<leader>ef",":find ")
 vim.keymap.set("n","<leader>ec",function() vim.cmd.Fern(".") end)
 
