@@ -13,6 +13,7 @@ return {
     "everforest",
     "nvim", -- catppuccin
     "nightfox.nvim",
+    "summerfruit256.vim",
     {
         dirname = "lualine.nvim",
         config = function()
