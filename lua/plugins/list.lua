@@ -11,7 +11,7 @@ return {
     --- EXTENSIONS PROPER
     -- colourschemes
     "everforest",
-    "nvim", -- catppuccin
+    "catppuccin",
     "nightfox.nvim",
     "summerfruit256.vim",
     {

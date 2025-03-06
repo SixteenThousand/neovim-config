@@ -1,6 +1,6 @@
 -- loose config files
 require("colon")
-require("remap") -- this has to come before lazy is called
+require("remap")
 require("settings")
 require("format")
 
