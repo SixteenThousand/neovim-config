@@ -2,22 +2,20 @@ local custom = require("settings.custom")
 
 -- HTML/XML-like  languages
 vim.api.nvim_create_autocmd(
-    { "BufRead", "BufNewFile" },
+    "FileType",
     {
         pattern = {
-            "*.css",
-            "*.html",
-            "*.js",
-            "*.cjs",
-            "*.mjs",
-            "*.jsx",
-            "*.vue",
-            "*.php",
-            "*.svg",
-            "*.ts",
-            "*.tsx",
-            "*.xml",
-            "*.json",
+            "css",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "vue",
+            "php",
+            "svg",
+            "typescript",
+            "typescriptreact",
+            "xml",
+            "json",
         },
         callback = function()
             custom.set_tabwidth(2)
