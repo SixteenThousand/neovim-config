@@ -14,6 +14,7 @@ return {
     "catppuccin",
     "nightfox.nvim",
     "summerfruit256.vim",
+    "rose-pine-neovim",
     {
         dirname = "lualine.nvim",
         config = function()
