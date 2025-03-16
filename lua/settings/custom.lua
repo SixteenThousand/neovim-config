@@ -23,11 +23,11 @@ end
 -- enter "Text mode"; enable a bunch of options that make writing long blocks of
 -- text much easier
 function M.text()
-    vim.opt_local.formatoptions:append("taw")
+    vim.opt_local.formatoptions:append("taw2")
     vim.wo.spell = true
 end
 function M.notext()
-    vim.opt_local.formatoptions:remove{ "t", "a", "w", }
+    vim.opt_local.formatoptions:remove{ "t", "a", "w", "2", }
     vim.wo.spell = false
 end
 
