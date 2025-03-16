@@ -8,8 +8,8 @@ vim.keymap.set("n","<leader>ec",function() vim.cmd("Explore "..os.getenv("PWD"))
 local bookmarks = {
     ["'"] = vim.fn.stdpath("config"),
     [";"] = vim.fn.stdpath("data"),
-    ["p"] = "~/Projects/Current",
-    ["i"] = "~/Projects/Current/ideas.md",
+    ["p"] = "~/Projects",
+    ["i"] = "~/Projects/ideas.md",
     ["t"] = "~/temp",
 }
 
