@@ -6,7 +6,7 @@ local SESS_DIR = vim.fn.stdpath("data").."/amber-sessions"
 local SESS_PAT = "(.+)%.amber%.vim"
 local SESS_FMT = SESS_DIR.."/%s.amber.vim"
 local NO_SESS_OPT = "continue sans session"
-local LOCAL_SESS_FILE = ".amber.vim"
+local LOCAL_SESS_FILE = "session.amber.vim"
 
 utils.force_exist_dir(SESS_DIR)
 
@@ -23,7 +23,15 @@ function M.get_amber_files()
 end
 
 function M.load(name)
-	if name ~= NO_SESS_OPT then
+    if name == nil then
+        if vim.fn.filewritable(LOCAL_SESS_FILE) == 1 then
+        vim.cmd.source(LOCAL_SESS_FILE)
+        else
+            vim.cmd.echoerr(
+                "'No local session file available. Please specify a named session.'"
+            )
+        end
+    elseif name ~= NO_SESS_OPT then
         vim.cmd("%bd!")
 		vim.cmd.source(M.get_filepath(name))
 	end
@@ -39,7 +47,10 @@ function M.quit(name)
 end
 
 function M.save(name)
-	if name ~= NO_SESS_OPT then
+    if name == nil then
+        vim.cmd("mksession! "..LOCAL_SESS_FILE)
+        print("You've left a little piece of amber behind you...")
+    elseif name ~= NO_SESS_OPT then
 		vim.cmd("mksession! "..M.get_filepath(name))
 		print("Session <"..name.."> has been preserved in amber!")
 	end
