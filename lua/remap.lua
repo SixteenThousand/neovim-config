@@ -97,8 +97,7 @@ vim.keymap.set("t","<C-PageUp>","<C-\\><C-N><C-PageUp>")
 vim.keymap.set("t","<C-PageDown>","<C-\\><C-N><C-PageDown>")
 -- save current buffer
 vim.keymap.set({"n","i","v"},"<A-s>",function()
-	vim.cmd.stopinsert()
-	vim.cmd.write()
+    print("Stop trying to use this!")
 end)
 
 -- going up & down in insert mode
