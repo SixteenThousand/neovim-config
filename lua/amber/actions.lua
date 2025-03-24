@@ -77,4 +77,8 @@ function M.delete(name)
 	print("Session <"..name.."> has been deleted entirely!")
 end
 
+function M.manage()
+    vim.cmd.edit(SESS_DIR)
+end
+
 return M

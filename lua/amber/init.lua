@@ -9,6 +9,7 @@ local subcommands = {
     wipe = actions.wipe,
     load = actions.load,
     quit = actions.quit,
+    manage = actions.manage,
 }
 
 vim.api.nvim_create_user_command(
@@ -22,6 +23,8 @@ vim.api.nvim_create_user_command(
     end,
     {nargs="*"}
 )
+
+vim.keymap.set("n", "<A-S-q>", actions.quit)
 
 
 -- telescope front-end
