@@ -55,6 +55,4 @@ vim.api.nvim_create_user_command(
 -- Ex-mode abbreviations
 vim.cmd([[
     cnoreabbrev Man vertical Man
-    cnoreabbrev h vertical help
-    cnoreabbrev help vertical help
 ]])
