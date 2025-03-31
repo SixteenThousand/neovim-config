@@ -32,11 +32,6 @@ vim.keymap.set({"n","v"},"<leader>P","\"+P")
 	-- these let me copy & paste with the outside world
 
 
--- ++++++++++++ suggestions & completion ++++++++++++
-vim.keymap.set("i","<C-f>","<C-n>")
-vim.keymap.set("i","<C-S-f>","<C-y>")
-
-
 -- ++++++++++++ sometimes I just can't be bothered to write stuff, y'know? ++++++++++++
 local print_statements = {
 	["c"] = "printf(",
@@ -67,15 +62,10 @@ vim.keymap.set("i","<C-x><C-p>",function ()
     local startpos = vim.fn.getpos(".")
     vim.fn.cursor(startpos[2],startpos[3]+1)
 end)
+vim.keymap.set("i", "<C-d>", "<C-n>")
+vim.keymap.set("i", "<C-u>", "<C-p>")
 
 
--- comment headers/comment highlighting
-vim.keymap.set({"n","i"},"<A-m>",function ()
-	vim.cmd.normal("i++++++++++++  ++++++++++++")
-    local pos = vim.fn.getpos(".")
-    vim.fn.cursor(pos[2],pos[3]-12)
-    vim.cmd.startinsert()
-end)
 -- debug
 vim.keymap.set({"n","i"},"<A-/>",function()
 	vim.cmd.stopinsert()
@@ -99,11 +89,6 @@ vim.keymap.set("t","<C-PageDown>","<C-\\><C-N><C-PageDown>")
 vim.keymap.set({"n","i","v"},"<A-s>",function()
     print("Stop trying to use this!")
 end)
-
--- going up & down in insert mode
-vim.keymap.set("i","<PageUp>","<Up>")
-vim.keymap.set("i","<PageDown>","<Down>")
-
 
 -- ++++++++++++ folding & scrollling +++++++++++++
 vim.cmd("map <C-j> <C-e>")
@@ -150,18 +135,6 @@ vim.keymap.set({"n","i","t"},"<A-S-w>",function ()
 	end
 	vim.cmd { cmd="bdelete", bang=true }
 end)
--- navigating windows
-basic_motions = {"h","j","k","l"}
-for i = 1,4 do
-	local move_cursor_map = string.format("<leader>w%s",basic_motions[i])
-	vim.keymap.set("n",move_cursor_map,function ()
-		vim.cmd.wincmd(tostring(vim.v.count1)..basic_motions[i])
-	end)
-	local move_win_map = string.format("<leader>ww%s",basic_motions[i])
-	vim.keymap.set("n",move_win_map,function()
-		vim.cmd.wincmd(string.upper(basic_motions[i]))
-	end)
-end
 -- window splits
 vim.keymap.set("n","<C-w>v",function()
     vim.cmd.vsplit(vim.fn.expand("%:h"))
@@ -169,11 +142,6 @@ end)
 vim.keymap.set("n","<C-w>s",function()
     vim.cmd.split(vim.fn.expand("%:h"))
 end)
-
-
--- ++++++++++++ moving code around? visual mode?? ++++++++++++
-vim.keymap.set("v","J",":m '>+1<CR>gv=gv")
-vim.keymap.set("v","K",":m '<-2<CR>gv=gv")
 
 
 -- ++++++++++++ tabs ++++++++++++
@@ -191,11 +159,6 @@ end)
 -- rename the thing under the cursor
 vim.keymap.set("n", "<A-8>", "*:%s/<C-r>///gc<Left><Left><Left>")
 vim.keymap.set("n", "<A-7>", "*:%s/<C-r>///g<Left><Left>")
-
--- turn off/toggle autocomplete
-vim.keymap.set({"n","i"}, "<A-f>", function()
-    vim.g.minicompletion_disable = not vim.g.minicompletion_disable
-end)
 
 -- toggle line numbering
 vim.keymap.set({"n","i"}, "<C-#>", function()

@@ -22,7 +22,7 @@ install:
 	ln -s $(PWD) $(CONF_DIR)
 	mkdir -p ./state
 uninstall:
-	trash $(CONF_DIR)
+	rm $(CONF_DIR)
 
 plugins:
 	git clone https://github.com/catppuccin/nvim.git $(PLUGIN_DIR)/catppuccin
