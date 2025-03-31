@@ -5,6 +5,8 @@ local COLOUR_SCHEME_FILE = vim.fn.stdpath("config").."/state/colourscheme"
 vim.g.sixteen_colourscheme = "sonokai"
 local OPACITY_FILE = vim.fn.stdpath("config").."/state/opacity"
 vim.g.sixteen_transparency = false
+local BACKGROUND_FILE = vim.fn.stdpath("config").."/state/background"
+vim.go.background = "dark"
 
 
 vim.api.nvim_create_autocmd("ColorScheme",{
@@ -16,16 +18,6 @@ vim.api.nvim_create_autocmd("ColorScheme",{
         end
     end,
 })
-
--- toggle dark/light mode
-vim.go.background = "dark"
-vim.keymap.set("n","<leader>cb",function()
-    if vim.go.background == "dark" then
-        vim.go.background = "light"
-    else
-        vim.go.background = "dark"
-    end
-end)
 
 function set_colours()
     if vim.g.neovide then
@@ -85,6 +77,13 @@ if opacityFp then
     opacityFp:close()
 end
 
+-- load default background
+local backgroundFp = io.open(BACKGROUND_FILE,"r")
+if backgroundFp then
+    vim.go.background = backgroundFp:read()
+    backgroundFp:close()
+end
+
 -- load default colourscheme
 -- see if there's a state file for it
 local colourschemeFp = io.open(COLOUR_SCHEME_FILE,"r")
@@ -129,3 +128,19 @@ vim.keymap.set("n","<leader>co",function()
         opacityFp:close()
     end
 end)
+
+-- toggle dark/light mode
+vim.keymap.set("n","<leader>cb",function()
+    if vim.go.background == "dark" then
+        vim.go.background = "light"
+    else
+        vim.go.background = "dark"
+    end
+    set_colours()
+    local backgroundFp = io.open(BACKGROUND_FILE,"w")
+    if backgroundFp then
+        backgroundFp:write(vim.go.background)
+        backgroundFp:close()
+    end
+end)
+
