@@ -2,7 +2,6 @@
 require("colon")
 require("remap")
 require("settings")
-require("format")
 
 -- packages
 require("terminal")
@@ -11,7 +10,9 @@ require("terminal")
 local pluginsOn,_ = pcall(require,"plugins")
 if pluginsOn then
     require("amber")
-    require("lsp")
+    if vim.g.sixteen_lsp then
+        require("lsp")
+    end
     require("nav")
     require("pretty")
     require("snippets")
