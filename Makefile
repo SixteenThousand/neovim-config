@@ -1,5 +1,5 @@
-CONF_DIR=$(HOME)/.config/nvim
-PLUGIN_DIR=$(HOME)/.local/share/nvim
+CONF_DIR=${HOME}/.config/nvim
+PLUGIN_DIR=${HOME}/.local/share/nvim/sixteen-plugins
 PLUGINS=\
 		https://github.com/numToStr/Comment.nvim.git \
 		https://github.com/L3MON4D3/LuaSnip.git \
@@ -19,12 +19,13 @@ PLUGINS=\
 
 
 install:
-	ln -s $(PWD) $(CONF_DIR)
+	ln -s ${PWD} ${CONF_DIR}
 	mkdir -p ./state
 uninstall:
-	rm $(CONF_DIR)
+	rm ${CONF_DIR}
 
 plugins:
-	git clone https://github.com/catppuccin/nvim.git $(PLUGIN_DIR)/catppuccin
-	cd $(PLUGIN_DIR) && \
-		for plugin in $(PLUGINS); do; git clone --depth=1 $$plugin; done
+	mkdir -p ${PLUGIN_DIR}
+	git clone https://github.com/catppuccin/nvim.git ${PLUGIN_DIR}/catppuccin
+	cd ${PLUGIN_DIR} && \
+		for plugin in ${PLUGINS}; do git clone --depth=1 $$plugin; done
