@@ -12,6 +12,7 @@ return {
     -- colourschemes
     "everforest",
     "catppuccin",
+    "kanagawa.nvim",
     "nightfox.nvim",
     "summerfruit256.vim",
     "rose-pine-neovim",
