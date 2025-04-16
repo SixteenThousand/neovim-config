@@ -22,21 +22,21 @@ vim.keymap.set({"n","i"},"<A-S-p>",":Yona! run<CR>")
 
 
 vim.keymap.set({"n","i"},"<A-j>",function()
-	vim.cmd("!yona -f compile %:p")
+	vim.cmd("!yona --compile %:p")
 end)
 vim.keymap.set({"n","i"},"<A-S-j>",function()
 	local path = vim.fn.expand("%:h")
-	utils.terminal_vsplit("yona -f compile "..vim.fn.expand("%:p"))
+	utils.terminal_vsplit("yona --compile "..vim.fn.expand("%:p"))
 end)
 
 vim.keymap.set({"n","i"},"<A-k>",function()
-	vim.cmd("!yona -f run %:p")
+	vim.cmd("!yona --run %:p")
 end)
 vim.keymap.set({"n","i"},"<A-S-k>",function()
-	utils.terminal_vsplit("yona -f run "..vim.fn.expand("%:p"))
+	utils.terminal_vsplit("yona --run "..vim.fn.expand("%:p"))
 end)
 
--- grep with yona, or yonagrep
+-- grep from "project root"
 vim.go.grepformat = "%f:%l,%f:%l%m,%f  %l%m"
 vim.go.grepprg = table.concat({
     "cd %:h &&",

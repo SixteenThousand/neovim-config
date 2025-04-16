@@ -1,1 +1,2 @@
-yona = echo "Yona file is present!"
+# This is just here to set project root
+# vim:ft=bash

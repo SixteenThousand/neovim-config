@@ -96,7 +96,7 @@ end
 --     project directory, the function will throw an error. Else it will return 
 --     the parent of the current buffer.
 function M.get_project_dir(allow_error)
-    local yona_pipe = io.popen("cd "..vim.fn.expand("%:h").." && yona root 2>/dev/null","r")
+    local yona_pipe = io.popen("cd "..vim.fn.expand("%:h").." && yona -s pwd 2>/dev/null","r")
     local yona_result = yona_pipe:read()
     if (not allow_error) and yona_result == nil then
         return vim.fn.expand("%:h")
